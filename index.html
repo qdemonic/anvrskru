@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Актуальный Новороссийск | Главные новости, веб-камеры и дорожная ситуация, погода и город</title>
+  <meta name="description" content="Городской оперативный веб-дашборд Актуальный Новороссийск (anvrsk.ru). Снимки дорожных камер Шесхариса и перевалов, новости мэрии, сила норд-оста, статус ТГВ, интерактивная карта без ключей API.">
+  <link rel="canonical" href="https://anvrsk.ru">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Актуальный Новороссийск (anvrsk.ru)">
+  <meta property="og:description" content="Оперативная обстановка в Новороссийске: снимки камер Шесхариса, сводки служб, погода, бора, карта города">
+  <meta property="og:url" content="https://anvrsk.ru">
+  <meta property="og:type" content="website">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Leaflet.js Real Interactive Map (CSS & JS) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 4px;
+    }
+    .wind-arrow {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Leaflet popup styling - Light mode */
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+      background: #ffffff !important;
+      color: #1e293b !important;
+      border: 1px solid #e2e8f0 !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15) !important;
+      border-radius: 12px !important;
+    }
+    .leaflet-container {
+      background: #f8fafc !important;
+    }
+    /* Leaflet popup styling - Dark mode */
+    .dark .leaflet-popup-content-wrapper, .dark .leaflet-popup-tip {
+      background: #0f172a !important;
+      color: #f1f5f9 !important;
+      border: 1px solid #334155 !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+    }
+    .dark .leaflet-container {
+      background: #020617 !important;
+    }
+    .leaflet-popup-content {
+      margin: 12px 14px !important;
+      line-height: 1.4 !important;
+    }
+    .map-pin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+    .map-pin:hover {
+      transform: scale(1.15);
+      z-index: 9999 !important;
+    }
+
+    /* Hide Leaflet attribution link at bottom of map */
+    .leaflet-control-attribution {
+      display: none !important;
+    }
+
+    /* CCTV Camera Overlay scanlines */
+    .cctv-scanline {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+    }
+  </style>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+      ym(49554340, 'init', {clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/49554340" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen antialiased flex flex-col transition-colors duration-300">
+
+  <!-- Top Emergency Alert Bar with Direct Link -->
+  <div id="storm-alert-bar" class="bg-gradient-to-r from-amber-600 to-rose-700 text-white px-4 py-2.5 text-xs md:text-sm font-medium flex items-center justify-between shadow-lg">
+    <div class="max-w-7xl mx-auto w-full flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5 overflow-hidden">
+        <span class="flex h-3 w-3 relative flex-shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-red-100"></span>
+        </span>
+        <span class="font-bold tracking-wide uppercase flex-shrink-0 bg-black/20 px-2 py-0.5 rounded">Оперативно:</span>
+        <span class="truncate">Порывы норд-оста до 22-26 м/с. ТГВ заполняет резервуары, вечерняя подача воды в 18:00 по графику.</span>
+      </div>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="https://t.me/mcu_nvrsk" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 underline hover:text-amber-200 text-xs font-semibold">
+          Источник: МЦУ Новороссийск ↗
+        </a>
+        <button onclick="document.getElementById('storm-alert-bar').style.display='none'" class="text-white/80 hover:text-white text-lg px-2 rounded focus:outline-none">&times;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header (Adaptive Light / Dark) -->
+  <header class="border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex items-center justify-between gap-4">
+        <!-- Logo & Title -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-md flex-shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v20m0-20a3 3 0 100-6 3 3 0 000 6zm-7 8a7 7 0 0014 0M5 16l2 2m10-2l-2 2" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="font-extrabold text-lg md:text-xl tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                Актуальный <span class="text-sky-600 dark:text-sky-400">Новороссийск</span>
+              </h1>
+              <span class="text-[11px] font-mono font-semibold bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-400 px-2 py-0.5 rounded-full border border-sky-200 dark:border-sky-800">
+                anvrsk.ru
+              </span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Официальные сводки служб, дороги, погода и город</p>
+          </div>
+        </div>
+
+        <!-- Clock & Controls -->
+        <div class="flex items-center gap-3">
+          <div class="hidden sm:flex items-center text-right">
+            <span id="live-clock" class="text-xl sm:text-2xl font-bold font-mono tracking-tight text-slate-800 dark:text-slate-100 leading-none">--:--:--</span>
+          </div>
+
+          <!-- Working Theme Toggle Button (Light/Dark) -->
+          <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 transition" title="Переключить тему (светлая/тёмная)">
+            <svg id="theme-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg id="theme-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <!-- Refresh Data Button -->
+          <button onclick="refreshData()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold shadow transition active:scale-95">
+            <svg id="refresh-spinner" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span class="hidden sm:inline">Обновить</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex gap-2 sm:gap-3 mt-3 pt-2 border-t border-slate-200 dark:border-slate-800 overflow-x-auto custom-scrollbar text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
+        <button onclick="switchTab('main')" class="tab-btn active-tab px-3.5 py-1.5 rounded-md text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-slate-800 font-semibold border-b-2 border-sky-600 dark:border-sky-400 transition flex-shrink-0" data-target="main">
+          📰 Главная (Новости & Сводки)
+        </button>
+        <button onclick="switchTab('traffic')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="traffic">
+          📹 Веб-камеры и дорожная ситуация
+        </button>
+        <button onclick="switchTab('utilities')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="utilities">
+          💧 ЖКХ & Водоснабжение
+        </button>
+        <button onclick="switchTab('map')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="map">
+          🗺️ Интерактивная карта города
+        </button>
+        <button onclick="switchTab('contacts')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="contacts">
+          📞 Службы 24/7 (112)
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
+
+    <!-- HERO METRICS ROW (4 Cards with direct source links, adaptive light/dark) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+
+      <!-- 1. Wind & Bora Widget (Open-Meteo ECMWF Model) -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-sky-500 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+            Норд-Ост (Бора)
+          </span>
+          <span id="wind-badge" class="px-2 py-0.5 text-[11px] font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800 rounded-full">
+            Умеренно сильный
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span id="wind-speed" class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">16.0</span>
+          <span class="text-sm font-medium text-slate-500 dark:text-slate-400">м/с</span>
+          <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold ml-auto flex items-center gap-1">
+            порывы: <strong id="wind-gusts" class="text-sm font-bold text-amber-700 dark:text-amber-300">22.0 м/с</strong>
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
+          <span class="flex items-center gap-1">
+            <svg id="wind-dir-icon" class="w-3.5 h-3.5 text-sky-500 dark:text-sky-400 wind-arrow" style="transform: rotate(45deg);" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+            </svg>
+            <span id="wind-dir-text" class="text-slate-700 dark:text-slate-200 font-medium">СВ (Маркотх)</span>
+          </span>
+          <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-600 dark:text-sky-400 hover:underline">
+            Open-Meteo API ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Sea & Port Widget (Tsemes Bay) -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Цемесская бухта
+          </span>
+          <span id="port-status-badge" class="px-2 py-0.5 text-[11px] font-semibold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-full">
+            Порт открыт
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span id="sea-temp" class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">+16.4</span>
+          <span class="text-sm font-medium text-slate-500 dark:text-slate-400">°C (вода)</span>
+          <span class="text-xs text-sky-600 dark:text-sky-400 font-semibold ml-auto">
+            воздух: <span id="air-temp" class="text-sm font-bold text-slate-800 dark:text-slate-100">+14°C</span>
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
+          <span>Волны: <strong id="wave-height" class="text-slate-700 dark:text-slate-200">0.8 м (2 б.)</strong></span>
+          <a href="https://admnvrsk.ru" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-600 dark:text-sky-400 hover:underline">
+            Диспетчер рейда ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Ecology & Air Quality Widget -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Воздух и Экология
+          </span>
+          <span class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-full">
+            Чистый воздух
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">34</span>
+          <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">AQI (Индекс)</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 ml-auto">PM2.5: <strong class="text-slate-700 dark:text-slate-200">8 мкг/м³</strong></span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
+          <span>Цемзаводы: <strong class="text-emerald-600 dark:text-emerald-400">Шлейф в море</strong></span>
+          <span class="text-[11px] text-slate-400 dark:text-slate-500">Пост «Шесхарис»</span>
+        </div>
+      </div>
+
+      <!-- 4. Tomorrow Weather Forecast Widget (Open-Meteo Daily) - Крайний справа -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            Прогноз погоды на завтра
+          </span>
+          <span id="tomorrow-condition-badge" class="px-2 py-0.5 text-[11px] font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800 rounded-full">
+            🌤️ Малооблачно
+          </span>
+        </div>
+        <div class="flex items-baseline gap-2 mb-1">
+          <span id="tomorrow-temp-max" class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">+8°</span>
+          <span class="text-sm font-medium text-slate-500 dark:text-slate-400">днем</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold ml-auto">
+            ночью: <strong id="tomorrow-temp-min" class="text-sm font-bold text-sky-600 dark:text-sky-400">+3°C</strong>
+          </span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
+          <span>Ветер: <strong id="tomorrow-wind" class="text-slate-700 dark:text-slate-200">до 5 м/с (пор. 12)</strong></span>
+          <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-600 dark:text-sky-400 hover:underline">
+            Open-Meteo ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TAB 1: MAIN PAGE (ГЛАВНАЯ: НОВОСТИ, СВОДКИ СЛУЖБ, МЭРИЯ, ГРАФИК ВЕТРА) -->
+    <div id="tab-main" class="tab-content space-y-6">
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Left 2 Cols: Main News & Official Service Dispatches (FEATURED ON HOMEPAGE) -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+              <div>
+                <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <svg class="w-5 h-5 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  Основные новости, сводки служб и мэрии
+                </h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Официальные публикации Главы Новороссийска, МЦУ, Водоканала и МЧС с прямыми ссылками на первоисточники</p>
+              </div>
+
+              <!-- Channel Quick Links -->
+              <div class="flex flex-wrap gap-1.5 text-xs">
+                <button onclick="filterNewsCategory('all')" class="news-cat-btn px-2.5 py-1 rounded-lg bg-sky-600 text-white font-semibold transition" data-cat="all">Все</button>
+                <button onclick="filterNewsCategory('edds')" class="news-cat-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="edds">🛡️ ЕДДС (Безопасный город)</button>
+                <button onclick="filterNewsCategory('mayor')" class="news-cat-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="mayor">🎖️ Глава города</button>
+                <button onclick="filterNewsCategory('utilities')" class="news-cat-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="utilities">💧 Водоканал</button>
+                <button onclick="filterNewsCategory('city')" class="news-cat-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="city">💬 МЦУ</button>
+                <button onclick="filterNewsCategory('emergency')" class="news-cat-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="emergency">⚠️ МЧС 112</button>
+              </div>
+            </div>
+
+            <!-- News Cards Feed -->
+            <div id="official-news-list" class="space-y-3.5">
+              <!-- Dynamically populated from data.json with clickable links -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 1 Col: Hourly Wind Chart & Quick Utility Shortcut Card -->
+        <div class="space-y-6">
+
+          <!-- Hourly Wind Forecast Block (ECMWF Model) -->
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+              <div>
+                <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <svg class="w-4 h-4 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                  Прогноз ветра и шквалов (м/с)
+                </h3>
+                <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
+                  <span>Текущее направление ветра:</span>
+                  <span id="forecast-wind-direction" class="font-semibold text-slate-700 dark:text-slate-200 inline-flex items-center gap-1">
+                    <svg id="forecast-wind-arrow" class="w-3.5 h-3.5 text-sky-500 dark:text-sky-400 wind-arrow inline-block" style="transform: rotate(45deg);" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                    </svg>
+                    <span id="forecast-wind-dir-text">СВ (Норд-ост)</span>
+                  </span>
+                </div>
+              </div>
+              <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-600 dark:text-sky-400 hover:underline self-start sm:self-auto">ECMWF ↗</a>
+            </div>
+
+            <div class="space-y-2 pt-1">
+              <div id="hourly-wind-bars" class="grid grid-cols-6 sm:grid-cols-6 gap-1.5 text-center">
+                <!-- Dynamically populated bars -->
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
+                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-sky-500 inline-block"></span> Ветер</span>
+                <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-amber-500 inline-block"></span> Порывы</span>
+                <span class="text-slate-400 dark:text-slate-500 italic">Пик к 18:00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Utilities Banner linking to dedicated ЖКХ section -->
+          <div class="bg-gradient-to-br from-sky-50 to-blue-100 dark:from-slate-900 dark:to-sky-950 border border-sky-200 dark:border-sky-800/80 rounded-2xl p-5 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs uppercase font-bold text-sky-700 dark:text-sky-400 tracking-wider">Коммунальный сектор</span>
+              <span class="text-[11px] bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-700">ТГВ & Водоканал</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Графики подачи воды и статус сетей</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              Проверьте статус подачи холодной воды, ремонты водоводов ТГВ, отключения электроэнергии и отопления по своему району и улице.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-2">
+              <button onclick="switchTab('utilities')" class="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-xl text-xs font-bold shadow transition flex items-center justify-center gap-1.5">
+                <span>Перейти в раздел ЖКХ</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <a href="https://t.me/vodokanal_nvrsk" target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-white hover:bg-slate-100 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 rounded-xl text-xs font-semibold text-center border border-slate-200 dark:border-slate-700 transition">
+                Канал Водоканала ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Contacts Widget -->
+          <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              Экстренная связь
+            </h4>
+            <div class="space-y-2 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 dark:text-slate-400">ЕДДС «Безопасный город»:</span>
+                <a href="tel:112" class="font-bold text-rose-600 dark:text-rose-400 hover:underline">112 / +7 (8617) 637-112</a>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 dark:text-slate-400">Аварийная Водоканала:</span>
+                <a href="tel:+78617309860" class="font-bold text-cyan-600 dark:text-cyan-400 hover:underline">+7 (8617) 30-98-60</a>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 dark:text-slate-400">Диспетчер НЭСК:</span>
+                <a href="tel:+78617641528" class="font-bold text-amber-600 dark:text-amber-400 hover:underline">+7 (8617) 64-15-28</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 2: CAMERAS, ROAD SITUATION & TRAFFIC MONITORING -->
+    <div id="tab-traffic" class="tab-content hidden space-y-6">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Веб-камеры и дорожная ситуация
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Прямые трансляции видовых онлайн-камер, официальные видеосводки АПК «Безопасный город» / ЕДДС и оперативный мониторинг заторов</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-lg flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Камеры и потоки проверены
+            </span>
+          </div>
+        </div>
+
+        <!-- Security & Legal Notice Regarding Port / Road CCTV in Novorossiysk -->
+        <div class="mb-5 p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900/60 text-xs text-amber-900 dark:text-amber-200 leading-relaxed flex items-start gap-3">
+          <span class="text-lg">ℹ️</span>
+          <div>
+            <strong class="font-bold block mb-1">Режим безопасности дорожных камер и объектов в Новороссийске:</strong>
+            Новороссийск — ключевая военно-морская база ВМФ РФ (НВМБ), нефтеналивной комплекс «Шесхарис», КТК и крупнейший торговый порт страны (НМТП). В соответствии с требованиями антитеррористической защищенности стратегических объектов, прямые неконтролируемые RTSP-потоки с въездных КПП, терминалов и перевалов закрыты для публичного доступа.
+            Для жителей города действуют: <strong>официальные видовые онлайн-камеры (морвокзал, улицы, панорамы)</strong>, видеомониторинг инцидентов от <strong>МКУ «Безопасный город»</strong> и оперативная дорожная карта заторов <strong>Яндекс Карт</strong>.
+          </div>
+        </div>
+
+        <!-- 2. GRID OF REAL WEBCAMS (Morskoj Vokzal, Ulica Kunikova, Panorama) -->
+        <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+          <span>📹</span>
+          <span>Городские веб-камеры в реальном времени</span>
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+          <!-- CAM 1: Морской вокзал и Форумная площадь -->
+          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition">
+            <div>
+              <div class="p-3 bg-slate-900 text-white flex items-center justify-between text-xs">
+                <div class="flex items-center gap-1.5 truncate">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="font-bold text-slate-100 truncate">Морвокзал и Форумная пл.</span>
+                </div>
+                <span class="text-[10px] font-mono text-sky-400">Live Video</span>
+              </div>
+              <div class="relative w-full h-44 bg-slate-900 overflow-hidden">
+                <img src="assets/cams/morskoj-vokzal.jpg" alt="Веб-камера Морвокзал Новороссийск" class="w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0 cctv-scanline pointer-events-none opacity-20"></div>
+                <div class="absolute bottom-2 left-2 font-mono text-[10px] text-white bg-black/75 px-2 py-0.5 rounded">
+                  Крейсер «Кутузов» • Набережная
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-1">
+                  Вид на центральную набережную, причалы морвокзала, крейсер «Михаил Кутузов» и Цемесскую бухту со звуком.
+                </p>
+              </div>
+            </div>
+            <div class="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+              <a href="https://youwebcams.org/novorossiysk/morskoj-vokzal/" target="_blank" rel="noopener noreferrer" class="w-full py-1.5 px-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                <span>Смотреть трансляцию ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- CAM 2: Улица Куникова -->
+          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition">
+            <div>
+              <div class="p-3 bg-slate-900 text-white flex items-center justify-between text-xs">
+                <div class="flex items-center gap-1.5 truncate">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="font-bold text-slate-100 truncate">Улица Куникова</span>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400">Южный район</span>
+              </div>
+              <div class="relative w-full h-44 bg-slate-900 overflow-hidden">
+                <img src="assets/cams/ulica-kunikova.jpg" alt="Веб-камера ул. Куникова" class="w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0 cctv-scanline pointer-events-none opacity-20"></div>
+                <div class="absolute bottom-2 left-2 font-mono text-[10px] text-white bg-black/75 px-2 py-0.5 rounded">
+                  Транспортный поток • Южный округ
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-1">
+                  Обзор проезжей части и движения транспорта по улице Куникова в сторону проспекта Ленина и Мысхако.
+                </p>
+              </div>
+            </div>
+            <div class="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+              <a href="https://youwebcams.org/novorossiysk/ulica-kunikova/" target="_blank" rel="noopener noreferrer" class="w-full py-1.5 px-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                <span>Смотреть трансляцию ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- CAM 3: Панорама Новороссийска -->
+          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition">
+            <div>
+              <div class="p-3 bg-slate-900 text-white flex items-center justify-between text-xs">
+                <div class="flex items-center gap-1.5 truncate">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="font-bold text-slate-100 truncate">Панорама бухты и гор</span>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400">Маркотх</span>
+              </div>
+              <div class="relative w-full h-44 bg-slate-900 overflow-hidden">
+                <img src="assets/cams/panorama-novorossiyska.jpg" alt="Веб-камера Панорама Новороссийска" class="w-full h-full object-cover" loading="lazy" />
+                <div class="absolute inset-0 cctv-scanline pointer-events-none opacity-20"></div>
+                <div class="absolute bottom-2 left-2 font-mono text-[10px] text-white bg-black/75 px-2 py-0.5 rounded">
+                  Хребет Маркотх • Обзор города
+                </div>
+              </div>
+              <div class="p-3">
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-1">
+                  Высотная панорама Новороссийска, горного хребта Маркотх (откуда спускается норд-ост) и Восточного района.
+                </p>
+              </div>
+            </div>
+            <div class="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+              <a href="https://youwebcams.org/novorossiysk/panorama-novorossiyska/" target="_blank" rel="noopener noreferrer" class="w-full py-1.5 px-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                <span>Смотреть трансляцию ↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. OFFICIAL CCTV & ROAD MONITORING: APK "BEZOPASNY GOROD" / EDDS -->
+        <div class="mb-6 p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border border-amber-300 dark:border-amber-800/80">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold text-xs">🛡️ МКУ АПК «Безопасный город»</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">1 500+ уличных и дорожных камер</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                Оперативный видеоконтроль дорог, ДТП и перекрестков ЕДДС
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+                Муниципальная система видеонаблюдения фиксирует инциденты на ключевых перекрестках города: Анапское шоссе, ул. Видова, Кутузовское кольцо, Магистральная и Сухумское шоссе. Оперативные видеозаписи ДТП, разборы заторов и оповещения публикуются в официальном сообществе.
+              </p>
+            </div>
+            <div class="flex flex-col sm:flex-row md:flex-col gap-2 flex-shrink-0">
+              <a href="https://vk.ru/bgnvr" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs flex items-center justify-center gap-2 transition shadow">
+                <span>Видеосводки vk.ru/bgnvr ↗</span>
+              </a>
+              <a href="tel:+78617637076" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                <span>📞 Диспетчер: (8617) 637-076</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. REAL-TIME TRAFFIC BOTTLENECKS (YANDEX TRAFFIC LINKS) -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              <span>Оперативный статус ключевых транспортных узлов (Яндекс Карты онлайн)</span>
+            </h3>
+            <a href="https://youwebcams.org/online/category/novorossiysk/" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-600 dark:text-sky-400 hover:underline">
+              Все камеры города (каталог) ↗
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <!-- Node 1: Sheskharis -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    Шесхарис / Сухумское шоссе
+                  </span>
+                  <span class="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-semibold">Въезд в порт и терминалы</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  Транспортный коридор от цемзавода «Пролетарий» до нефтегавани «Шесхарис». Движение грузового транспорта и легкового потока в Восточном округе.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-900">
+                <span class="text-[11px] text-slate-500">Мониторинг заторов</span>
+                <a href="https://yandex.ru/maps/970/novorossiysk/probki/?ll=37.822000%2C44.717000&z=14" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold transition">
+                  <span>Яндекс Пробки: Шесхарис ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Node 2: Volchii Vorota Pass -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-sky-500/50 transition">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    Перевал «Волчьи ворота» (Трасса А-146)
+                  </span>
+                  <span class="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 font-semibold">Баканский перевал</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  Главный горный въезд в город со стороны Краснодара и Крымска. Контроль скорости на спусках, бокового ветра и противогололедной обработки трассы.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-900">
+                <span class="text-[11px] text-slate-500">Мониторинг спуска</span>
+                <a href="https://yandex.ru/maps/970/novorossiysk/probki/?ll=37.664000%2C44.819000&z=13" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold transition">
+                  <span>Яндекс Пробки: Перевал ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Node 3: Kirillovskiy Turn -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-sky-500/50 transition">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+                    Кирилловский поворот (Трасса А-290)
+                  </span>
+                  <span class="text-[11px] font-mono text-sky-700 dark:text-sky-400 font-semibold">Анапское направление</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  Крупнейший светофорный узел на въезде в город со стороны Анапы, пос. Верхнебаканский и Цемдолина. Подход к портовым терминалам.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-900">
+                <span class="text-[11px] text-slate-500">Светофорная фаза</span>
+                <a href="https://yandex.ru/maps/970/novorossiysk/probki/?ll=37.733000%2C44.755000&z=14" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold transition">
+                  <span>Яндекс Пробки: Кирилловка ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Node 4: Vidova Ring -->
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-amber-500/50 transition">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    Кольцо ул. Видова / Луначарского
+                  </span>
+                  <span class="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-semibold">Приморский район</span>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
+                  Транспортный узел 13-го микрорайона и выезд на Тобольскую и Анапское шоссе. Загрузка в часы пик и перераспределение потоков.
+                </p>
+              </div>
+              <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-900">
+                <span class="text-[11px] text-slate-500">Развязка 13 мкр</span>
+                <a href="https://yandex.ru/maps/970/novorossiysk/probki/?ll=37.755000%2C44.740000&z=15" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-semibold transition">
+                  <span>Яндекс Пробки: Видова ↗</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Maritime & City Transport (внизу раздела Веб-камеры и дорожная ситуация) -->
+        <div class="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Морские пассажирские рейсы («Комета»)</h4>
+              <a href="https://admnvrsk.ru" target="_blank" rel="noopener noreferrer" class="text-[11px] text-sky-600 dark:text-sky-400 hover:underline">Морвокзал ↗</a>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 py-1">
+              <span>Новороссийск — Геленджик — Сочи</span>
+              <span class="text-amber-600 dark:text-amber-400 font-semibold">По фактической погоде (до 15 м/с)</span>
+            </div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+              Справки кассы Морвокзала: <a href="tel:+78617602284" class="text-sky-600 dark:text-sky-400 hover:underline font-bold">+7 (8617) 60-22-84</a>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Городской электротранспорт</h4>
+              <a href="https://t.me/mcu_nvrsk" target="_blank" rel="noopener noreferrer" class="text-[11px] text-indigo-600 dark:text-indigo-400 hover:underline">МУП МПТН ↗</a>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 py-1">
+              <span>Выпуск троллейбусов на линии:</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold">39 из 42 (93%)</span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 py-1">
+              <span>Контактная сеть при порывах ветра:</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Без обрывов</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: SEPARATE DEDICATED SECTION FOR UTILITIES & WATER (ЖКХ И ВОДОСНАБЖЕНИЕ) -->
+    <div id="tab-utilities" class="tab-content hidden space-y-6">
+
+      <!-- Header of the dedicated Utilities section -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+              Статус коммунальных сетей по районам Новороссийска
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Проверьте холодное водоснабжение, электричество и отопление по районам или введите название улицы</p>
+          </div>
+
+          <!-- Street Quick Search Input -->
+          <div class="relative w-full md:w-80">
+            <input type="text" id="street-search" placeholder="Поиск улицы (напр. Видова, Ленина, Мира)..." 
+                   oninput="filterStreets()"
+                   class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 pl-9 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 dark:bg-slate-950 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-500 transition">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- District Pill Buttons -->
+        <div class="flex flex-wrap gap-2 mb-4">
+          <button onclick="selectDistrict('all')" class="district-pill active-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 text-white transition" data-district="all">Все 5 районов</button>
+          <button onclick="selectDistrict('south')" class="district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-district="south">Южный район</button>
+          <button onclick="selectDistrict('central')" class="district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-district="central">Центральный район</button>
+          <button onclick="selectDistrict('primorsky')" class="district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-district="primorsky">Приморский район</button>
+          <button onclick="selectDistrict('east')" class="district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-district="east">Восточный (Шесхарис)</button>
+          <button onclick="selectDistrict('suburbs')" class="district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-district="suburbs">Мысхако / Абрау / Пригород</button>
+        </div>
+
+        <!-- District Cards Grid -->
+        <div id="district-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <!-- Dynamically populated from data.json -->
+        </div>
+      </div>
+
+      <!-- Water Schedule & Tank Truck Ordering Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Water zones detailed schedule -->
+        <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <svg class="w-5 h-5 text-cyan-600 dark:text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                График зон водоснабжения (МУП «Водоканал»)
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Утвержденный график подачи воды при ремонтах и снижении дебита ТГВ</p>
+            </div>
+            <a href="https://t.me/vodokanal_nvrsk" target="_blank" rel="noopener noreferrer" class="text-xs text-cyan-600 dark:text-cyan-400 font-semibold hover:underline">
+              Канал Водоканала ↗
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs mb-4">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <div class="text-[11px] text-slate-500 dark:text-slate-400 uppercase font-semibold">Утренний слот</div>
+              <div class="text-lg font-bold text-slate-900 dark:text-white my-1">06:00 — 09:00</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">Зоны №1, 2, 3 (Южный, Центральный, Приморский, Восточный)</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800">
+              <div class="text-[11px] text-sky-700 dark:text-sky-400 uppercase font-semibold flex items-center justify-between">
+                <span>Вечерний слот</span>
+                <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
+              </div>
+              <div class="text-lg font-bold text-cyan-700 dark:text-cyan-300 my-1">18:00 — 21:00</div>
+              <div class="text-[11px] text-sky-800 dark:text-sky-300/80">Штатный выход на давление после заполнения резервуаров</div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <div class="text-[11px] text-slate-500 dark:text-slate-400 uppercase font-semibold">Верхние этажи (ЦТП)</div>
+              <div class="text-lg font-bold text-slate-800 dark:text-slate-200 my-1">По давлению</div>
+              <div class="text-[11px] text-slate-500 dark:text-slate-400">9-10 мкр, верх ул. Видова, ул. Осоавиахима (работают подкачки)</div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+            ℹ️ <strong>Обратите внимание:</strong> При аварийных ситуациях на Троицком групповом водоводе время выхода воды в тупиковых и возвышенных точках может смещаться на 30–60 минут от официального начала слота из-за стравливания воздуха и гидравлической регулировки задвижек.
+          </div>
+        </div>
+
+        <!-- Tank Truck Ordering & Hotline -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+              <svg class="w-4 h-4 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+              Заявка на подвоз автоцистерны
+            </h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+              Если в вашем доме отсутствует водоснабжение в установленный графиком слот, оставьте заявку диспетчеру МУП «Водоканал» на подвоз питьевой воды автоцистерной.
+            </p>
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs space-y-1.5 mb-4">
+              <div class="text-slate-500 dark:text-slate-400">Круглосуточный телефон:</div>
+              <a href="tel:+78617309860" class="text-sm font-bold text-cyan-600 dark:text-cyan-400 hover:underline block">
+                +7 (8617) 30-98-60
+              </a>
+              <div class="text-slate-500 dark:text-slate-400 pt-1">Дополнительный (горячая линия):</div>
+              <a href="tel:+78617309861" class="text-xs font-semibold text-slate-700 dark:text-slate-200 hover:underline block">
+                +7 (8617) 30-98-61
+              </a>
+            </div>
+          </div>
+
+          <a href="https://t.me/vodokanal_nvrsk" target="_blank" rel="noopener noreferrer" class="w-full text-center py-2 px-3 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-xs font-bold transition">
+            Официальный канал @vodokanal_nvrsk ↗
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 4: REAL INTERACTIVE MAP (ESRI WORLD IMAGERY) -->
+    <div id="tab-map" class="tab-content hidden space-y-6">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-sky-600 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+              Интерактивная карта города
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Спутниковая съемка высокого разрешения Esri World Imagery • Мониторинг ключевых объектов города</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 text-xs font-semibold bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300 border border-sky-300 dark:border-sky-800 rounded-lg flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+              🛰️ Спутник Esri World Imagery
+            </span>
+          </div>
+        </div>
+
+        <!-- Category filter buttons -->
+        <div class="flex flex-wrap gap-1.5 text-xs mb-3">
+          <button onclick="filterMapMarkers('all')" class="map-filter-btn px-2.5 py-1 rounded bg-sky-600 text-white font-semibold transition" data-cat="all">Все метки</button>
+          <button onclick="filterMapMarkers('beach')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="beach">🏖️ Пляжи & Вода</button>
+          <button onclick="filterMapMarkers('utility')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="utility">🔧 Ремонты ТГВ</button>
+          <button onclick="filterMapMarkers('traffic')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="traffic">🚗 Дороги & Шесхарис</button>
+          <button onclick="filterMapMarkers('eco')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="eco">🍃 Экопосты</button>
+        </div>
+
+        <!-- REAL LEAFLET MAP CONTAINER (Esri Satellite) -->
+        <div id="city-map" class="w-full h-[520px] rounded-xl border border-slate-200 dark:border-slate-800 shadow-inner z-10"></div>
+
+        <div class="mt-3 flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-2">
+          <div class="flex items-center gap-4">
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-sky-500 inline-block"></span> Пляжи и море</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Ремонты ЖКХ</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span> Дорожные узлы</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Экопосты</span>
+          </div>
+          <span class="text-[11px] text-slate-400 dark:text-slate-500">Спутниковые тайлы Esri World Imagery (без API-ключей и лимитов)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: EMERGENCY CONTACTS 24/7 -->
+    <div id="tab-contacts" class="tab-content hidden space-y-6">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+        <h2 class="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Экстренные и дежурные службы Новороссийска
+        </h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">Прямой вызов в 1 клик со смартфона и официальные ссылки</p>
+
+        <div id="contacts-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <!-- Dynamically populated from data.json -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 py-5 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex flex-col items-center sm:items-start gap-1.5">
+        <div class="flex items-center gap-2">
+          <span class="font-extrabold text-slate-800 dark:text-white">Актуальный Новороссийск</span>
+          <span class="text-sky-600 dark:text-sky-400 font-mono">(anvrsk.ru)</span>
+          <span>• Город-герой Новороссийск</span>
+        </div>
+        <div class="pt-0.5">
+          <!-- Yandex.Metrika informer -->
+          <a href="https://metrika.yandex.ru/stat/?id=49554340&amp;from=informer" target="_blank" rel="nofollow">
+              <img src="https://informer.yandex.ru/informer/49554340/1_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+                   style="width:80px; height:15px; border:0;"
+                   alt="Яндекс.Метрика"
+                   title="Яндекс.Метрика: данные за сегодня (просмотры)"
+                  class="ym-advanced-informer" data-cid="49554340" data-lang="ru"/>
+          </a>
+          <!-- /Yandex.Metrika informer -->
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-[11px] text-slate-400 dark:text-slate-500 flex-wrap justify-center sm:justify-end">
+        <span>Источники: Open-Meteo, МЦУ, Водоканал, ЕДДС.</span>
+        <span>•</span>
+        <a href="mailto:advobv@gmail.com?subject=anvrsk-ru" class="text-amber-600 dark:text-amber-400 font-bold hover:underline" title="Написать на advobv@gmail.com">💼 Реклама и сотрудничество ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic & Leaflet Map Integration -->
+  <script>
+    // State
+    let cityData = null;
+    let leafMap = null;
+    let mapMarkerInstances = [];
+    let activeDistrictFilter = 'all';
+    let activeNewsCategory = 'all';
+    let currentMapLayer = 'satellite'; // High-res Esri World Imagery
+    let isDark = true;
+
+    // Load persisted theme preference if any
+    const savedTheme = localStorage.getItem('anvrsk_theme');
+    if (savedTheme === 'light') {
+      isDark = false;
+      document.documentElement.classList.remove('dark');
+    } else {
+      isDark = true;
+      document.documentElement.classList.add('dark');
+    }
+
+    // Toggle theme with LocalStorage persistence and tile reload
+    function toggleTheme() {
+      isDark = !isDark;
+      const html = document.documentElement;
+      const sun = document.getElementById('theme-icon-sun');
+      const moon = document.getElementById('theme-icon-moon');
+
+      if (isDark) {
+        html.classList.add('dark');
+        if (sun) sun.classList.add('hidden');
+        if (moon) moon.classList.remove('hidden');
+        localStorage.setItem('anvrsk_theme', 'dark');
+      } else {
+        html.classList.remove('dark');
+        if (sun) sun.classList.remove('hidden');
+        if (moon) moon.classList.add('hidden');
+        localStorage.setItem('anvrsk_theme', 'light');
+      }
+
+      updateMapTileStyle();
+
+      const currentTab = document.querySelector('.tab-btn.active-tab')?.dataset.target || 'main';
+      switchTab(currentTab);
+    }
+
+    function initThemeIcons() {
+      const sun = document.getElementById('theme-icon-sun');
+      const moon = document.getElementById('theme-icon-moon');
+      if (isDark) {
+        if (sun) sun.classList.add('hidden');
+        if (moon) moon.classList.remove('hidden');
+      } else {
+        if (sun) sun.classList.remove('hidden');
+        if (moon) moon.classList.add('hidden');
+      }
+    }
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const activeEl = document.getElementById('tab-' + tabId);
+      if (activeEl) activeEl.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.dataset.target === tabId) {
+          btn.className = isDark 
+            ? 'tab-btn active-tab px-3.5 py-1.5 rounded-md text-sky-400 bg-slate-800 font-semibold border-b-2 border-sky-400 transition flex-shrink-0'
+            : 'tab-btn active-tab px-3.5 py-1.5 rounded-md text-sky-600 bg-sky-50 font-semibold border-b-2 border-sky-600 transition flex-shrink-0';
+        } else {
+          btn.className = isDark
+            ? 'tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-200 transition flex-shrink-0 text-slate-400'
+            : 'tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 transition flex-shrink-0 text-slate-600';
+        }
+      });
+
+      // Special handling for Leaflet map render on tab switch
+      if (tabId === 'map' && leafMap) {
+        setTimeout(() => {
+          leafMap.invalidateSize();
+        }, 150);
+      }
+    }
+
+    // Live Clock & Water Countdown
+    function updateClock() {
+      const now = new Date();
+      const clockEl = document.getElementById('live-clock');
+      if (clockEl) {
+        clockEl.textContent = now.toLocaleTimeString('ru-RU');
+      }
+
+      // Countdown to evening water (18:00)
+      const countdownEl = document.getElementById('water-countdown');
+      if (countdownEl) {
+        const target = new Date();
+        target.setHours(18, 0, 0, 0);
+        let diff = target - now;
+        if (diff <= 0) {
+          const endSlot = new Date();
+          endSlot.setHours(21, 0, 0, 0);
+          let rem = endSlot - now;
+          if (rem > 0) {
+            countdownEl.textContent = 'Подача активна!';
+            countdownEl.className = 'text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400';
+          } else {
+            countdownEl.textContent = 'Слот завершен';
+            countdownEl.className = 'text-sm font-mono font-bold text-slate-400';
+          }
+        } else {
+          const h = Math.floor(diff / 3600000).toString().padStart(2, '0');
+          const m = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+          const s = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+          countdownEl.textContent = `${h}:${m}:${s}`;
+          countdownEl.className = 'text-sm font-mono font-bold text-cyan-600 dark:text-cyan-400';
+        }
+      }
+    }
+
+    // Leaflet Satellite Layer (Esri World Imagery - 100% Free, No API Key needed)
+    let currentTileLayer = null;
+    function initLeafletMap(markers = []) {
+      const mapContainer = document.getElementById('city-map');
+      if (!mapContainer || leafMap) return;
+
+      leafMap = L.map('city-map', {
+        center: [44.718, 37.778],
+        zoom: 12,
+        minZoom: 10,
+        maxZoom: 18,
+        scrollWheelZoom: true,
+        attributionControl: false
+      });
+
+      // Pure Esri World Imagery Satellite (100% Free, No API Key needed)
+      currentTileLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; Esri World Imagery • anvrsk.ru',
+        maxZoom: 18
+      }).addTo(leafMap);
+
+      renderMapMarkers(markers);
+    }
+
+    function updateMapTileStyle() {
+      // Esri Satellite imagery renders full natural photorealistic imagery in both themes
+    }
+
+    // Live Webcam Refresh
+    function refreshLiveCam() {
+      const img = document.getElementById('live-bay-cam-img');
+      const btn = document.getElementById('btn-refresh-cam');
+      if (btn) btn.classList.add('animate-pulse');
+      if (img) {
+        const timestamp = Date.now();
+        img.src = 'https://cdn.skylinewebcams.com/live4522.jpg?t=' + timestamp;
+        img.onload = () => {
+          if (btn) btn.classList.remove('animate-pulse');
+        };
+        img.onerror = () => {
+          if (btn) btn.classList.remove('animate-pulse');
+          img.src = 'assets/cams/live_bay.jpg';
+        };
+      }
+    }
+
+    // Render Markers on Map
+    function renderMapMarkers(markers, filterCategory = 'all') {
+      if (!leafMap) return;
+
+      mapMarkerInstances.forEach(m => leafMap.removeLayer(m));
+      mapMarkerInstances = [];
+
+      markers.forEach(item => {
+        if (filterCategory !== 'all' && item.category !== filterCategory) return;
+
+        let bgClass = 'bg-sky-600';
+        let emoji = '🏖️';
+        if (item.category === 'utility') {
+          bgClass = 'bg-amber-600';
+          emoji = '🔧';
+        } else if (item.category === 'traffic') {
+          bgClass = 'bg-rose-600';
+          emoji = '🚗';
+        } else if (item.category === 'eco') {
+          bgClass = 'bg-emerald-600';
+          emoji = '🍃';
+        } else if (item.category === 'nature') {
+          bgClass = 'bg-indigo-600';
+          emoji = '🌊';
+        }
+
+        const customIcon = L.divIcon({
+          className: 'custom-div-icon',
+          html: `<div class="map-pin w-8 h-8 ${bgClass} text-white border-2 border-white text-xs font-bold cursor-pointer">${emoji}</div>`,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+          popupAnchor: [0, -18]
+        });
+
+        const popupContent = `
+          <div class="text-xs">
+            <div class="flex items-center justify-between gap-2 mb-1.5 pb-1 border-b border-slate-200 dark:border-slate-700">
+              <strong class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</strong>
+              <span class="text-[10px] px-2 py-0.5 rounded font-bold ${item.category === 'utility' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/80 dark:text-amber-200' : 'bg-sky-100 text-sky-800 dark:bg-sky-900/80 dark:text-sky-200'}">${item.status}</span>
+            </div>
+            ${item.temp_water ? `
+              <div class="mb-1 text-slate-700 dark:text-slate-300">
+                Температура воды: <strong class="text-sky-600 dark:text-sky-400 font-bold">${item.temp_water}</strong> (волны: ${item.waves || 'умеренные'})
+              </div>
+            ` : ''}
+            <p class="text-slate-600 dark:text-slate-300 mb-2 leading-relaxed">${item.desc}</p>
+            ${item.source_url ? `
+              <div class="pt-1 text-right">
+                <a href="${item.source_url}" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-[11px] inline-flex items-center gap-1">
+                  Официальный источник ↗
+                </a>
+              </div>
+            ` : ''}
+          </div>
+        `;
+
+        const marker = L.marker([item.lat, item.lon], { icon: customIcon })
+          .bindPopup(popupContent)
+          .addTo(leafMap);
+
+        mapMarkerInstances.push(marker);
+      });
+    }
+
+    function filterMapMarkers(cat) {
+      document.querySelectorAll('.map-filter-btn').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = 'map-filter-btn px-2.5 py-1 rounded bg-sky-600 text-white font-semibold transition';
+        } else {
+          btn.className = isDark
+            ? 'map-filter-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300 hover:bg-slate-700 transition'
+            : 'map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        }
+      });
+      if (cityData && cityData.map_markers) {
+        renderMapMarkers(cityData.map_markers, cat);
+      }
+    }
+
+    // Render Districts Cards (in dedicated utilities section)
+    function renderDistricts(districts, filter = 'all', searchQuery = '') {
+      const container = document.getElementById('district-cards-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const query = searchQuery.trim().toLowerCase();
+
+      districts.forEach(d => {
+        if (filter !== 'all' && d.id !== filter) return;
+
+        let matchedStreets = [];
+        if (query) {
+          matchedStreets = d.streets.filter(s => s.toLowerCase().includes(query));
+          const nameMatches = d.name.toLowerCase().includes(query);
+          if (!nameMatches && matchedStreets.length === 0) return;
+        }
+
+        const card = document.createElement('div');
+        card.className = 'p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition flex flex-col justify-between';
+
+        const waterBadgeClass = d.water_code === 'ok' ? 'text-emerald-700 bg-emerald-100 border-emerald-300 dark:text-emerald-400 dark:bg-emerald-950/60 dark:border-emerald-800' :
+                                d.water_code === 'warning' ? 'text-cyan-700 bg-cyan-100 border-cyan-300 dark:text-cyan-400 dark:bg-cyan-950/60 dark:border-cyan-800' :
+                                'text-rose-700 bg-rose-100 border-rose-300 dark:text-rose-400 dark:bg-rose-950/60 dark:border-rose-800';
+
+        const powerBadgeClass = d.power_code === 'ok' ? 'text-emerald-700 dark:text-emerald-400' : 'text-amber-700 dark:text-amber-400';
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white">${d.name}</h3>
+              <span class="text-[10px] px-2 py-0.5 rounded border font-semibold ${waterBadgeClass}">
+                💧 ${d.water}
+              </span>
+            </div>
+            
+            <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300 my-2">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 dark:text-slate-400">⚡ Электроснабжение:</span>
+                <span class="${powerBadgeClass} font-medium">${d.power}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500 dark:text-slate-400">🔥 Отопление:</span>
+                <span class="text-emerald-700 dark:text-emerald-400 font-medium">${d.heat}</span>
+              </div>
+            </div>
+
+            ${d.note ? `
+              <div class="mt-2 text-[11px] p-2 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300">
+                ℹ️ ${d.note}
+              </div>
+            ` : ''}
+
+            ${matchedStreets.length > 0 ? `
+              <div class="mt-2 text-[11px] text-sky-600 dark:text-sky-400 font-medium">
+                Найдено по совпадению: <strong>${matchedStreets.join(', ')}</strong>
+              </div>
+            ` : ''}
+          </div>
+
+          <div class="mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-900 flex items-center justify-between text-[11px]">
+            <span class="text-slate-500 truncate max-w-[170px]">Улицы: ${d.streets.slice(0, 3).join(', ')}...</span>
+            <a href="${d.source_url || 'https://t.me/mcu_nvrsk'}" target="_blank" rel="noopener noreferrer" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold flex-shrink-0">
+              ${d.source_title || 'Источник'} ↗
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-8 text-center text-slate-500 text-xs">
+            Ничего не найдено по запросу «${searchQuery}». Попробуйте другое название улицы или сбросьте фильтр.
+          </div>
+        `;
+      }
+    }
+
+    function selectDistrict(distId) {
+      activeDistrictFilter = distId;
+      document.querySelectorAll('.district-pill').forEach(btn => {
+        if (btn.dataset.district === distId) {
+          btn.className = 'district-pill active-pill px-3 py-1.5 rounded-lg text-xs font-semibold bg-sky-600 text-white transition';
+        } else {
+          btn.className = isDark 
+            ? 'district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 transition'
+            : 'district-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        }
+      });
+      const query = document.getElementById('street-search').value;
+      if (cityData && cityData.districts) {
+        renderDistricts(cityData.districts, distId, query);
+      }
+    }
+
+    function filterStreets() {
+      const query = document.getElementById('street-search').value;
+      if (cityData && cityData.districts) {
+        renderDistricts(cityData.districts, activeDistrictFilter, query);
+      }
+    }
+
+        // Defensive client-side deduplication (prevents duplicate notices between EDDS and MCU)
+    function deduplicateNewsClient(items) {
+      if (!items || !items.length) return [];
+      const result = [];
+      const normalize = (str) => {
+        return (str || '')
+          .toLowerCase()
+          .replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, ' ')
+          .replace(/[^a-zа-я0-9\s]/gi, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+      };
+
+      items.forEach(item => {
+        const s1 = normalize(item.title + ' ' + (item.text || ''));
+        const w1 = new Set(s1.split(' ').filter(w => w.length > 2));
+
+        const isDup = result.some(existing => {
+          const s2 = normalize(existing.title + ' ' + (existing.text || ''));
+          const w2 = new Set(s2.split(' ').filter(w => w.length > 2));
+          if (s1.length > 25 && s2.length > 25 && (s1.includes(s2) || s2.includes(s1))) return true;
+          let common = 0;
+          w1.forEach(w => { if (w2.has(w)) common++; });
+          const minSize = Math.min(w1.size, w2.size);
+          if (minSize === 0) return false;
+          return (common / minSize) >= 0.70;
+        });
+
+        if (!isDup) {
+          result.push(item);
+        }
+      });
+      return result;
+    }
+
+    // Render Official News on Main Page with Category Filters & Direct Links
+    function renderOfficialNews(newsList, categoryFilter = 'all') {
+      const container = document.getElementById('official-news-list');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const cleanList = deduplicateNewsClient(newsList);
+
+      let filtered;
+      if (categoryFilter === 'all') {
+        filtered = cleanList;
+      } else if (categoryFilter === 'edds') {
+        filtered = cleanList.filter(item => 
+          item.category === 'edds' || 
+          (item.source_name && item.source_name.toLowerCase().includes('безопасный')) ||
+          (item.channel_handle && item.channel_handle.includes('bgnvr'))
+        );
+      } else {
+        filtered = cleanList.filter(item => item.category === categoryFilter);
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="py-8 text-center text-slate-500 text-xs">
+            В данной категории пока нет новых публикаций.
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition';
+
+        let badgeBg = 'bg-sky-100 text-sky-800 border-sky-300 dark:bg-sky-950 dark:text-sky-300 dark:border-sky-800';
+        let icon = '🏛️';
+        if (item.source_name && item.source_name.includes('Безопасный город')) {
+          badgeBg = 'bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800';
+          icon = '🛡️';
+        } else if (item.category === 'emergency') {
+          badgeBg = 'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-950 dark:text-rose-300 dark:border-rose-800';
+          icon = '⚠️';
+        } else if (item.category === 'utilities') {
+          badgeBg = 'bg-cyan-100 text-cyan-800 border-cyan-300 dark:bg-cyan-950 dark:text-cyan-300 dark:border-cyan-800';
+          icon = '💧';
+        } else if (item.category === 'mayor') {
+          badgeBg = 'bg-indigo-100 text-indigo-800 border-indigo-300 dark:bg-indigo-950 dark:text-indigo-300 dark:border-indigo-800';
+          icon = '🎖️';
+        }
+
+                const showSnippet = item.text && 
+          item.text.trim().toLowerCase() !== item.title.trim().toLowerCase() && 
+          !item.title.trim().toLowerCase().startsWith(item.text.trim().toLowerCase());
+
+        card.innerHTML = `
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs mb-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded border text-[11px] font-semibold ${badgeBg}">
+                ${icon} ${item.source_name}
+              </span>
+              <a href="${item.channel_url || item.source_url}" target="_blank" rel="noopener noreferrer" class="text-slate-500 hover:text-sky-600 dark:text-slate-400 dark:hover:text-sky-400 font-mono text-[11px]">
+                ${item.channel_handle || ''}
+              </a>
+            </div>
+            <span class="text-slate-400 dark:text-slate-500 text-[11px]">${item.time_display}</span>
+          </div>
+
+          <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+            <a href="${item.source_url}" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition">
+              ${item.title}
+            </a>
+          </h3>
+
+          ${showSnippet ? `
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line mb-3">
+            ${item.text}
+          </p>
+          ` : ''}
+
+          <div class="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-900 text-xs">
+            <span class="text-[11px] text-slate-500">Официальный верифицированный канал</span>
+            <a href="${item.source_url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-sky-100 hover:bg-sky-200 text-sky-800 dark:bg-sky-950/70 dark:hover:bg-sky-900 dark:border dark:border-sky-800/80 dark:text-sky-300 text-xs font-semibold transition">
+              <span>🔗 Открыть оригинал</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterNewsCategory(cat) {
+      activeNewsCategory = cat;
+      document.querySelectorAll('.news-cat-btn').forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = 'news-cat-btn px-2.5 py-1 rounded-lg bg-sky-600 text-white font-semibold transition';
+        } else {
+          btn.className = isDark
+            ? 'news-cat-btn px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition'
+            : 'news-cat-btn px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        }
+      });
+      if (cityData && cityData.news) {
+        renderOfficialNews(cityData.news, cat);
+      }
+    }
+
+    // Render Contacts 24/7
+    function renderContacts(contacts) {
+      const container = document.getElementById('contacts-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      contacts.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex flex-col justify-between';
+
+        card.innerHTML = `
+          <div>
+            <h4 class="text-sm font-bold text-slate-900 dark:text-white">${c.title}</h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${c.desc}</p>
+          </div>
+          <div class="mt-4 pt-2 border-t border-slate-200 dark:border-slate-900 flex items-center justify-between">
+            <a href="tel:${c.phone.replace(/[^+\d]/g, '')}" class="text-xs font-bold text-sky-600 dark:text-sky-400 hover:underline">
+              ${c.phone}
+            </a>
+            ${c.url ? `
+              <a href="${c.url}" target="_blank" rel="noopener noreferrer" class="text-[11px] text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white underline">
+                Портал ↗
+              </a>
+            ` : ''}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Populate Hourly Wind Chart
+    function populateHourlyChart(hourlyData = []) {
+      const container = document.getElementById('hourly-wind-bars');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (!hourlyData || hourlyData.length === 0) {
+        hourlyData = [
+          { time: '12:00', wind: 16, gust: 22 },
+          { time: '14:00', wind: 18, gust: 24 },
+          { time: '16:00', wind: 20, gust: 26 },
+          { time: '18:00', wind: 21, gust: 27 },
+          { time: '20:00', wind: 18, gust: 23 },
+          { time: '22:00', wind: 15, gust: 19 }
+        ];
+      }
+
+      hourlyData.slice(0, 6).forEach(item => {
+        const col = document.createElement('div');
+        col.className = 'flex flex-col items-center gap-1';
+
+        const windH = Math.min(80, Math.round((item.wind / 30) * 70));
+        const gustH = Math.min(80, Math.round((item.gust / 30) * 70));
+
+        col.innerHTML = `
+          <div class="h-24 w-full flex items-end justify-center gap-0.5 bg-slate-50 dark:bg-slate-950 rounded-lg p-1 border border-slate-200 dark:border-slate-800">
+            <div style="height: ${windH}px" class="w-2 sm:w-2.5 bg-sky-500 rounded-t" title="Ветер: ${item.wind} м/с"></div>
+            <div style="height: ${gustH}px" class="w-2 sm:w-2.5 bg-amber-500 rounded-t" title="Порывы: ${item.gust} м/с"></div>
+          </div>
+          <span class="text-[10px] text-slate-700 dark:text-slate-300 font-bold">${Math.round(item.gust)}</span>
+          <span class="text-[10px] text-slate-500 dark:text-slate-400">${item.time}</span>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    // Update Hero Stats
+    function updateHeroStats(weather, marine) {
+      if (weather) {
+        document.getElementById('wind-speed').textContent = weather.wind_speed;
+        document.getElementById('wind-gusts').textContent = weather.wind_gusts + ' м/с';
+        document.getElementById('air-temp').textContent = (weather.temperature > 0 ? '+' : '') + weather.temperature + '°C';
+        
+        const badge = document.getElementById('wind-badge');
+        if (weather.wind_gusts >= 25) {
+          badge.textContent = 'Шторм (Бора)';
+          badge.className = 'px-2 py-0.5 text-[11px] font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border border-rose-300 dark:border-rose-800 rounded-full';
+        } else if (weather.wind_gusts >= 18) {
+          badge.textContent = 'Шквалистый';
+          badge.className = 'px-2 py-0.5 text-[11px] font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800 rounded-full';
+        } else {
+          badge.textContent = 'Умеренный';
+          badge.className = 'px-2 py-0.5 text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-full';
+        }
+
+        const arrow = document.getElementById('wind-dir-icon');
+        if (arrow) arrow.style.transform = `rotate(${weather.wind_direction}deg)`;
+        document.getElementById('wind-dir-text').textContent = weather.wind_direction_name || 'СВ (Маркотх)';
+
+        // Update wind direction in Hourly Forecast block
+        const forecastDirText = document.getElementById('forecast-wind-dir-text');
+        if (forecastDirText) forecastDirText.textContent = weather.wind_direction_name || 'СВ (Маркотх)';
+        const forecastArrow = document.getElementById('forecast-wind-arrow');
+        if (forecastArrow) forecastArrow.style.transform = `rotate(${weather.wind_direction}deg)`;
+
+        // Update tomorrow weather forecast
+        if (weather.tomorrow) {
+          const t = weather.tomorrow;
+          const maxEl = document.getElementById('tomorrow-temp-max');
+          if (maxEl) maxEl.textContent = t.temp_max_str || (t.temp_max > 0 ? `+${t.temp_max}°` : `${t.temp_max}°`);
+          const minEl = document.getElementById('tomorrow-temp-min');
+          if (minEl) minEl.textContent = t.temp_min_str || (t.temp_min > 0 ? `+${t.temp_min}°C` : `${t.temp_min}°C`);
+          const badgeEl = document.getElementById('tomorrow-condition-badge');
+          if (badgeEl) badgeEl.textContent = `${t.condition_icon || '🌤️'} ${t.condition_desc || 'Малооблачно'}`;
+          const windEl = document.getElementById('tomorrow-wind');
+          if (windEl) windEl.textContent = `до ${Math.round(t.wind_max)} м/с (пор. ${Math.round(t.wind_gusts_max)})`;
+        }
+      }
+
+      if (marine) {
+        document.getElementById('sea-temp').textContent = (marine.water_temp > 0 ? '+' : '') + marine.water_temp;
+        document.getElementById('wave-height').textContent = `${marine.wave_height_m} м (${marine.wave_points || '2 б.'})`;
+        const portBadge = document.getElementById('port-status-badge');
+        if (portBadge) portBadge.textContent = marine.port_status;
+      }
+    }
+
+    // Refresh Data Function
+    async function refreshData() {
+      const spinner = document.getElementById('refresh-spinner');
+      spinner.classList.add('animate-spin');
+
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        if (res.ok) {
+          cityData = await res.json();
+          applyCityData(cityData);
+          const lbl = document.getElementById('data-updated-label');
+          if (lbl) lbl.textContent = 'Обновлено: ' + (cityData.updated_at_human || 'только что');
+        } else {
+          throw new Error('data.json not loaded');
+        }
+      } catch (err) {
+        console.log('Using local fallback dataset:', err);
+        const lbl = document.getElementById('data-updated-label');
+        if (lbl) lbl.textContent = '';
+      }
+
+      setTimeout(() => {
+        spinner.classList.remove('animate-spin');
+      }, 600);
+    }
+
+    function applyCityData(data) {
+      if (!data) return;
+      updateHeroStats(data.weather, data.marine);
+      if (data.weather && data.weather.hourly) {
+        populateHourlyChart(data.weather.hourly);
+      }
+      if (data.news) {
+        renderOfficialNews(data.news, activeNewsCategory);
+      }
+      if (data.districts) {
+        renderDistricts(data.districts, activeDistrictFilter);
+      }
+      if (data.contacts) {
+        renderContacts(data.contacts);
+      }
+      if (data.map_markers) {
+        if (!leafMap) {
+          initLeafletMap(data.map_markers);
+        } else {
+          renderMapMarkers(data.map_markers);
+        }
+      }
+    }
+
+    // Default Fallback Dataset
+    const fallbackData = {
+      weather: {
+        wind_speed: 16.0,
+        wind_gusts: 22.0,
+        wind_direction: 45,
+        wind_direction_name: "СВ (Норд-Ост / Маркотх)",
+        temperature: 14.5,
+        hourly: [],
+        tomorrow: {
+          temp_max: 8,
+          temp_min: 3,
+          temp_max_str: "+8°",
+          temp_min_str: "+3°C",
+          wind_max: 5.0,
+          wind_gusts_max: 12.1,
+          condition_desc: "Малооблачно",
+          condition_icon: "🌤️",
+          precip_prob: 8
+        }
+      },
+      marine: {
+        water_temp: 16.4,
+        wave_height_m: 0.8,
+        wave_points: "2 балла (Умеренное)",
+        port_status: "Порт открыт"
+      },
+      news: [
+        {
+                "id": "vk_bgnvr_22248",
+                "title": "Информация от НВМБ: в период с 18:00 по 23:59 08 ноября 2026г. спланировано проведение учения с дежурными силами Новороссийской ВМБ в акватории морского порта Новороссийск.",
+                "text": "Информация от НВМБ: в период с 18:00 по 23:59 08 ноября 2026г. спланировано проведение учения с дежурными силами Новороссийской ВМБ в акватории морского порта Новороссийск.",
+                "full_text": "Информация от НВМБ: в период с 18:00 по 23:59 08 ноября 2026г. спланировано проведение учения с дежурными силами Новороссийской ВМБ в акватории морского порта Новороссийск.",
+                "source_name": "Безопасный город / ЕДДС",
+                "channel_handle": "@bgnvr (ВКонтакте)",
+                "source_url": "https://vk.com/wall-116114113_22248",
+                "channel_url": "https://vk.com/bgnvr",
+                "time_display": "07.11 в 11:49",
+                "category": "emergency"
+        },
+        {
+                "id": "vk_bgnvr_22247",
+                "title": "Отключение энергоснабжения: Южная озереевка, бригада ЮЗЭС выехала, причина и население уточняется.",
+                "text": "Отключение энергоснабжения: Южная озереевка, бригада ЮЗЭС выехала, причина и население уточняется.",
+                "full_text": "Отключение энергоснабжения: Южная озереевка, бригада ЮЗЭС выехала, причина и население уточняется.",
+                "source_name": "Безопасный город / ЕДДС",
+                "channel_handle": "@bgnvr (ВКонтакте)",
+                "source_url": "https://vk.com/wall-116114113_22247",
+                "channel_url": "https://vk.com/bgnvr",
+                "time_display": "07.11 в 10:01",
+                "category": "utilities"
+        },
+        {
+                "id": "vk_bgnvr_22246",
+                "title": "Отключение энергоснабжения: Горпищенко, Арского,Рыжова, население-700, с/ц нет, ПС Южная прис.12, бригада элсети Кубани выехала",
+                "text": "Отключение энергоснабжения: Горпищенко, Арского,Рыжова, население-700, с/ц нет, ПС Южная прис.12, бригада элсети Кубани выехала",
+                "full_text": "Отключение энергоснабжения: Горпищенко, Арского,Рыжова, население-700, с/ц нет, ПС Южная прис.12, бригада элсети Кубани выехала",
+                "source_name": "Безопасный город / ЕДДС",
+                "channel_handle": "@bgnvr (ВКонтакте)",
+                "source_url": "https://vk.com/wall-116114113_22246",
+                "channel_url": "https://vk.com/bgnvr",
+                "time_display": "07.11 в 09:41",
+                "category": "utilities"
+        },
+        {
+                "id": "vk_bgnvr_22243",
+                "title": "Аварийное отключение энергоснабжения х.Ленинский путь, Семигорский. Бригада ЮЗЭС выехала.",
+                "text": "Аварийное отключение энергоснабжения х.Ленинский путь, Семигорский. Бригада ЮЗЭС выехала.",
+                "full_text": "Аварийное отключение энергоснабжения х.Ленинский путь, Семигорский. Бригада ЮЗЭС выехала.",
+                "source_name": "Безопасный город / ЕДДС",
+                "channel_handle": "@bgnvr (ВКонтакте)",
+                "source_url": "https://vk.com/wall-116114113_22243",
+                "channel_url": "https://vk.com/bgnvr",
+                "time_display": "06.11 в 21:55",
+                "category": "utilities"
+        },
+        {
+                "id": "kravchenko_glava_nvrsk_17476",
+                "title": "🇷🇺 Новороссийск победил в краевом конкурсе «Единство народов – сила Кубани».",
+                "text": "🇷🇺 Новороссийск победил в краевом конкурсе «Единство народов – сила Кубани». Практика «Многонациональный Новороссийск: от локальных инициатив к системному межнациональному диалогу» заняла 1 место среди городских округов. Она направлена на укрепление межнационального согласия и гражданского единства, а также на создание системы взаимодействия между национальными объединениями, в...",
+                "full_text": "🇷🇺 Новороссийск победил в краевом конкурсе «Единство народов – сила Кубани». Практика «Многонациональный Новороссийск: от локальных инициатив к системному межнациональному диалогу» заняла 1 место среди городских округов. Она направлена на укрепление межнационального согласия и гражданского единства, а также на создание системы взаимодействия между национальными объединениями, властью и жителями. Новороссийск – многонациональный город, где проживают представители более 100 национальностей. В городе действует 20 национально-культурных общественных объединений. Такое этнокультурное многообразие требует системной работы по развитию межнационального диалога, вовлечению жителей в совместную деятельность по сохранению культурного наследия народов. Важным этапом развития этой работы стало открытие в 2025 году «Дома дружбы» – многофункционального пространства для деятельности городской общественной организации «Центр национальных объединений» и местного отделения «Ассамблеи народов России». Обе структуры объединяют национально-культурные общества города и обеспечивают реализацию совместных инициатив, этнокультурное просвещение населения, поддержку общественных объединений и содействие их развитию. Победа в краевом конкурсе подтверждает эффективность выстроенной в Новороссийске модели межнационального взаимодействия и позволяет городу делиться накопленным опытом с другими муниципалитетами Краснодарского края. 💬 MAX 💬 ТГ 💙 ВК 📝 Дзен",
+                "source_name": "Глава Новороссийска Андрей Кравченко",
+                "channel_handle": "@kravchenko_glava_nvrsk",
+                "source_url": "https://t.me/kravchenko_glava_nvrsk/17476",
+                "channel_url": "https://t.me/kravchenko_glava_nvrsk",
+                "time_iso": "2026-11-07T09:16:01+00:00",
+                "time_display": "07.11 в 12:16",
+                "category": "mayor"
+        },
+        {
+                "id": "kravchenko_glava_nvrsk_17475",
+                "title": "🌐 В Новороссийске прошел первый Международный молодежный форум",
+                "text": "🌐 В Новороссийске прошел первый Международный молодежный форум Участниками стали 50 иностранных студентов из Египта, Армении, Грузии, Таджикистана, Казахстана и Узбекистана, обучающиеся в городе-герое, а также российские студенты-международники. Молодежь городов-побратимов из Китая и Германии присоединилась по видеосвязи. Форум, объединивший студентов из разных стран, стал еще ...",
+                "full_text": "🌐 В Новороссийске прошел первый Международный молодежный форум Участниками стали 50 иностранных студентов из Египта, Армении, Грузии, Таджикистана, Казахстана и Узбекистана, обучающиеся в городе-герое, а также российские студенты-международники. Молодежь городов-побратимов из Китая и Германии присоединилась по видеосвязи. Форум, объединивший студентов из разных стран, стал еще одним результатом системной работы по поддержке инициатив и расширению возможностей для самореализации молодежи. Программа мероприятия включала знакомство с историей города, традициями и культурным кодом жителей, пленарные дискуссии, проектные сессии и деловые игры. Итогом форума стали проектные решения и предложения молодежи, которые будут реализованы совместно с Международным клубом дружбы. По поручению Президента России Владимира Владимировича Путина такие клубы создаются по всей стране, а первый на Кубани открылся именно в Новороссийске. Молодежь Новороссийска уверенно заявляет о себе, воплощая в жизнь значимые проекты, творческие идеи и находя новые направления для развития. Каждая победа и высокое достижение молодых новороссийцев становятся поводом для гордости всего города-героя! 💬 MAX 💬 ТГ 💙 ВК 📝 Дзен",
+                "source_name": "Глава Новороссийска Андрей Кравченко",
+                "channel_handle": "@kravchenko_glava_nvrsk",
+                "source_url": "https://t.me/kravchenko_glava_nvrsk/17475",
+                "channel_url": "https://t.me/kravchenko_glava_nvrsk",
+                "time_iso": "2026-11-06T15:56:38+00:00",
+                "time_display": "06.11 в 18:56",
+                "category": "mayor"
+        },
+        {
+                "id": "kravchenko_glava_nvrsk_17474",
+                "title": "⛪ В Новороссийске освящены новые купола и кресты храма святителя Спиридона Тримифунтского.",
+                "text": "⛪ В Новороссийске освящены новые купола и кресты храма святителя Спиридона Тримифунтского. В ночь с 8 на 9 сентября храм подвергся атаке беспилотников. Несмотря на повреждения, богослужения в нем не прекращались ни на один день, молитвы прихожан возносились к Господу непрестанно. С первых дней после атаки на помощь пришли прихожане, настоятели других церквей, волонтеры и казаки...",
+                "full_text": "⛪ В Новороссийске освящены новые купола и кресты храма святителя Спиридона Тримифунтского. В ночь с 8 на 9 сентября храм подвергся атаке беспилотников. Несмотря на повреждения, богослужения в нем не прекращались ни на один день, молитвы прихожан возносились к Господу непрестанно. С первых дней после атаки на помощь пришли прихожане, настоятели других церквей, волонтеры и казаки. Совместными усилиями расчищены бетонные своды от остатков сгоревшей кровли, проведены гидроизоляционные работы, отремонтирован фасад, пострадавший от осколков. Завершена шпаклевка четверика и колокольни. На следующей неделе планируется начать остекление, а в течение двух месяцев будет полностью восстановлена кровля. Сегодня Епископ Новороссийский и Геленджикский Сергий, в сослужении духовенства, совершил чин освящения вновь изготовленных куполов и крестов, которые вскоре украсят храм. 🙏🏻 Искренне благодарю всех, кто участвует в восстановлении, и епархию за огромный труд. Ваше объединяющее начало создает мощную силу, способную преодолеть любые трудности. 🇷🇺 MAX 📱 ТГ 📱 ВК 📱 Дзен",
+                "source_name": "Глава Новороссийска Андрей Кравченко",
+                "channel_handle": "@kravchenko_glava_nvrsk",
+                "source_url": "https://t.me/kravchenko_glava_nvrsk/17474",
+                "channel_url": "https://t.me/kravchenko_glava_nvrsk",
+                "time_iso": "2026-11-06T13:20:28+00:00",
+                "time_display": "06.11 в 16:20",
+                "category": "mayor"
+        },
+        {
+                "id": "mchs_kuban_13733",
+                "title": "🛑 Экстренное предупреждение о комплексе метеорологических явлений на территории Краснодарского края",
+                "text": "🛑 Экстренное предупреждение о комплексе метеорологических явлений на территории Краснодарского края 🔻 В течение суток 16.06.2026 и 17.06.2026 местами в Краснодарском крае ожидается комплекс метеорологических явлений: сильный дождь, ливень, в сочетании с грозой, градом и сильным ветром с порывами 20 м/с. Главное управление МЧС России по Краснодарскому краю рекомендует: прислушив...",
+                "full_text": "🛑 Экстренное предупреждение о комплексе метеорологических явлений на территории Краснодарского края 🔻 В течение суток 16.06.2026 и 17.06.2026 местами в Краснодарском крае ожидается комплекс метеорологических явлений: сильный дождь, ливень, в сочетании с грозой, градом и сильным ветром с порывами 20 м/с. Главное управление МЧС России по Краснодарскому краю рекомендует: прислушиваться к рекомендациям ГУ МЧС России по Краснодарскому краю, обращать внимание на СМС-сообщения с предупреждениями о возможных ЧС, следить за сообщениями по местным теле- и радиостанциям. ▫️Подробнее о мерах безопасности читай на сайте Главного управления МЧС России по Краснодарскому краю. @mchs_kuban Подписывайся на МЧС России в MAX | ВК",
+                "source_name": "ГУ МЧС России по Краснодарскому краю",
+                "channel_handle": "@mchs_kuban",
+                "source_url": "https://t.me/mchs_kuban/13733",
+                "channel_url": "https://t.me/mchs_kuban",
+                "time_iso": "2026-06-15T15:55:22+00:00",
+                "time_display": "15.06 в 18:55",
+                "category": "emergency"
+        },
+        {
+                "id": "mchs_kuban_13732",
+                "title": "15 июня — профессиональный праздник Государственной инспекции по маломерным судам (ГИМС)",
+                "text": "15 июня — профессиональный праздник Государственной инспекции по маломерным судам (ГИМС) ГИМС обеспечивает безопасность на воде: контролирует маломерные суда и пляжи, ведёт профилактическуюработу с населением, участвует в поисково‑спасательных операциях. В Центре ГИМС МЧС России по Краснодарскому краю работают 101 специалист (в т. ч. 75 государственныхинспекторов), которые осна...",
+                "full_text": "15 июня — профессиональный праздник Государственной инспекции по маломерным судам (ГИМС) ГИМС обеспечивает безопасность на воде: контролирует маломерные суда и пляжи, ведёт профилактическуюработу с населением, участвует в поисково‑спасательных операциях. В Центре ГИМС МЧС России по Краснодарскому краю работают 101 специалист (в т. ч. 75 государственныхинспекторов), которые оснащены: 🔹37 катерами; 🔹2 моторными лодками; 🔹4 гидроциклами; 🔹19 автомобилями. Также функционирует автоматизированная информационная система ГИМС МЧС России — единая база данных маломерных судов и их владельцев. Даже в праздничный день сотрудники ГИМС Краснодарского отделения продолжают патрулировать водоёмы,проводить проверки и профилактические мероприятия. @mchs_kuban Подписывайся на МЧС России в MAX | ВК",
+                "source_name": "ГУ МЧС России по Краснодарскому краю",
+                "channel_handle": "@mchs_kuban",
+                "source_url": "https://t.me/mchs_kuban/13732",
+                "channel_url": "https://t.me/mchs_kuban",
+                "time_iso": "2026-06-15T15:33:39+00:00",
+                "time_display": "15.06 в 18:33",
+                "category": "emergency"
+        }
+],
+      districts: [
+        {
+          id: 'south',
+          name: 'Южный район',
+          streets: ['пр. Ленина', 'пр. Дзержинского', 'ул. Героев Десантников', 'ул. Пионерская', 'ул. Южная', 'Алексино', '7-й мкр', '10-й мкр'],
+          water: 'По графику (18:00 - 21:00)',
+          water_code: 'warning',
+          power: 'В штатном режиме',
+          power_code: 'ok',
+          heat: 'Котельные в норме',
+          note: 'Подкачивающие насосы ЦТП 9-10 мкр работают стабильно',
+          source_title: 'МУП Водоканал',
+          source_url: 'https://t.me/vodokanal_nvrsk'
+        },
+        {
+          id: 'central',
+          name: 'Центральный район',
+          streets: ['ул. Советов', 'ул. Новороссийской Республики', 'ул. Мира', 'ул. Свободы', 'ул. Энгельса', 'Набережная адм. Серебрякова'],
+          water: 'По графику (18:00 - 21:00)',
+          water_code: 'warning',
+          power: 'В штатном режиме',
+          power_code: 'ok',
+          heat: 'В норме',
+          note: 'Ветер на набережной до 21 м/с',
+          source_title: 'МЦУ Новороссийск',
+          source_url: 'https://t.me/mcu_nvrsk'
+        },
+        {
+          id: 'primorsky',
+          name: 'Приморский район',
+          streets: ['ул. Видова', 'ул. Луначарского', 'ул. Тобольская', 'Цемдолина', 'Борисовка', 'Кирилловка', '13-й мкр'],
+          water: 'Аварийное снижение давления (ТГВ)',
+          water_code: 'danger',
+          power: 'В штатном режиме',
+          power_code: 'ok',
+          heat: 'В норме',
+          note: 'Завершение сварки на водоводе в пос. Гайдук',
+          source_title: 'Аварийная служба Водоканала',
+          source_url: 'https://t.me/vodokanal_nvrsk'
+        },
+        {
+          id: 'east',
+          name: 'Восточный район (Шесхарис)',
+          streets: ['Сухумское шоссе', 'ул. Элеваторная', 'ул. Васенко', 'Мефодиевка', 'ул. Сакко и Ванцетти'],
+          water: 'Водопровод под давлением',
+          water_code: 'ok',
+          power: 'Плановые работы НЭСК до 17:00 (ул. Васенко)',
+          power_code: 'warning',
+          heat: 'В норме',
+          note: 'Затор большегрузов на въезд в порт (Сухумское шоссе)',
+          source_title: 'Диспетчер НЭСК',
+          source_url: 'https://t.me/nesk_ru'
+        },
+        {
+          id: 'suburbs',
+          name: 'Мысхако / Абрау / Пригород',
+          streets: ['Мысхако', 'Абрау-Дюрсо', 'Широкая балка', 'Южная Озереевка', 'Верхнебаканский', 'Раевская'],
+          water: 'Собственные скважины / График',
+          water_code: 'ok',
+          power: 'В штатном режиме',
+          power_code: 'ok',
+          heat: 'Автономное / В норме',
+          note: 'На перевальной дороге в Дюрсо движение штатное',
+          source_title: 'Администрация города',
+          source_url: 'https://admnvrsk.ru'
+        }
+      ],
+      map_markers: [
+        {
+          lat: 44.6854,
+          lon: 37.7985,
+          title: "Пляж Алексино",
+          category: "beach",
+          status: "Открыт",
+          temp_water: "+16.2°C",
+          waves: "1.5 балла",
+          desc: "Популярный галечный пляж в Южном районе. Спасательный пост дежурит, волнение умеренное.",
+          source_url: "https://admnvrsk.ru"
+        },
+        {
+          lat: 44.6920,
+          lon: 37.8028,
+          title: "Суджукская коса & Лагуна",
+          category: "beach",
+          status: "Открыт",
+          temp_water: "+16.4°C",
+          waves: "2 балла",
+          desc: "Открытая бухта, свежий северо-восточный ветер. Проморан между лагуной и морем открыт.",
+          source_url: "https://t.me/mcu_nvrsk"
+        },
+        {
+          lat: 44.7170,
+          lon: 37.7850,
+          title: "Центральный городской пляж",
+          category: "beach",
+          status: "Открыт",
+          temp_water: "+16.3°C",
+          waves: "1.5 балла",
+          desc: "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал катеров.",
+          source_url: "https://admnvrsk.ru"
+        },
+        {
+          lat: 44.6590,
+          lon: 37.7630,
+          title: "Пляж Мысхако (Колдун-гора)",
+          category: "beach",
+          status: "Открыт",
+          temp_water: "+16.5°C",
+          waves: "1 балл",
+          desc: "Западная часть бухты защищена горой Колдун от прямых шквалов норд-оста.",
+          source_url: "https://admnvrsk.ru"
+        },
+        {
+          lat: 44.6565,
+          lon: 37.7020,
+          title: "Пляж Широкая Балка",
+          category: "beach",
+          status: "Открыт",
+          temp_water: "+16.8°C",
+          waves: "1.5 балла",
+          desc: "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура комфортная.",
+          source_url: "https://admnvrsk.ru"
+        },
+        {
+          lat: 44.7040,
+          lon: 37.5990,
+          title: "Озеро Абрау & Набережная",
+          category: "nature",
+          status: "Штатно",
+          temp_water: "+15.8°C",
+          waves: "Штиль",
+          desc: "Живописная набережная, светомузыкальный фонтан, прогулочные зоны.",
+          source_url: "https://t.me/kravchenko_glava_nvrsk"
+        },
+        {
+          lat: 44.7570,
+          lon: 37.7330,
+          title: "Аварийный ремонт водовода ТГВ",
+          category: "utility",
+          status: "Сварочные работы",
+          temp_water: null,
+          waves: null,
+          desc: "Участок магистральной трубы D=1000 мм в районе пос. Гайдук. Бригада Водоканала завершает работы.",
+          source_url: "https://t.me/vodokanal_nvrsk"
+        },
+        {
+          lat: 44.7200,
+          lon: 37.8300,
+          title: "Сухумское шоссе (Шесхарис)",
+          category: "traffic",
+          status: "Затор 6 баллов",
+          temp_water: null,
+          waves: null,
+          desc: "Очередь грузового транспорта на въезд к терминалам НМТП. Движение замедлено.",
+          source_url: "https://t.me/mcu_nvrsk"
+        },
+        {
+          lat: 44.7730,
+          lon: 37.6970,
+          title: "Перевал «Волчьи ворота» (А-146)",
+          category: "traffic",
+          status: "Боковой ветер",
+          temp_water: null,
+          waves: null,
+          desc: "Трасса на Краснодар открыта. Боковые порывы ветра на спуске, пустые тенты снижают скорость.",
+          source_url: "https://t.me/kuban_mchs"
+        },
+        {
+          lat: 44.7310,
+          lon: 37.8220,
+          title: "Экопост «Новоросцемент / Пролетарий»",
+          category: "eco",
+          status: "AQI 36 (Норма)",
+          temp_water: null,
+          waves: null,
+          desc: "Концентрация PM2.5: 9 мкг/м³. Шлейф сносит в сторону моря от жилых кварталов.",
+          source_url: "https://admnvrsk.ru"
+        }
+      ],
+      contacts: [
+        {
+          title: "АПК «Безопасный город» / ЕДДС",
+          phone: "+7 (8617) 637-112",
+          url: "https://admnvrsk.ru/podrazdeleniya/munitsipalnye-kazennye-uchrezhdeniya/mku-apk-bezopasnyy-gorod/",
+          desc: "Единая дежурная служба экстренных вызовов города (112)"
+        },
+        {
+          title: "Аварийная МУП «Водоканал»",
+          phone: "+7 (8617) 30-98-60",
+          url: "https://t.me/vodokanal_nvrsk",
+          desc: "Заявки на ремонт водоводов и подвоз воды"
+        },
+        {
+          title: "Диспетчер «НЭСК-электросети»",
+          phone: "+7 (8617) 64-15-28",
+          url: "https://nesk.ru",
+          desc: "Аварийные отключения света и обрывы проводов"
+        },
+        {
+          title: "Травмпункт (Горбольница №1)",
+          phone: "+7 (8617) 61-30-74",
+          url: "https://gb1nvrsk.ru",
+          desc: "ул. Революции 1905 года, 30 (Круглосуточно / 103)"
+        },
+        {
+          title: "Чат-бот МЦУ Новороссийска",
+          phone: "+7 (8617) 64-64-05",
+          url: "https://t.me/mcu_nvrsk",
+          desc: "Прием жалоб на ямы, освещение и уборку улиц"
+        },
+        {
+          title: "Морвокзал / Пассажирские суда",
+          phone: "+7 (8617) 60-22-84",
+          url: "https://admnvrsk.ru",
+          desc: "Диспетчер морских рейсов «Комета»"
+        }
+      ]
+    };
+
+    // DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      initThemeIcons();
+      cityData = fallbackData;
+      applyCityData(fallbackData);
+      populateHourlyChart(fallbackData.weather.hourly);
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      initLeafletMap(fallbackData.map_markers);
+      refreshData();
+    });
+  </script>
+</body>
+</html>
