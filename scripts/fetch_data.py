@@ -5,7 +5,7 @@
 Скрипт автономного сбора актуальных данных:
 1. Погода, сила ветра (норд-ост/бора), порывы и давление (Open-Meteo API)
 2. Морская обстановка Цемесской бухты (волнение, темп. воды)
-3. Публикации и сводки официальных источников (Глава города, МЦУ, Водоканал, МЧС)
+3. Публикации и сводки официальных источников (Глава города, МЦУ, Безопасный город / ЕДДС, Водоканал)
 4. Генерация единого статического data.json для веб-дашборда
 """
 
@@ -259,9 +259,11 @@ def scrape_telegram_channel(channel_name, source_title, channel_url, category="n
 
         post_url = f"https://t.me/{post_id}"
 
+        unix_ts = 0
         try:
             dt = datetime.fromisoformat(time_iso.replace('Z', '+00:00')).astimezone(MSK_TZ)
             time_display = dt.strftime("%d.%m в %H:%M")
+            unix_ts = int(dt.timestamp())
         except Exception:
             time_display = "Недавно"
 
@@ -276,6 +278,7 @@ def scrape_telegram_channel(channel_name, source_title, channel_url, category="n
             "source_url": post_url,
             "channel_url": channel_url,
             "time_iso": time_iso,
+            "timestamp": unix_ts,
             "time_display": time_display,
             "category": category
         })
@@ -341,9 +344,13 @@ def fetch_vk_bgnvr(max_posts=5):
                     
                 dm = re.search(r'&quot;date&quot;:(\d+)', content)
                 date_str = "Сегодня"
+                unix_ts = 0
+                time_iso = ""
                 if dm:
-                    dt = datetime.fromtimestamp(int(dm.group(1)), tz=MSK_TZ)
+                    unix_ts = int(dm.group(1))
+                    dt = datetime.fromtimestamp(unix_ts, tz=MSK_TZ)
                     date_str = dt.strftime("%d.%m в %H:%M")
+                    time_iso = dt.isoformat()
                     
                 title = make_clean_title(cleaned, max_len=180)
                     
@@ -367,6 +374,8 @@ def fetch_vk_bgnvr(max_posts=5):
                     "channel_handle": "@bgnvr (ВКонтакте)",
                     "source_url": f"https://vk.com/wall-116114113_{pid}",
                     "channel_url": "https://vk.com/bgnvr",
+                    "time_iso": time_iso,
+                    "timestamp": unix_ts,
                     "time_display": date_str,
                     "category": category
                 })
@@ -403,15 +412,6 @@ def fetch_all_official_sources():
         max_items=3
     )
 
-    # 4. Штормовые предупреждения МЧС (t.me/mchs_kuban)
-    mchs_items = scrape_telegram_channel(
-        channel_name="mchs_kuban",
-        source_title="ГУ МЧС России по Краснодарскому краю",
-        channel_url="https://t.me/mchs_kuban",
-        category="emergency",
-        max_items=2
-    )
-
     official_news = []
     # 1. Сначала сводки ЕДДС / «Безопасный город» (первоисточник оперативных происшествий 112)
     if bgnvr_items:
@@ -425,12 +425,11 @@ def fetch_all_official_sources():
     if mayor_items:
         official_news.extend(mayor_items)
 
-    # 4. Предупреждения МЧС
-    if mchs_items:
-        official_news.extend(mchs_items)
-
     # Дедупликация: исключаем повторы между службами (например, репосты МЦУ сводок Безопасного города)
     official_news = deduplicate_news(official_news)
+
+    # Хронологическая сортировка: самые новые публикации всегда первыми сверху
+    official_news.sort(key=lambda x: x.get("timestamp", 0), reverse=True)
 
     # Резервные верифицированные записи со ссылками на реальные посты (если каналы временно недоступны)
     if len(official_news) == 0:
@@ -701,7 +700,7 @@ def build_map_markers():
             "temp_water": None,
             "waves": None,
             "desc": "Трасса на Краснодар открыта. Боковые порывы ветра на спуске, пустые тенты снижают скорость.",
-            "source_url": "https://t.me/kuban_mchs"
+            "source_url": "https://admnvrsk.ru"
         },
         {
             "id": "eco_sheskharis",
