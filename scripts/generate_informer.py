@@ -212,17 +212,17 @@ def create_informer(data, theme='dark'):
     draw.line((52, section_y + 36, 1028, section_y + 36), fill=card_border, width=1)
 
     news_list = data.get('news', [])[:3]
-    news_start_y = 704
-    news_card_h = 188
+    news_start_y = 696
+    news_card_h = 224
     news_gap = 18
 
-    font_news_title = load_font(21, bold=True)
-    font_news_body = load_font(17, bold=False)
+    font_news_title = load_font(22, bold=True)
+    font_news_body = load_font(18, bold=False)
     font_news_meta = load_font(15, bold=True)
 
     for i, item in enumerate(news_list):
         ny = news_start_y + i * (news_card_h + news_gap)
-        draw.rounded_rectangle((52, ny, 1028, ny + news_card_h), radius=16, fill=card_bg, outline=card_border, width=1)
+        draw.rounded_rectangle((52, ny, 1028, ny + news_card_h), radius=18, fill=card_bg, outline=card_border, width=1)
 
         # Source badge color
         source_name = item.get('source_name', 'Службы города')
@@ -245,36 +245,29 @@ def create_informer(data, theme='dark'):
         bbox = draw.textbbox((0, 0), badge_text, font=font_news_meta)
         badge_w = (bbox[2] - bbox[0]) + 24
 
-        draw.rounded_rectangle((72, ny + 16, 72 + badge_w, ny + 46), radius=8, fill=s_badge_bg)
-        draw.text((82, ny + 21), badge_text, font=font_news_meta, fill=s_badge_fg)
+        draw.rounded_rectangle((74, ny + 18, 74 + badge_w, ny + 50), radius=9, fill=s_badge_bg)
+        draw.text((86, ny + 23), badge_text, font=font_news_meta, fill=s_badge_fg)
 
         # Time placed cleanly right after the badge
         time_str = item.get('time_display', 'Сегодня')
-        draw.text((72 + badge_w + 14, ny + 22), f"•  {time_str}", font=font_small, fill=text_muted)
+        draw.text((74 + badge_w + 16, ny + 24), f"•  {time_str}", font=font_small, fill=text_muted)
 
-        # Title (wrapped to 2 lines max)
+        # Title (wrapped to 1-2 lines)
         raw_title = item.get('title', '')
         title_lines = wrap_text(raw_title, font_news_title, 910, draw)[:2]
-        cur_text_y = ny + 56
+        cur_text_y = ny + 62
         for t_line in title_lines:
-            draw.text((72, cur_text_y), t_line, font=font_news_title, fill=text_primary)
-            cur_text_y += 28
+            draw.text((74, cur_text_y), t_line, font=font_news_title, fill=text_primary)
+            cur_text_y += 30
 
-        # Snippet (1-2 lines)
+        # Snippet (up to 2-3 lines with more vertical room)
         snippet = item.get('text', '')
         if snippet and snippet != raw_title:
             body_lines = wrap_text(snippet, font_news_body, 910, draw)
-            max_b_lines = 1 if len(title_lines) > 1 else 2
+            max_b_lines = 2 if len(title_lines) > 1 else 3
             for b_line in body_lines[:max_b_lines]:
-                draw.text((72, cur_text_y + 4), b_line, font=font_news_body, fill=text_secondary)
-                cur_text_y += 24
-
-    # 5. Footer Section
-    footer_y = 1320
-    draw.rounded_rectangle((52, footer_y, 1028, 1400), radius=16, fill=(15, 23, 42, 250) if is_dark else (241, 245, 249, 255), outline=card_border, width=1)
-    
-    draw.text((72, footer_y + 18), "🌐 Полный оперативный мониторинг: интерактивная карта, графики воды ТГВ и дорожные веб-камеры", font=load_font(18, bold=True), fill=accent_blue)
-    draw.text((72, footer_y + 46), "Официальный городской портал anvrsk.ru  •  Служба 112  •  Аварийная Водоканала: +7 (8617) 30-98-60", font=font_small, fill=text_muted)
+                draw.text((74, cur_text_y + 6), b_line, font=font_news_body, fill=text_secondary)
+                cur_text_y += 26
 
     return im.convert('RGB')
 
