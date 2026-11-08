@@ -1,16 +1,16 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-08T20:00:58.659307+03:00",
-  "updated_at_human": "08.11.2026 в 20:00:58 (МСК)",
+  "updated_at_iso": "2026-11-08T20:30:47.474133+03:00",
+  "updated_at_human": "08.11.2026 в 20:30:47 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 3.6,
-    "apparent_temperature": -0.0,
-    "humidity": 63,
-    "pressure_hpa": 1027,
+    "temperature": 3.5,
+    "apparent_temperature": -0.2,
+    "humidity": 64,
+    "pressure_hpa": 1028,
     "wind_speed": 2.2,
-    "wind_gusts": 5.5,
+    "wind_gusts": 5.4,
     "wind_direction": 3,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
@@ -441,7 +441,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.5 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.4 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
