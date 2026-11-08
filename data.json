@@ -1,6 +1,7 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
+<<<<<<< HEAD
   "updated_at_iso": "2026-11-08T08:40:44.367316+03:00",
   "updated_at_human": "08.11.2026 в 08:40:44 (МСК)",
   "active_alert": null,
@@ -12,6 +13,19 @@
     "wind_speed": 5.3,
     "wind_gusts": 12.4,
     "wind_direction": 21,
+=======
+  "updated_at_iso": "2026-11-08T09:30:44.310216+03:00",
+  "updated_at_human": "08.11.2026 в 09:30:44 (МСК)",
+  "active_alert": null,
+  "weather": {
+    "temperature": 3.5,
+    "apparent_temperature": -1.7,
+    "humidity": 75,
+    "pressure_hpa": 1024,
+    "wind_speed": 5.8,
+    "wind_gusts": 13.3,
+    "wind_direction": 23,
+>>>>>>> 877fc6c230f9ae6930ba1e625eb5205b02b42109
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Умеренный",
     "hourly": [
@@ -53,39 +67,39 @@
       },
       {
         "time": "06:00",
-        "wind": 4.7,
+        "wind": 4.9,
         "gust": 11.6,
-        "temp": 2.7
+        "temp": 2.5
       },
       {
         "time": "07:00",
-        "wind": 4.8,
-        "gust": 10.5,
-        "temp": 2.5
+        "wind": 5.0,
+        "gust": 11.0,
+        "temp": 2.3
       },
       {
         "time": "08:00",
-        "wind": 4.9,
-        "gust": 11.0,
-        "temp": 2.5
+        "wind": 5.1,
+        "gust": 11.2,
+        "temp": 2.4
       },
       {
         "time": "09:00",
-        "wind": 5.5,
-        "gust": 12.4,
-        "temp": 3.2
+        "wind": 5.6,
+        "gust": 12.6,
+        "temp": 3.0
       },
       {
         "time": "10:00",
         "wind": 5.8,
-        "gust": 13.2,
-        "temp": 4.1
+        "gust": 13.3,
+        "temp": 4.0
       },
       {
         "time": "11:00",
         "wind": 5.5,
-        "gust": 13.1,
-        "temp": 5.4
+        "gust": 13.2,
+        "temp": 5.2
       }
     ],
     "tomorrow": {
@@ -102,7 +116,11 @@
     }
   },
   "marine": {
+<<<<<<< HEAD
     "water_temp": 17.5,
+=======
+    "water_temp": 16.4,
+>>>>>>> 877fc6c230f9ae6930ba1e625eb5205b02b42109
     "wave_height_m": 0.44,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
