@@ -24,19 +24,23 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install dependencies
+        run: |
+          pip install pillow
+
       - name: Run Data Collector Script
         run: |
           python scripts/fetch_data.py
 
-      - name: Commit and push updated data.json
+      - name: Commit and push updated data and informer
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data.json
+          git add data.json informer.png informer-dark.png informer-light.png
           if git diff --staged --quiet; then
-            echo "Нет изменений в data.json, коммит не требуется."
+            echo "Нет изменений, коммит не требуется."
           else
-            git commit -m "Auto-update city data [skip ci]"
+            git commit -m "Auto-update city data and informer [skip ci]"
             git pull --rebase origin ${{ github.ref_name }} || true
             git push origin HEAD:${{ github.ref_name }}
           fi

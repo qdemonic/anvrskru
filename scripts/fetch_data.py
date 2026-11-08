@@ -170,11 +170,13 @@ def fetch_marine_data():
     raw = get_url_content(url)
     wave_h = 0.8
     water_temp = 16.4
+    wave_period = 3.0
     if raw:
         try:
             m_data = json.loads(raw)
             curr = m_data.get("current", {})
             wave_h = round(curr.get("wave_height", 0.8), 2)
+            wave_period = round(curr.get("wave_period", 3.0), 1)
             if "sea_surface_temperature" in curr and curr["sea_surface_temperature"] is not None:
                 water_temp = round(curr.get("sea_surface_temperature"), 1)
         except Exception:
@@ -194,6 +196,7 @@ def fetch_marine_data():
     return {
         "water_temp": water_temp,
         "wave_height_m": wave_h,
+        "wave_period_s": wave_period,
         "wave_points": wave_pts,
         "port_status": "Открыт для захода" if wave_h < 1.8 else "Рейд временно закрыт",
         "ships_on_roadstead": 16
@@ -1012,6 +1015,17 @@ def main():
         json.dump(payload, f, ensure_ascii=False, indent=2)
 
     print(f"[DONE] Успешно сгенерирован {output_path} ({len(official_news)} новостей, {len(markers)} точек на карте)")
+
+    # Автоматическая генерация вертикального информера (1080x1440, 4:3) в корне
+    try:
+        scripts_dir = os.path.dirname(os.path.abspath(__file__))
+        if scripts_dir not in sys.path:
+            sys.path.insert(0, scripts_dir)
+        from generate_informer import generate_informer_images
+        base_dir = os.path.dirname(scripts_dir)
+        generate_informer_images(payload, output_dir=base_dir)
+    except Exception as e:
+        print(f"[WARN] Ошибка генерации информера: {e}", file=sys.stderr)
 
 if __name__ == "__main__":
     main()
