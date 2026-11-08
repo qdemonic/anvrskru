@@ -1119,10 +1119,14 @@
       });
 
       // Special handling for Leaflet map render on tab switch
-      if (tabId === 'map' && leafMap) {
-        setTimeout(() => {
-          leafMap.invalidateSize();
-        }, 150);
+      if (tabId === 'map') {
+        if (!leafMap && cityData && cityData.map_markers) {
+          initLeafletMap(cityData.map_markers);
+        } else if (leafMap) {
+          setTimeout(() => {
+            leafMap.invalidateSize();
+          }, 100);
+        }
       }
     }
 
@@ -1208,8 +1212,10 @@
     }
 
     // Render Markers on Map
-    function renderMapMarkers(markers, filterCategory = 'all') {
-      if (!leafMap) return;
+    let activeMapFilter = 'all';
+
+    function renderMapMarkers(markers, filterCategory = activeMapFilter) {
+      if (!leafMap || !Array.isArray(markers)) return;
 
       mapMarkerInstances.forEach(m => leafMap.removeLayer(m));
       mapMarkerInstances = [];
@@ -1220,17 +1226,29 @@
         let bgClass = 'bg-sky-600';
         let emoji = '🏖️';
         if (item.category === 'utility') {
-          bgClass = 'bg-amber-600';
+          bgClass = (item.status_code === 'danger') ? 'bg-rose-600 animate-pulse' : 'bg-amber-600';
           emoji = '🔧';
         } else if (item.category === 'traffic') {
-          bgClass = 'bg-rose-600';
+          bgClass = (item.status_code === 'danger') ? 'bg-rose-600 animate-pulse' : 'bg-indigo-600';
           emoji = '🚗';
         } else if (item.category === 'eco') {
           bgClass = 'bg-emerald-600';
           emoji = '🍃';
         } else if (item.category === 'nature') {
-          bgClass = 'bg-indigo-600';
+          bgClass = 'bg-teal-600';
           emoji = '🌊';
+        } else if (item.category === 'beach') {
+          bgClass = (item.status_code === 'danger') ? 'bg-rose-600' : 'bg-sky-600';
+          emoji = '🏖️';
+        }
+
+        let badgeClass = 'bg-sky-100 text-sky-800 dark:bg-sky-900/80 dark:text-sky-200 border border-sky-300 dark:border-sky-800';
+        if (item.status_code === 'danger' || (item.status && /шторм|запрещ|авари|затор/i.test(item.status))) {
+          badgeClass = 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border border-rose-300 dark:border-rose-800';
+        } else if (item.status_code === 'warning' || (item.status && /ветер|ремонт|волнен|плотн|отключен/i.test(item.status))) {
+          badgeClass = 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800';
+        } else if (item.status_code === 'ok' || (item.status && /открыт|штатн|норм|свободн/i.test(item.status))) {
+          badgeClass = 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800';
         }
 
         const customIcon = L.divIcon({
@@ -1245,7 +1263,7 @@
           <div class="text-xs">
             <div class="flex items-center justify-between gap-2 mb-1.5 pb-1 border-b border-slate-200 dark:border-slate-700">
               <strong class="text-sm font-bold text-slate-900 dark:text-white">${item.title}</strong>
-              <span class="text-[10px] px-2 py-0.5 rounded font-bold ${item.category === 'utility' ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/80 dark:text-amber-200' : 'bg-sky-100 text-sky-800 dark:bg-sky-900/80 dark:text-sky-200'}">${item.status}</span>
+              <span class="text-[10px] px-2 py-0.5 rounded font-bold ${badgeClass}">${item.status}</span>
             </div>
             ${item.temp_water ? `
               <div class="mb-1 text-slate-700 dark:text-slate-300">
@@ -1272,6 +1290,7 @@
     }
 
     function filterMapMarkers(cat) {
+      activeMapFilter = cat;
       document.querySelectorAll('.map-filter-btn').forEach(btn => {
         if (btn.dataset.cat === cat) {
           btn.className = 'map-filter-btn px-2.5 py-1 rounded bg-sky-600 text-white font-semibold transition';
@@ -1282,7 +1301,7 @@
         }
       });
       if (cityData && cityData.map_markers) {
-        renderMapMarkers(cityData.map_markers, cat);
+        renderMapMarkers(cityData.map_markers, activeMapFilter);
       }
     }
 
@@ -1784,7 +1803,7 @@
         if (!leafMap) {
           initLeafletMap(data.map_markers);
         } else {
-          renderMapMarkers(data.map_markers);
+          renderMapMarkers(data.map_markers, activeMapFilter);
         }
       }
     }
