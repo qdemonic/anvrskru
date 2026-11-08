@@ -1,21 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-<<<<<<< HEAD
-  "updated_at_iso": "2026-11-08T08:40:44.367316+03:00",
-  "updated_at_human": "08.11.2026 в 08:40:44 (МСК)",
-  "active_alert": null,
-  "weather": {
-    "temperature": 2.8,
-    "apparent_temperature": -2.2,
-    "humidity": 77,
-    "pressure_hpa": 1023,
-    "wind_speed": 5.3,
-    "wind_gusts": 12.4,
-    "wind_direction": 21,
-=======
-  "updated_at_iso": "2026-11-08T09:30:44.310216+03:00",
-  "updated_at_human": "08.11.2026 в 09:30:44 (МСК)",
+  "updated_at_iso": "2026-11-08T09:38:59.232358+03:00",
+  "updated_at_human": "08.11.2026 в 09:38:59 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 3.5,
@@ -25,7 +12,6 @@
     "wind_speed": 5.8,
     "wind_gusts": 13.3,
     "wind_direction": 23,
->>>>>>> 877fc6c230f9ae6930ba1e625eb5205b02b42109
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Умеренный",
     "hourly": [
@@ -116,11 +102,7 @@
     }
   },
   "marine": {
-<<<<<<< HEAD
     "water_temp": 17.5,
-=======
-    "water_temp": 16.4,
->>>>>>> 877fc6c230f9ae6930ba1e625eb5205b02b42109
     "wave_height_m": 0.44,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
@@ -341,7 +323,7 @@
       "status_code": "ok",
       "temp_water": "+17.5°C",
       "waves": "0.4 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 5.3 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 5.8 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -458,7 +440,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (12.4 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (13.3 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
