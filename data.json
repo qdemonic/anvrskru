@@ -1,16 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-08T08:27:58.846173+03:00",
-  "updated_at_human": "08.11.2026 в 08:27:58 (МСК)",
+  "updated_at_iso": "2026-11-08T09:00:56.145048+03:00",
+  "updated_at_human": "08.11.2026 в 09:00:56 (МСК)",
+  "active_alert": null,
   "weather": {
-    "temperature": 2.6,
-    "apparent_temperature": -2.3,
-    "humidity": 78,
+    "temperature": 3.0,
+    "apparent_temperature": -2.1,
+    "humidity": 77,
     "pressure_hpa": 1023,
-    "wind_speed": 5.0,
-    "wind_gusts": 12.4,
-    "wind_direction": 21,
+    "wind_speed": 5.6,
+    "wind_gusts": 12.6,
+    "wind_direction": 22,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Умеренный",
     "hourly": [
@@ -52,39 +53,39 @@
       },
       {
         "time": "06:00",
-        "wind": 4.7,
+        "wind": 4.9,
         "gust": 11.6,
-        "temp": 2.7
+        "temp": 2.5
       },
       {
         "time": "07:00",
-        "wind": 4.8,
-        "gust": 10.5,
-        "temp": 2.5
+        "wind": 5.0,
+        "gust": 11.0,
+        "temp": 2.3
       },
       {
         "time": "08:00",
-        "wind": 4.9,
-        "gust": 11.0,
-        "temp": 2.5
+        "wind": 5.1,
+        "gust": 11.2,
+        "temp": 2.4
       },
       {
         "time": "09:00",
-        "wind": 5.5,
-        "gust": 12.4,
-        "temp": 3.2
+        "wind": 5.6,
+        "gust": 12.6,
+        "temp": 3.0
       },
       {
         "time": "10:00",
         "wind": 5.8,
-        "gust": 13.2,
-        "temp": 4.1
+        "gust": 13.3,
+        "temp": 4.0
       },
       {
         "time": "11:00",
         "wind": 5.5,
-        "gust": 13.1,
-        "temp": 5.4
+        "gust": 13.2,
+        "temp": 5.2
       }
     ],
     "tomorrow": {
@@ -102,7 +103,7 @@
   },
   "marine": {
     "water_temp": 16.4,
-    "wave_height_m": 0.46,
+    "wave_height_m": 0.44,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
