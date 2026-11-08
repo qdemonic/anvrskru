@@ -1,110 +1,32 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-08T21:30:45.958010+03:00",
-  "updated_at_human": "08.11.2026 в 21:30:45 (МСК)",
-  "active_alert": null,
+  "updated_at_iso": "2026-11-08T22:00:57.394390+03:00",
+  "updated_at_human": "08.11.2026 в 22:00:57 (МСК)",
+  "active_alert": {
+    "is_active": true,
+    "type": "storm",
+    "title": "Порывы норд-оста достигают 22.0 м/с. Действует предупреждение о сильном ветре.",
+    "source_name": "МКУ «Безопасный город» / ЕДДС",
+    "source_url": "https://vk.ru/bgnvr",
+    "level": "warning"
+  },
   "weather": {
-    "temperature": 3.1,
-    "apparent_temperature": -0.4,
-    "humidity": 64,
-    "pressure_hpa": 1028,
-    "wind_speed": 1.9,
-    "wind_gusts": 4.8,
-    "wind_direction": 3,
-    "wind_direction_name": "Северный / СЗ",
-    "bora_risk": "Низкий",
-    "hourly": [
-      {
-        "time": "00:00",
-        "wind": 4.6,
-        "gust": 9.9,
-        "temp": 4.1
-      },
-      {
-        "time": "01:00",
-        "wind": 4.8,
-        "gust": 10.7,
-        "temp": 3.9
-      },
-      {
-        "time": "02:00",
-        "wind": 5.1,
-        "gust": 11.3,
-        "temp": 3.6
-      },
-      {
-        "time": "03:00",
-        "wind": 5.5,
-        "gust": 11.4,
-        "temp": 3.3
-      },
-      {
-        "time": "04:00",
-        "wind": 5.0,
-        "gust": 11.5,
-        "temp": 3.1
-      },
-      {
-        "time": "05:00",
-        "wind": 5.2,
-        "gust": 11.7,
-        "temp": 2.9
-      },
-      {
-        "time": "06:00",
-        "wind": 4.9,
-        "gust": 11.6,
-        "temp": 2.5
-      },
-      {
-        "time": "07:00",
-        "wind": 5.0,
-        "gust": 11.0,
-        "temp": 2.3
-      },
-      {
-        "time": "08:00",
-        "wind": 5.1,
-        "gust": 11.2,
-        "temp": 2.4
-      },
-      {
-        "time": "09:00",
-        "wind": 5.1,
-        "gust": 12.6,
-        "temp": 3.2
-      },
-      {
-        "time": "10:00",
-        "wind": 5.3,
-        "gust": 12.6,
-        "temp": 4.1
-      },
-      {
-        "time": "11:00",
-        "wind": 5.2,
-        "gust": 12.1,
-        "temp": 5.4
-      }
-    ],
-    "tomorrow": {
-      "date": "2026-11-09",
-      "temp_max": 8,
-      "temp_min": 1,
-      "temp_max_str": "+8°",
-      "temp_min_str": "+1°C",
-      "wind_max": 1.9,
-      "wind_gusts_max": 4.9,
-      "condition_desc": "Дождь",
-      "condition_icon": "🌧️",
-      "precip_prob": 10
-    }
+    "temperature": 14.5,
+    "apparent_temperature": 11.8,
+    "humidity": 62,
+    "pressure_hpa": 1018,
+    "wind_speed": 16.0,
+    "wind_gusts": 22.0,
+    "wind_direction": 45,
+    "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
+    "bora_risk": "Высокий",
+    "hourly": []
   },
   "marine": {
     "water_temp": 17.3,
-    "wave_height_m": 0.22,
-    "wave_period_s": 3.6,
+    "wave_height_m": 0.2,
+    "wave_period_s": 3.7,
     "wave_points": "1 балл (Спокойное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -320,11 +242,11 @@
       "lon": 37.7985,
       "title": "Пляж Алексино",
       "category": "beach",
-      "status": "Открыт / Штиль",
-      "status_code": "ok",
+      "status": "Шторм (Купание запрещено)",
+      "status_code": "danger",
       "temp_water": "+17.3°C",
       "waves": "0.2 м (1 балл (Спокойное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 1.9 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 16.0 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -333,8 +255,8 @@
       "lon": 37.8028,
       "title": "Суджукская коса и Лагуна",
       "category": "beach",
-      "status": "Открыт / Штиль",
-      "status_code": "ok",
+      "status": "Шторм (Купание запрещено)",
+      "status_code": "danger",
       "temp_water": "+17.3°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
@@ -346,8 +268,8 @@
       "lon": 37.785,
       "title": "Центральный городской пляж",
       "category": "beach",
-      "status": "Открыт / Штиль",
-      "status_code": "ok",
+      "status": "Шторм (Купание запрещено)",
+      "status_code": "danger",
       "temp_water": "+17.3°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
@@ -359,8 +281,8 @@
       "lon": 37.763,
       "title": "Пляж Мысхако (Колдун-гора)",
       "category": "beach",
-      "status": "Открыт / Штиль",
-      "status_code": "ok",
+      "status": "Шторм (Купание запрещено)",
+      "status_code": "danger",
       "temp_water": "+17.3°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
@@ -372,8 +294,8 @@
       "lon": 37.702,
       "title": "Пляж Широкая Балка",
       "category": "beach",
-      "status": "Открыт / Штиль",
-      "status_code": "ok",
+      "status": "Шторм (Купание запрещено)",
+      "status_code": "danger",
       "temp_water": "+17.3°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +17.3°C.",
@@ -437,11 +359,11 @@
       "lon": 37.697,
       "title": "Перевал «Волчьи ворота» (А-146)",
       "category": "traffic",
-      "status": "Трасса свободна",
-      "status_code": "ok",
+      "status": "Шквалы (Опасно для фур)",
+      "status_code": "danger",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (4.8 м/с), покрытие сухое.",
+      "desc": "Порывы норд-оста на горном перевале достигают 22.0 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -467,7 +389,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Ветер Северный / СЗ сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме.",
+      "desc": "Ветер СВ (Норд-Ост / Маркотх) сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме.",
       "source_url": "https://admnvrsk.ru"
     }
   ],
