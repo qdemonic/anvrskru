@@ -103,6 +103,78 @@
       background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
       background-size: 100% 4px;
     }
+
+    /* Volumetric UI: Depth, Layered Elevation, Glassmorphism & Soft Inset Highlights */
+    .volumetric-card {
+      background: rgba(255, 255, 255, 0.92) !important;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(226, 232, 240, 0.9) !important;
+      box-shadow: 
+        0 1px 2px 0 rgba(15, 23, 42, 0.04),
+        0 8px 24px -4px rgba(15, 23, 42, 0.08),
+        0 4px 8px -2px rgba(15, 23, 42, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.25s ease !important;
+    }
+    .volumetric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 4px 8px -2px rgba(15, 23, 42, 0.06),
+        0 18px 36px -8px rgba(15, 23, 42, 0.13),
+        0 8px 14px -4px rgba(15, 23, 42, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    }
+    .dark .volumetric-card {
+      background: rgba(15, 23, 42, 0.85) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(51, 65, 85, 0.7) !important;
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 14px 34px -6px rgba(0, 0, 0, 0.75),
+        0 6px 14px -3px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    }
+    .dark .volumetric-card:hover {
+      border-color: rgba(56, 189, 248, 0.4) !important;
+      box-shadow: 
+        0 0 0 1px rgba(56, 189, 248, 0.25),
+        0 22px 44px -8px rgba(0, 0, 0, 0.9),
+        0 12px 20px -4px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+    }
+
+    /* Sub-panels and news items */
+    .volumetric-subcard {
+      background: rgba(248, 250, 252, 0.82) !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(226, 232, 240, 0.85) !important;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.75) !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .volumetric-subcard:hover {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border-color: rgba(14, 165, 233, 0.5) !important;
+      box-shadow: 0 6px 16px -4px rgba(14, 165, 233, 0.12), 0 2px 6px -1px rgba(15, 23, 42, 0.04) !important;
+      transform: translateY(-1px);
+    }
+    .dark .volumetric-subcard {
+      background: rgba(2, 6, 23, 0.6) !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(51, 65, 85, 0.55) !important;
+      box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+    }
+    .dark .volumetric-subcard:hover {
+      background: rgba(15, 23, 42, 0.75) !important;
+      border-color: rgba(56, 189, 248, 0.45) !important;
+      box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(56, 189, 248, 0.2) !important;
+      transform: translateY(-1px);
+    }
   </style>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -121,7 +193,7 @@
 <body class="bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen antialiased flex flex-col transition-colors duration-300">
 
   <!-- Top Emergency Alert Bar with Direct Link -->
-  <div id="storm-alert-bar" class="bg-gradient-to-r from-amber-600 to-rose-700 text-white px-4 py-2.5 text-xs md:text-sm font-medium flex items-center justify-between shadow-lg">
+  <div id="storm-alert-bar" style="display: none;" class="bg-gradient-to-r from-amber-600 to-rose-700 text-white px-4 py-2.5 text-xs md:text-sm font-medium items-center justify-between shadow-lg z-50">
     <div class="max-w-7xl mx-auto w-full flex items-center justify-between gap-3">
       <div class="flex items-center gap-2.5 overflow-hidden">
         <span class="flex h-3 w-3 relative flex-shrink-0">
@@ -129,19 +201,20 @@
           <span class="relative inline-flex rounded-full h-3 w-3 bg-red-100"></span>
         </span>
         <span class="font-bold tracking-wide uppercase flex-shrink-0 bg-black/20 px-2 py-0.5 rounded">Оперативно:</span>
-        <span class="truncate">Порывы норд-оста до 22-26 м/с. ТГВ заполняет резервуары, вечерняя подача воды в 18:00 по графику.</span>
+        <span id="storm-alert-text" class="truncate">Порывы норд-оста...</span>
       </div>
       <div class="flex items-center gap-3 flex-shrink-0">
-        <a href="https://t.me/mcu_nvrsk" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 underline hover:text-amber-200 text-xs font-semibold">
-          Источник: МЦУ Новороссийск ↗
+        <a id="storm-alert-source" href="https://vk.ru/bgnvr" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 underline hover:text-amber-200 text-xs font-semibold">
+          Источник: ЕДДС Новороссийск ↗
         </a>
-        <button onclick="document.getElementById('storm-alert-bar').style.display='none'" class="text-white/80 hover:text-white text-lg px-2 rounded focus:outline-none">&times;</button>
+        <button onclick="dismissAlertBar()" aria-label="Закрыть оповещение" class="text-white/80 hover:text-white text-lg px-2 rounded focus:outline-none">&times;</button>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- Header (Adaptive Light / Dark) -->
-  <header class="border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-40 transition-colors">
+  <header class="border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-slate-900/85 backdrop-blur-md sticky top-0 z-40 shadow-sm shadow-slate-200/40 dark:shadow-black/40 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
       <div class="flex items-center justify-between gap-4">
         <!-- Logo & Title -->
@@ -193,13 +266,13 @@
       <!-- Navigation Tabs -->
       <nav class="flex gap-2 sm:gap-3 mt-3 pt-2 border-t border-slate-200 dark:border-slate-800 overflow-x-auto custom-scrollbar text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
         <button onclick="switchTab('main')" class="tab-btn active-tab px-3.5 py-1.5 rounded-md text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-slate-800 font-semibold border-b-2 border-sky-600 dark:border-sky-400 transition flex-shrink-0" data-target="main">
-          📰 Главная (Новости & Сводки)
+          📰 Главная (Новости и Сводки)
         </button>
         <button onclick="switchTab('traffic')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="traffic">
           📹 Веб-камеры и дорожная ситуация
         </button>
         <button onclick="switchTab('utilities')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="utilities">
-          💧 ЖКХ & Водоснабжение
+          💧 ЖКХ и Водоснабжение
         </button>
         <button onclick="switchTab('map')" class="tab-btn px-3.5 py-1.5 rounded-md hover:text-slate-900 dark:hover:text-slate-200 transition flex-shrink-0" data-target="map">
           🗺️ Интерактивная карта города
@@ -218,7 +291,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
 
       <!-- 1. Wind & Bora Widget (Open-Meteo ECMWF Model) -->
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group volumetric-card">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
             <svg class="w-4 h-4 text-sky-500 dark:text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -251,7 +324,7 @@
       </div>
 
       <!-- 2. Sea & Port Widget (Tsemes Bay) -->
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group volumetric-card">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
             <svg class="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -279,7 +352,7 @@
       </div>
 
       <!-- 3. Ecology & Air Quality Widget -->
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group volumetric-card">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
             <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -303,7 +376,7 @@
       </div>
 
       <!-- 4. Tomorrow Weather Forecast Widget (Open-Meteo Daily) - Крайний справа -->
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 transition shadow-sm relative overflow-hidden group volumetric-card">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
             <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -339,7 +412,7 @@
 
         <!-- Left 2 Cols: Main News & Official Service Dispatches (FEATURED ON HOMEPAGE) -->
         <div class="lg:col-span-2 space-y-4">
-          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
               <div>
                 <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -373,7 +446,7 @@
         <div class="space-y-6">
 
           <!-- Hourly Wind Forecast Block (ECMWF Model) -->
-          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
               <div>
                 <h3 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -408,10 +481,10 @@
           </div>
 
           <!-- Quick Utilities Banner linking to dedicated ЖКХ section -->
-          <div class="bg-gradient-to-br from-sky-50 to-blue-100 dark:from-slate-900 dark:to-sky-950 border border-sky-200 dark:border-sky-800/80 rounded-2xl p-5 shadow-sm">
+          <div class="bg-gradient-to-br from-sky-50 to-blue-100 dark:from-slate-900 dark:to-sky-950 border border-sky-200 dark:border-sky-800/80 rounded-2xl p-5 shadow-sm volumetric-card">
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs uppercase font-bold text-sky-700 dark:text-sky-400 tracking-wider">Коммунальный сектор</span>
-              <span class="text-[11px] bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-700">ТГВ & Водоканал</span>
+              <span class="text-[11px] bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-700">ТГВ и Водоканал</span>
             </div>
             <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Графики подачи воды и статус сетей</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
@@ -458,7 +531,7 @@
 
     <!-- TAB 2: CAMERAS, ROAD SITUATION & TRAFFIC MONITORING -->
     <div id="tab-traffic" class="tab-content hidden space-y-6">
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
             <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -497,7 +570,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 
           <!-- CAM 1: Морской вокзал и Форумная площадь -->
-          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition">
+          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition volumetric-card">
             <div>
               <div class="p-3 bg-slate-900 text-white flex items-center justify-between text-xs">
                 <div class="flex items-center gap-1.5 truncate">
@@ -527,7 +600,7 @@
           </div>
 
           <!-- CAM 2: Улица Куникова -->
-          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition">
+          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition volumetric-card">
             <div>
               <div class="p-3 bg-slate-900 text-white flex items-center justify-between text-xs">
                 <div class="flex items-center gap-1.5 truncate">
@@ -557,7 +630,7 @@
           </div>
 
           <!-- CAM 3: Панорама Новороссийска -->
-          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition">
+          <div class="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition volumetric-card">
             <div>
               <div class="p-3 bg-slate-900 text-white flex items-center justify-between text-xs">
                 <div class="flex items-center gap-1.5 truncate">
@@ -757,7 +830,7 @@
     <div id="tab-utilities" class="tab-content hidden space-y-6">
 
       <!-- Header of the dedicated Utilities section -->
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
           <div>
             <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -800,7 +873,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         <!-- Water zones detailed schedule -->
-        <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+        <div class="lg:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
           <div class="flex items-center justify-between mb-4">
             <div>
               <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -877,7 +950,7 @@
 
     <!-- TAB 4: REAL INTERACTIVE MAP (ESRI WORLD IMAGERY) -->
     <div id="tab-map" class="tab-content hidden space-y-6">
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
             <h2 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -900,9 +973,9 @@
         <!-- Category filter buttons -->
         <div class="flex flex-wrap gap-1.5 text-xs mb-3">
           <button onclick="filterMapMarkers('all')" class="map-filter-btn px-2.5 py-1 rounded bg-sky-600 text-white font-semibold transition" data-cat="all">Все метки</button>
-          <button onclick="filterMapMarkers('beach')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="beach">🏖️ Пляжи & Вода</button>
+          <button onclick="filterMapMarkers('beach')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="beach">🏖️ Пляжи и Вода</button>
           <button onclick="filterMapMarkers('utility')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="utility">🔧 Ремонты ТГВ</button>
-          <button onclick="filterMapMarkers('traffic')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="traffic">🚗 Дороги & Шесхарис</button>
+          <button onclick="filterMapMarkers('traffic')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="traffic">🚗 Дороги и Шесхарис</button>
           <button onclick="filterMapMarkers('eco')" class="map-filter-btn px-2.5 py-1 rounded bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 transition" data-cat="eco">🍃 Экопосты</button>
         </div>
 
@@ -923,7 +996,7 @@
 
     <!-- TAB 5: EMERGENCY CONTACTS 24/7 -->
     <div id="tab-contacts" class="tab-content hidden space-y-6">
-      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm">
+      <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm volumetric-card">
         <h2 class="text-base font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
           <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -1403,7 +1476,7 @@
 
       filtered.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 transition';
+        card.className = 'p-4 rounded-xl volumetric-subcard hover:border-sky-400 dark:hover:border-sky-500/60 transition';
 
         let badgeBg = 'bg-sky-100 text-sky-800 border-sky-300 dark:bg-sky-950 dark:text-sky-300 dark:border-sky-800';
         let icon = '🏛️';
@@ -1621,8 +1694,79 @@
       }, 600);
     }
 
+
+    function updateAlertBar(data) {
+      const bar = document.getElementById('storm-alert-bar');
+      if (!bar) return;
+      const textEl = document.getElementById('storm-alert-text');
+      const srcEl = document.getElementById('storm-alert-source');
+
+      let activeAlert = null;
+
+      // 1. Explicit active alert from server
+      if (data && data.active_alert && data.active_alert.is_active) {
+        activeAlert = data.active_alert;
+      } 
+      // 2. Weather conditions check: gusts >= 18 m/s or high bora risk
+      else if (data && data.weather && (Number(data.weather.wind_gusts) >= 18 || data.weather.bora_risk === 'Высокий')) {
+        activeAlert = {
+          title: 'Внимание: порывы норд-оста достигают ' + data.weather.wind_gusts + ' м/с. Действует штормовое предупреждение по Новороссийску.',
+          source_name: 'МКУ «Безопасный город» / ЕДДС',
+          source_url: 'https://vk.ru/bgnvr'
+        };
+      }
+      // 3. Emergency news within the last 18 hours
+      else if (data && Array.isArray(data.news)) {
+        const nowTs = Date.now();
+        const emItem = data.news.find(item => {
+          const isEmergency = item.category === 'emergency' || 
+            /(штормовое предупреждение|ураган|норд-ост до|сирена|опасные явления|чс\b)/i.test((item.title || '') + ' ' + (item.text || ''));
+          if (!isEmergency) return false;
+          const ts = (item.timestamp ? item.timestamp * 1000 : (item.time_iso ? new Date(item.time_iso).getTime() : 0));
+          return ts > 0 && (nowTs - ts) < (18 * 3600 * 1000);
+        });
+        if (emItem) {
+          activeAlert = {
+            title: emItem.title,
+            source_name: emItem.source_name || 'ЕДДС Новороссийск',
+            source_url: emItem.source_url || 'https://vk.ru/bgnvr'
+          };
+        }
+      }
+
+      // If alert has lost relevance, hide completely
+      if (!activeAlert) {
+        bar.style.display = 'none';
+        return;
+      }
+
+      const alertKey = (activeAlert.title || '').slice(0, 30).trim();
+      if (sessionStorage.getItem('dismissed_alert_' + alertKey)) {
+        bar.style.display = 'none';
+        return;
+      }
+
+      bar.setAttribute('data-alert-key', alertKey);
+      if (textEl) textEl.textContent = activeAlert.title;
+      if (srcEl) {
+        srcEl.href = activeAlert.source_url || 'https://vk.ru/bgnvr';
+        srcEl.textContent = 'Источник: ' + (activeAlert.source_name || 'Городские службы') + ' ↗';
+      }
+      bar.style.display = 'flex';
+    }
+
+    function dismissAlertBar() {
+      const bar = document.getElementById('storm-alert-bar');
+      if (bar) {
+        const alertKey = bar.getAttribute('data-alert-key') || 'current';
+        sessionStorage.setItem('dismissed_alert_' + alertKey, 'true');
+        bar.style.display = 'none';
+      }
+    }
+
     function applyCityData(data) {
       if (!data) return;
+      updateAlertBar(data);
       updateHeroStats(data.weather, data.marine);
       if (data.weather && data.weather.hourly) {
         populateHourlyChart(data.weather.hourly);
@@ -1854,7 +1998,7 @@
         {
           lat: 44.6920,
           lon: 37.8028,
-          title: "Суджукская коса & Лагуна",
+          title: "Суджукская коса и Лагуна",
           category: "beach",
           status: "Открыт",
           temp_water: "+16.4°C",
@@ -1898,7 +2042,7 @@
         {
           lat: 44.7040,
           lon: 37.5990,
-          title: "Озеро Абрау & Набережная",
+          title: "Озеро Абрау и Набережная",
           category: "nature",
           status: "Штатно",
           temp_water: "+15.8°C",

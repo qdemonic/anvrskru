@@ -763,11 +763,44 @@ def main():
     markers = build_map_markers()
     fetch_and_cache_cameras()
 
+    # Активное оперативное оповещение (только при реальной актуальности: шторм/ЧС)
+    active_alert = None
+    wind_gusts = weather.get("wind_gusts", 0) if weather else 0
+    bora_risk = weather.get("bora_risk", "") if weather else ""
+    if wind_gusts >= 18.0 or bora_risk == "Высокий":
+        active_alert = {
+            "is_active": True,
+            "type": "storm",
+            "title": f"Порывы норд-оста достигают {wind_gusts} м/с. Действует предупреждение о сильном ветре.",
+            "source_name": "МКУ «Безопасный город» / ЕДДС",
+            "source_url": "https://vk.ru/bgnvr",
+            "level": "warning" if wind_gusts < 25 else "danger"
+        }
+    else:
+        # Проверка свежих экстренных сводок за последние 18 часов
+        emergency_keywords = ["штормовое предупреждение", "чс", "сирена", "воздушная тревога", "угроза", "опасные явления", "норд-ост до"]
+        cutoff_ts = int(now_msk.timestamp()) - 18 * 3600
+        for n in official_news:
+            n_ts = n.get("timestamp", 0)
+            if n_ts >= cutoff_ts:
+                title_lower = (n.get("title", "") + " " + n.get("full_text", "")).lower()
+                if n.get("category") == "emergency" or any(kw in title_lower for kw in emergency_keywords):
+                    active_alert = {
+                        "is_active": True,
+                        "type": "emergency",
+                        "title": n.get("title", "")[:150],
+                        "source_name": n.get("source_name", "Службы Новороссийска"),
+                        "source_url": n.get("source_url", "https://vk.ru/bgnvr"),
+                        "level": "warning"
+                    }
+                    break
+
     payload = {
         "portal_name": "Актуальный Новороссийск",
         "domain": "anvrsk.ru",
         "updated_at_iso": now_msk.isoformat(),
         "updated_at_human": now_msk.strftime("%d.%m.%Y в %H:%M:%S (МСК)"),
+        "active_alert": active_alert,
         "weather": weather,
         "marine": marine,
         "districts": districts,
