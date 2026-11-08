@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 from datetime import datetime
 from PIL import Image, ImageDraw, ImageFont
 
@@ -12,6 +13,29 @@ LOGO_PATH = os.path.join(BASE_DIR, 'icon-512.png')
 # Canvas Dimensions: Vertical 1080x1440 (4:3 ratio)
 WIDTH = 1080
 HEIGHT = 1440
+
+EMOJI_PATTERN = re.compile(
+    "["
+    "\U00010000-\U0010ffff"  # Supplemental symbols, emoji planes
+    "\u2600-\u27bf"          # Misc symbols & dingbats (⚡, ⛑, ✈, ❄, etc.)
+    "\ufe00-\ufe0f"          # Variation selectors
+    "\u200d"                 # Zero width joiner
+    "\u20E3"                 # Keycap
+    "\u203c\u2049"           # ‼ and ⁉
+    "]+",
+    flags=re.UNICODE
+)
+
+def clean_emojis(text):
+    """
+    Удаляет Unicode-эмодзи и подчищает висячие знаки препинания в начале.
+    Это предотвращает появление пустых квадратиков (.notdef) в TrueType шрифтах.
+    """
+    if not text:
+        return ""
+    cleaned = EMOJI_PATTERN.sub("", text)
+    cleaned = re.sub(r'^[!\?,\.\s\:\-\–\—\|\u203c\u2049]+', '', cleaned)
+    return " ".join(cleaned.split())
 
 def load_font(size, bold=False):
     """Loads Inter font or system fallback."""
@@ -36,6 +60,7 @@ def load_font(size, bold=False):
 
 def wrap_text(text, font, max_width, draw):
     """Wraps text into lines that fit within max_width."""
+    text = clean_emojis(text)
     words = text.split()
     lines = []
     current_line = []
@@ -98,7 +123,6 @@ def create_informer(data, theme='dark'):
     draw = ImageDraw.Draw(im)
 
     # 2. Header Section
-    # Load Logo
     if os.path.exists(LOGO_PATH):
         try:
             logo = Image.open(LOGO_PATH).convert('RGBA')
@@ -121,7 +145,7 @@ def create_informer(data, theme='dark'):
     badge_x2, badge_y2 = 1028, 86
     draw.rounded_rectangle((badge_x1, badge_y1, badge_x2, badge_y2), radius=17, fill=badge_bg, outline=card_border, width=1)
     
-    # Pulse dot (green/rose)
+    # Pulse dot (green)
     draw.ellipse((badge_x1 + 14, badge_y1 + 11, badge_x1 + 24, badge_y1 + 21), fill=(34, 197, 94))
     draw.text((badge_x1 + 32, badge_y1 + 7), "ОПЕРАТИВНО • LIVE", font=font_badge, fill=badge_text)
 
@@ -133,7 +157,6 @@ def create_informer(data, theme='dark'):
     draw.line((52, 150, 1028, 150), fill=card_border, width=1)
 
     # 3. Four Metric Cards (2x2 Grid)
-    # Card Geometry:
     col_w = 472
     col1_x = 52
     col2_x = 556
@@ -144,16 +167,33 @@ def create_informer(data, theme='dark'):
     weather = data.get('weather', {})
     marine = data.get('marine', {})
 
-    # Helper function to draw volumetric card
-    def draw_card(x1, y1, x2, y2, title, emoji):
-        # Card shadow & background
+    def draw_card_base(x1, y1, x2, y2, title, card_type):
         draw.rounded_rectangle((x1, y1, x2, y2), radius=20, fill=card_bg, outline=card_border, width=1)
-        # Header inside card
-        draw.text((x1 + 20, y1 + 16), f"{emoji} {title.upper()}", font=font_badge, fill=accent_blue)
+        
+        # Vector icons for card headers
+        if card_type == 'weather':
+            # Golden sun icon
+            draw.ellipse((x1 + 20, y1 + 18, x1 + 34, y1 + 32), fill=(245, 158, 11))
+            draw.ellipse((x1 + 23, y1 + 21, x1 + 31, y1 + 29), fill=(254, 240, 138))
+        elif card_type == 'wind':
+            # Cyan wind airflow lines
+            draw.line((x1 + 18, y1 + 21, x1 + 34, y1 + 21), fill=(56, 189, 248), width=3)
+            draw.line((x1 + 15, y1 + 26, x1 + 31, y1 + 26), fill=(56, 189, 248), width=3)
+            draw.line((x1 + 20, y1 + 31, x1 + 34, y1 + 31), fill=(56, 189, 248), width=3)
+        elif card_type == 'marine':
+            # Blue wave crests
+            draw.arc((x1 + 16, y1 + 18, x1 + 26, y1 + 30), 180, 0, fill=(56, 189, 248), width=3)
+            draw.arc((x1 + 25, y1 + 18, x1 + 35, y1 + 30), 180, 0, fill=(56, 189, 248), width=3)
+        elif card_type == 'eco':
+            # Emerald green leaf / eco dot
+            draw.ellipse((x1 + 20, y1 + 18, x1 + 34, y1 + 32), fill=(34, 197, 94))
+            draw.ellipse((x1 + 23, y1 + 21, x1 + 31, y1 + 29), fill=(187, 247, 208))
+
+        draw.text((x1 + 44, y1 + 16), title.upper(), font=font_badge, fill=accent_blue)
         draw.line((x1 + 20, y1 + 44, x2 - 20, y1 + 44), fill=card_border, width=1)
 
     # CARD 1: Погода и температура (Row 1, Col 1)
-    draw_card(col1_x, row1_y, col1_x + col_w, row1_y + row_h, "Погода и воздух", "🌤️")
+    draw_card_base(col1_x, row1_y, col1_x + col_w, row1_y + row_h, "Погода и воздух", "weather")
     t_val = f"{weather.get('temperature', 5.5):+.1f}°C"
     app_t = f"{weather.get('apparent_temperature', 2.0):+.1f}°C"
     hum = f"{weather.get('humidity', 75)}%"
@@ -167,11 +207,11 @@ def create_informer(data, theme='dark'):
     draw.text((col1_x + 20, row1_y + 142), f"Влажность: {hum} • Давление: {press}", font=font_body, fill=text_secondary)
     
     tom = weather.get('tomorrow', {})
-    tom_str = f"Завтра: {tom.get('temp_max_str', '+7°')} ({tom.get('condition_desc', 'Малооблачно')})"
+    tom_str = f"Завтра: {tom.get('temp_max_str', '+7°')} ({clean_emojis(tom.get('condition_desc', 'Малооблачно'))})"
     draw.text((col1_x + 20, row1_y + 174), tom_str, font=font_small, fill=accent_blue)
 
     # CARD 2: Ветер и Норд-Ост / Бора (Row 1, Col 2)
-    draw_card(col2_x, row1_y, col2_x + col_w, row1_y + row_h, "Ветер и Норд-Ост (Бора)", "💨")
+    draw_card_base(col2_x, row1_y, col2_x + col_w, row1_y + row_h, "Ветер и Норд-Ост (Бора)", "wind")
     w_speed = f"{weather.get('wind_speed', 4.0):.1f} м/с"
     w_gusts = f"{weather.get('wind_gusts', 12.0):.1f} м/с"
     w_dir = weather.get('wind_direction_name', 'СВ (Норд-Ост)')
@@ -186,7 +226,7 @@ def create_informer(data, theme='dark'):
     draw.text((col2_x + 32, row1_y + 162), f"Риск боры: {bora.upper()}", font=font_badge, fill=(255, 255, 255))
 
     # CARD 3: Море и Цемесская бухта (Row 2, Col 1)
-    draw_card(col1_x, row2_y, col1_x + col_w, row2_y + row_h, "Море и Цемесская бухта", "🌊")
+    draw_card_base(col1_x, row2_y, col1_x + col_w, row2_y + row_h, "Море и Цемесская бухта", "marine")
     water_t = f"+{marine.get('water_temp', 17.5):.1f}°C"
     wave_h_str = f"{marine.get('wave_height_m', 0.4):.1f} м"
     wave_p = marine.get('wave_points', '2 балла (Умеренное)')
@@ -195,12 +235,13 @@ def create_informer(data, theme='dark'):
     draw.text((col1_x + 20, row2_y + 54), f"Вода: {water_t}", font=font_metric, fill=accent_blue)
     draw.text((col1_x + 20, row2_y + 112), f"Волнение: {wave_h_str} ({wave_p})", font=font_body, fill=text_secondary)
     draw.text((col1_x + 20, row2_y + 144), f"Рейд порта: {port_st}", font=font_body, fill=text_secondary)
+    
     wave_period = marine.get('wave_period_s', marine.get('wave_period', 3.0))
     nav_status = "Навигация в бухте штатная" if marine.get('wave_height_m', 0.4) < 1.5 else "Ограничение навигации по погоде"
     draw.text((col1_x + 20, row2_y + 174), f"Период волны: {wave_period:.1f} с • {nav_status}", font=font_small, fill=accent_blue)
 
     # CARD 4: Экология и мониторинг (Row 2, Col 2)
-    draw_card(col2_x, row2_y, col2_x + col_w, row2_y + row_h, "Экология и качество воздуха", "🍃")
+    draw_card_base(col2_x, row2_y, col2_x + col_w, row2_y + row_h, "Экология и качество воздуха", "eco")
     draw.text((col2_x + 20, row2_y + 54), "AQI 32 • Норма", font=font_metric, fill=(34, 197, 94))
     draw.text((col2_x + 20, row2_y + 112), "Взвешенные частицы PM2.5: 8 мкг/м³", font=font_body, fill=text_secondary)
     draw.text((col2_x + 20, row2_y + 144), "Шлейф цемзаводов: снос в сторону моря", font=font_body, fill=text_secondary)
@@ -208,7 +249,10 @@ def create_informer(data, theme='dark'):
 
     # 4. Section: Recent 3 Official News & Alerts
     section_y = 650
-    draw.text((52, section_y), "📢 ОПЕРАТИВНЫЕ СВОДКИ И СООБЩЕНИЯ СЛУЖБ ГОРОДА", font=load_font(22, bold=True), fill=text_primary)
+    # Clean section header with red pulse indicator dot
+    draw.ellipse((52, section_y + 6, 68, section_y + 22), fill=(239, 68, 68))
+    draw.ellipse((56, section_y + 10, 64, section_y + 18), fill=(254, 202, 202))
+    draw.text((78, section_y), "ОПЕРАТИВНЫЕ СВОДКИ И СООБЩЕНИЯ СЛУЖБ ГОРОДА", font=load_font(22, bold=True), fill=text_primary)
     draw.line((52, section_y + 36, 1028, section_y + 36), fill=card_border, width=1)
 
     news_list = data.get('news', [])[:3]
@@ -224,44 +268,43 @@ def create_informer(data, theme='dark'):
         ny = news_start_y + i * (news_card_h + news_gap)
         draw.rounded_rectangle((52, ny, 1028, ny + news_card_h), radius=18, fill=card_bg, outline=card_border, width=1)
 
-        # Source badge color
-        source_name = item.get('source_name', 'Службы города')
+        # Source badge formatting with clean textual prefix and dot indicator
+        raw_source = clean_emojis(item.get('source_name', 'Службы города'))
         cat = item.get('category', 'city')
-        if 'Безопасный' in source_name or cat == 'emergency':
+        
+        if 'Безопасный' in raw_source or cat == 'emergency':
             s_badge_bg = (180, 83, 9) if is_dark else (254, 243, 199)
             s_badge_fg = (255, 255, 255) if is_dark else (146, 64, 14)
-            icon = "🛡️"
-        elif 'Кравченко' in source_name or cat == 'mayor':
+            badge_label = f"ЕДДС • {raw_source}"
+        elif 'Кравченко' in raw_source or cat == 'mayor':
             s_badge_bg = (67, 56, 202) if is_dark else (224, 231, 255)
             s_badge_fg = (255, 255, 255) if is_dark else (55, 48, 163)
-            icon = "🎖️"
+            badge_label = f"МЭРИЯ • {raw_source}"
         else:
             s_badge_bg = (3, 105, 161) if is_dark else (224, 242, 254)
             s_badge_fg = (255, 255, 255) if is_dark else (3, 105, 161)
-            icon = "🏛️"
+            badge_label = f"МЦУ • {raw_source}"
 
-        # Badge pill with dynamic width based on exact text length (no truncation)
-        badge_text = f"{icon} {source_name}"
-        bbox = draw.textbbox((0, 0), badge_text, font=font_news_meta)
+        bbox = draw.textbbox((0, 0), badge_label, font=font_news_meta)
         badge_w = (bbox[2] - bbox[0]) + 24
 
         draw.rounded_rectangle((74, ny + 18, 74 + badge_w, ny + 50), radius=9, fill=s_badge_bg)
-        draw.text((86, ny + 23), badge_text, font=font_news_meta, fill=s_badge_fg)
+        draw.text((86, ny + 23), badge_label, font=font_news_meta, fill=s_badge_fg)
 
         # Time placed cleanly right after the badge
         time_str = item.get('time_display', 'Сегодня')
         draw.text((74 + badge_w + 16, ny + 24), f"•  {time_str}", font=font_small, fill=text_muted)
 
-        # Title (wrapped to 1-2 lines)
-        raw_title = item.get('title', '')
+        # Title (clean of any emojis, wrapped to 1-2 lines)
+        raw_title = clean_emojis(item.get('title', ''))
         title_lines = wrap_text(raw_title, font_news_title, 910, draw)[:2]
         cur_text_y = ny + 62
         for t_line in title_lines:
             draw.text((74, cur_text_y), t_line, font=font_news_title, fill=text_primary)
             cur_text_y += 30
 
-        # Snippet (up to 2-3 lines with more vertical room)
-        snippet = item.get('text', '')
+        # Snippet (clean of any emojis, up to 2-3 lines with more vertical room)
+        snippet = clean_emojis(item.get('text', ''))
         if snippet and snippet != raw_title:
             body_lines = wrap_text(snippet, font_news_body, 910, draw)
             max_b_lines = 2 if len(title_lines) > 1 else 3
