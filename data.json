@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-09T18:01:03.203954+03:00",
-  "updated_at_human": "09.11.2026 в 18:01:03 (МСК)",
+  "updated_at_iso": "2026-11-09T18:30:47.650065+03:00",
+  "updated_at_human": "09.11.2026 в 18:30:47 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 6.9,
-    "apparent_temperature": 4.8,
+    "temperature": 6.8,
+    "apparent_temperature": 4.7,
     "humidity": 68,
     "pressure_hpa": 1028,
-    "wind_speed": 0.4,
-    "wind_gusts": 1.9,
-    "wind_direction": 270,
+    "wind_speed": 0.5,
+    "wind_gusts": 1.1,
+    "wind_direction": 349,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
     "hourly": [
@@ -109,7 +109,7 @@
     }
   },
   "marine": {
-    "water_temp": 17.1,
+    "water_temp": 17.0,
     "wave_height_m": 0.2,
     "wave_period_s": 3.9,
     "wave_points": "1 балл (Спокойное)",
@@ -343,9 +343,9 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+17.1°C",
+      "temp_water": "+17.0°C",
       "waves": "0.2 м (1 балл (Спокойное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 0.4 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 0.5 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -356,7 +356,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+17.1°C",
+      "temp_water": "+17.0°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
@@ -369,7 +369,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+17.1°C",
+      "temp_water": "+17.0°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
@@ -382,7 +382,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+17.1°C",
+      "temp_water": "+17.0°C",
       "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
@@ -395,9 +395,9 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+17.1°C",
+      "temp_water": "+17.0°C",
       "waves": "0.2 м (1 балл (Спокойное))",
-      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +17.1°C.",
+      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +17.0°C.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -408,7 +408,7 @@
       "category": "nature",
       "status": "Штатно",
       "status_code": "ok",
-      "temp_water": "+15.6°C",
+      "temp_water": "+15.5°C",
       "waves": "Штиль",
       "desc": "Живописная набережная горного озера, светомузыкальный фонтан, прогулочные зоны.",
       "source_url": "https://t.me/kravchenko_glava_nvrsk"
@@ -436,7 +436,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (1.9 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (1.1 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -458,11 +458,11 @@
       "lon": 37.822,
       "title": "Экопост «Новоросцемент / Пролетарий»",
       "category": "eco",
-      "status": "AQI 52 (Умеренный)",
-      "status_code": "warning",
+      "status": "AQI 32 (Норма)",
+      "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Направление ветра: Северный / СЗ. Умеренное рассеивание в прибрежной полосе, концентрация пыли повышена.",
+      "desc": "Ветер Северный / СЗ сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме.",
       "source_url": "https://admnvrsk.ru"
     }
   ],
