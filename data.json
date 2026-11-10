@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-10T23:30:48.441774+03:00",
-  "updated_at_human": "10.11.2026 в 23:30:48 (МСК)",
+  "updated_at_iso": "2026-11-11T00:00:57.974095+03:00",
+  "updated_at_human": "11.11.2026 в 00:00:57 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,99 +13,99 @@
   },
   "weather": {
     "temperature": 9.2,
-    "apparent_temperature": 8.0,
-    "humidity": 91,
+    "apparent_temperature": 7.9,
+    "humidity": 90,
     "pressure_hpa": 1022,
     "wind_speed": 1.4,
     "wind_gusts": 3.3,
-    "wind_direction": 94,
+    "wind_direction": 98,
     "wind_direction_name": "В (Восточный)",
     "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
         "wind": 1.4,
-        "gust": 3.4,
-        "temp": 6.1
+        "gust": 3.3,
+        "temp": 9.2
       },
       {
         "time": "01:00",
-        "wind": 1.5,
-        "gust": 3.4,
-        "temp": 5.9
+        "wind": 1.4,
+        "gust": 3.3,
+        "temp": 9.4
       },
       {
         "time": "02:00",
-        "wind": 1.8,
-        "gust": 4.0,
-        "temp": 5.7
+        "wind": 1.4,
+        "gust": 3.2,
+        "temp": 9.7
       },
       {
         "time": "03:00",
-        "wind": 2.0,
-        "gust": 4.5,
-        "temp": 5.8
+        "wind": 1.8,
+        "gust": 4.0,
+        "temp": 9.9
       },
       {
         "time": "04:00",
-        "wind": 2.1,
-        "gust": 5.0,
-        "temp": 6.2
+        "wind": 1.9,
+        "gust": 4.3,
+        "temp": 9.9
       },
       {
         "time": "05:00",
-        "wind": 2.3,
-        "gust": 5.4,
-        "temp": 6.7
+        "wind": 2.1,
+        "gust": 5.0,
+        "temp": 10.0
       },
       {
         "time": "06:00",
-        "wind": 2.2,
-        "gust": 5.7,
-        "temp": 6.9
+        "wind": 2.9,
+        "gust": 7.0,
+        "temp": 10.2
       },
       {
         "time": "07:00",
-        "wind": 2.2,
-        "gust": 5.4,
-        "temp": 7.0
+        "wind": 3.2,
+        "gust": 7.3,
+        "temp": 10.3
       },
       {
         "time": "08:00",
-        "wind": 2.4,
-        "gust": 5.6,
-        "temp": 7.0
+        "wind": 3.4,
+        "gust": 7.5,
+        "temp": 10.5
       },
       {
         "time": "09:00",
-        "wind": 2.1,
-        "gust": 5.5,
-        "temp": 7.4
+        "wind": 4.7,
+        "gust": 10.5,
+        "temp": 11.5
       },
       {
         "time": "10:00",
-        "wind": 2.0,
-        "gust": 4.8,
-        "temp": 8.0
+        "wind": 5.5,
+        "gust": 12.3,
+        "temp": 12.7
       },
       {
         "time": "11:00",
-        "wind": 1.5,
-        "gust": 4.8,
-        "temp": 9.3
+        "wind": 6.1,
+        "gust": 13.6,
+        "temp": 14.2
       }
     ],
     "tomorrow": {
-      "date": "2026-11-11",
-      "temp_max": 14,
-      "temp_min": 9,
-      "temp_max_str": "+14°",
-      "temp_min_str": "+9°C",
-      "wind_max": 6.8,
-      "wind_gusts_max": 15.4,
+      "date": "2026-11-12",
+      "temp_max": 15,
+      "temp_min": 14,
+      "temp_max_str": "+15°",
+      "temp_min_str": "+14°C",
+      "wind_max": 9.4,
+      "wind_gusts_max": 22.7,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
-      "precip_prob": 48
+      "precip_prob": 100
     }
   },
   "marine": {
