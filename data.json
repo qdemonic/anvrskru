@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-10T03:00:59.735321+03:00",
-  "updated_at_human": "10.11.2026 в 03:00:59 (МСК)",
+  "updated_at_iso": "2026-11-10T03:28:53.641832+03:00",
+  "updated_at_human": "10.11.2026 в 03:28:53 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,9 +12,9 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 6.3,
+    "temperature": 6.4,
     "apparent_temperature": 3.4,
-    "humidity": 71,
+    "humidity": 70,
     "pressure_hpa": 1027,
     "wind_speed": 2.0,
     "wind_gusts": 4.5,
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 16.9,
-    "wave_height_m": 0.14,
-    "wave_period_s": 3.8,
+    "wave_height_m": 0.2,
+    "wave_period_s": 4.3,
     "wave_points": "1 балл (Спокойное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -344,7 +344,7 @@
       "status": "Открыт / Штиль",
       "status_code": "ok",
       "temp_water": "+16.9°C",
-      "waves": "0.1 м (1 балл (Спокойное))",
+      "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 2.0 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -357,7 +357,7 @@
       "status": "Открыт / Штиль",
       "status_code": "ok",
       "temp_water": "+16.9°C",
-      "waves": "0.1 м (1 балл (Спокойное))",
+      "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
@@ -370,7 +370,7 @@
       "status": "Открыт / Штиль",
       "status_code": "ok",
       "temp_water": "+16.9°C",
-      "waves": "0.1 м (1 балл (Спокойное))",
+      "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -383,7 +383,7 @@
       "status": "Открыт / Штиль",
       "status_code": "ok",
       "temp_water": "+16.9°C",
-      "waves": "0.1 м (1 балл (Спокойное))",
+      "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -396,7 +396,7 @@
       "status": "Открыт / Штиль",
       "status_code": "ok",
       "temp_water": "+16.9°C",
-      "waves": "0.1 м (1 балл (Спокойное))",
+      "waves": "0.2 м (1 балл (Спокойное))",
       "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.9°C.",
       "source_url": "https://admnvrsk.ru"
     },
