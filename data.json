@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-10T19:30:50.966875+03:00",
-  "updated_at_human": "10.11.2026 в 19:30:50 (МСК)",
+  "updated_at_iso": "2026-11-10T20:01:05.858644+03:00",
+  "updated_at_human": "10.11.2026 в 20:01:05 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 9.7,
-    "apparent_temperature": 8.6,
-    "humidity": 88,
+    "temperature": 9.6,
+    "apparent_temperature": 8.5,
+    "humidity": 89,
     "pressure_hpa": 1022,
-    "wind_speed": 1.1,
+    "wind_speed": 1.2,
     "wind_gusts": 2.7,
-    "wind_direction": 90,
+    "wind_direction": 99,
     "wind_direction_name": "В (Восточный)",
     "bora_risk": "Низкий",
     "hourly": [
@@ -105,7 +105,7 @@
       "wind_gusts_max": 15.9,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
-      "precip_prob": 73
+      "precip_prob": 48
     }
   },
   "marine": {
@@ -359,7 +359,7 @@
       "status_code": "ok",
       "temp_water": "+16.9°C",
       "waves": "0.2 м (1 балл (Спокойное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер В (Восточный) 1.1 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер В (Восточный) 1.2 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -459,11 +459,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Плотный трафик (6 баллов)",
-      "status_code": "warning",
+      "status": "Движение свободное",
+      "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
+      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
@@ -472,11 +472,11 @@
       "lon": 37.822,
       "title": "Экопост «Новоросцемент / Пролетарий»",
       "category": "eco",
-      "status": "AQI 32 (Норма)",
-      "status_code": "ok",
+      "status": "AQI 52 (Умеренный)",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Ветер В (Восточный) сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме.",
+      "desc": "Направление ветра: В (Восточный). Умеренное рассеивание в прибрежной полосе, концентрация пыли повышена.",
       "source_url": "https://admnvrsk.ru"
     }
   ],
