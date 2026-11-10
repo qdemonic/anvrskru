@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-11T00:00:57.974095+03:00",
-  "updated_at_human": "11.11.2026 в 00:00:57 (МСК)",
+  "updated_at_iso": "2026-11-11T00:30:53.258663+03:00",
+  "updated_at_human": "11.11.2026 в 00:30:53 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,8 +12,8 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 9.2,
-    "apparent_temperature": 7.9,
+    "temperature": 9.3,
+    "apparent_temperature": 8.0,
     "humidity": 90,
     "pressure_hpa": 1022,
     "wind_speed": 1.4,
