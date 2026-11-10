@@ -1,16 +1,16 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-10T08:00:58.627686+03:00",
-  "updated_at_human": "10.11.2026 в 08:00:58 (МСК)",
+  "updated_at_iso": "2026-11-10T08:30:46.774713+03:00",
+  "updated_at_human": "10.11.2026 в 08:30:46 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 7.0,
-    "apparent_temperature": 3.9,
+    "temperature": 7.1,
+    "apparent_temperature": 4.0,
     "humidity": 69,
     "pressure_hpa": 1026,
     "wind_speed": 2.3,
-    "wind_gusts": 5.8,
+    "wind_gusts": 5.5,
     "wind_direction": 20,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Умеренный",
@@ -98,13 +98,13 @@
       "wind_gusts_max": 15.3,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
-      "precip_prob": 83
+      "precip_prob": 60
     }
   },
   "marine": {
     "water_temp": 16.9,
     "wave_height_m": 0.2,
-    "wave_period_s": 4.1,
+    "wave_period_s": 4.0,
     "wave_points": "1 балл (Спокойное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -429,7 +429,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.8 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.5 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
