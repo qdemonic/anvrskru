@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-10T06:01:00.495208+03:00",
-  "updated_at_human": "10.11.2026 в 06:01:00 (МСК)",
+  "updated_at_iso": "2026-11-10T06:30:45.181960+03:00",
+  "updated_at_human": "10.11.2026 в 06:30:45 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,15 +12,15 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 7.0,
-    "apparent_temperature": 3.9,
+    "temperature": 6.8,
+    "apparent_temperature": 3.5,
     "humidity": 63,
     "pressure_hpa": 1026,
-    "wind_speed": 2.0,
-    "wind_gusts": 4.6,
-    "wind_direction": 18,
-    "wind_direction_name": "Северный / СЗ",
-    "bora_risk": "Низкий",
+    "wind_speed": 2.5,
+    "wind_gusts": 5.9,
+    "wind_direction": 27,
+    "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
+    "bora_risk": "Умеренный",
     "hourly": [
       {
         "time": "00:00",
@@ -44,55 +44,55 @@
         "time": "03:00",
         "wind": 2.0,
         "gust": 4.5,
-        "temp": 6.3
+        "temp": 5.8
       },
       {
         "time": "04:00",
-        "wind": 2.0,
-        "gust": 4.5,
-        "temp": 6.6
+        "wind": 2.1,
+        "gust": 5.0,
+        "temp": 6.2
       },
       {
         "time": "05:00",
-        "wind": 1.9,
-        "gust": 4.5,
-        "temp": 6.9
+        "wind": 2.3,
+        "gust": 5.4,
+        "temp": 6.7
       },
       {
         "time": "06:00",
-        "wind": 2.0,
-        "gust": 4.6,
-        "temp": 7.0
+        "wind": 2.4,
+        "gust": 5.7,
+        "temp": 6.8
       },
       {
         "time": "07:00",
-        "wind": 2.2,
-        "gust": 5.0,
-        "temp": 7.1
+        "wind": 2.4,
+        "gust": 5.9,
+        "temp": 6.9
       },
       {
         "time": "08:00",
-        "wind": 2.2,
-        "gust": 5.2,
-        "temp": 7.2
+        "wind": 2.3,
+        "gust": 5.8,
+        "temp": 7.0
       },
       {
         "time": "09:00",
-        "wind": 2.0,
-        "gust": 5.2,
-        "temp": 7.5
+        "wind": 2.3,
+        "gust": 5.5,
+        "temp": 7.2
       },
       {
         "time": "10:00",
-        "wind": 1.8,
-        "gust": 4.8,
+        "wind": 2.0,
+        "gust": 5.4,
         "temp": 8.1
       },
       {
         "time": "11:00",
         "wind": 1.5,
-        "gust": 4.1,
-        "temp": 8.8
+        "gust": 4.9,
+        "temp": 9.5
       }
     ],
     "tomorrow": {
@@ -101,8 +101,8 @@
       "temp_min": 7,
       "temp_max_str": "+14°",
       "temp_min_str": "+7°C",
-      "wind_max": 6.8,
-      "wind_gusts_max": 15.4,
+      "wind_max": 6.6,
+      "wind_gusts_max": 15.3,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 83
@@ -345,7 +345,7 @@
       "status_code": "ok",
       "temp_water": "+16.9°C",
       "waves": "0.2 м (1 балл (Спокойное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 2.0 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 2.5 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -436,7 +436,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (4.6 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.9 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -462,7 +462,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Ветер Северный / СЗ сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме.",
+      "desc": "Ветер СВ (Норд-Ост / Маркотх) сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме.",
       "source_url": "https://admnvrsk.ru"
     }
   ],
