@@ -1,91 +1,91 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-12T00:30:45.578275+03:00",
-  "updated_at_human": "12.11.2026 в 00:30:45 (МСК)",
+  "updated_at_iso": "2026-11-12T01:00:54.219694+03:00",
+  "updated_at_human": "12.11.2026 в 01:00:54 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 13.7,
-    "apparent_temperature": 9.8,
-    "humidity": 76,
+    "temperature": 13.6,
+    "apparent_temperature": 9.9,
+    "humidity": 77,
     "pressure_hpa": 1014,
-    "wind_speed": 7.3,
-    "wind_gusts": 16.7,
-    "wind_direction": 193,
+    "wind_speed": 7.0,
+    "wind_gusts": 15.4,
+    "wind_direction": 191,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
       {
         "time": "00:00",
-        "wind": 6.8,
-        "gust": 14.6,
-        "temp": 13.5
+        "wind": 6.9,
+        "gust": 15.1,
+        "temp": 13.2
       },
       {
         "time": "01:00",
-        "wind": 7.8,
-        "gust": 16.7,
-        "temp": 13.9
+        "wind": 7.0,
+        "gust": 15.4,
+        "temp": 13.6
       },
       {
         "time": "02:00",
-        "wind": 7.9,
-        "gust": 18.1,
-        "temp": 14.2
+        "wind": 7.7,
+        "gust": 17.1,
+        "temp": 13.7
       },
       {
         "time": "03:00",
-        "wind": 7.9,
-        "gust": 17.1,
-        "temp": 14.4
+        "wind": 7.5,
+        "gust": 16.9,
+        "temp": 14.2
       },
       {
         "time": "04:00",
-        "wind": 7.8,
-        "gust": 17.0,
-        "temp": 14.6
+        "wind": 7.3,
+        "gust": 16.2,
+        "temp": 14.4
       },
       {
         "time": "05:00",
-        "wind": 8.2,
-        "gust": 18.2,
+        "wind": 7.1,
+        "gust": 16.3,
         "temp": 14.3
       },
       {
         "time": "06:00",
-        "wind": 7.7,
-        "gust": 17.8,
-        "temp": 14.2
+        "wind": 7.4,
+        "gust": 16.1,
+        "temp": 14.3
       },
       {
         "time": "07:00",
-        "wind": 7.4,
-        "gust": 16.7,
-        "temp": 14.5
+        "wind": 7.2,
+        "gust": 16.0,
+        "temp": 14.4
       },
       {
         "time": "08:00",
-        "wind": 7.5,
-        "gust": 16.1,
-        "temp": 14.6
-      },
-      {
-        "time": "09:00",
-        "wind": 6.5,
-        "gust": 16.4,
-        "temp": 14.8
-      },
-      {
-        "time": "10:00",
-        "wind": 6.7,
-        "gust": 14.1,
+        "wind": 6.8,
+        "gust": 15.5,
         "temp": 14.5
       },
       {
+        "time": "09:00",
+        "wind": 7.2,
+        "gust": 15.7,
+        "temp": 14.6
+      },
+      {
+        "time": "10:00",
+        "wind": 6.0,
+        "gust": 15.5,
+        "temp": 14.9
+      },
+      {
         "time": "11:00",
-        "wind": 7.0,
-        "gust": 14.9,
-        "temp": 14.4
+        "wind": 6.3,
+        "gust": 13.4,
+        "temp": 14.5
       }
     ],
     "tomorrow": {
@@ -94,8 +94,8 @@
       "temp_min": 15,
       "temp_max_str": "+17°",
       "temp_min_str": "+15°C",
-      "wind_max": 10.1,
-      "wind_gusts_max": 22.7,
+      "wind_max": 9.3,
+      "wind_gusts_max": 21.8,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 100
@@ -103,8 +103,8 @@
   },
   "marine": {
     "water_temp": 16.7,
-    "wave_height_m": 1.74,
-    "wave_period_s": 5.3,
+    "wave_height_m": 1.78,
+    "wave_period_s": 5.4,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -365,8 +365,8 @@
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
       "temp_water": "+16.7°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 7.3 м/с. Спасательный пост дежурит.",
+      "waves": "1.8 м (4 балла (Штормовое))",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 7.0 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -378,7 +378,7 @@
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
       "temp_water": "+16.7°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "waves": "1.8 м (4 балла (Штормовое))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
@@ -391,7 +391,7 @@
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
       "temp_water": "+16.7°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "waves": "1.8 м (4 балла (Штормовое))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -404,7 +404,7 @@
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
       "temp_water": "+16.7°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "waves": "1.8 м (4 балла (Штормовое))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -417,7 +417,7 @@
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
       "temp_water": "+16.7°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "waves": "1.8 м (4 балла (Штормовое))",
       "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.7°C.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -470,7 +470,7 @@
       "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы ветра на перевале до 16.7 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
+      "desc": "Порывы ветра на перевале до 15.4 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
