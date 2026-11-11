@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-11T22:01:09.948803+03:00",
-  "updated_at_human": "11.11.2026 в 22:01:09 (МСК)",
+  "updated_at_iso": "2026-11-11T22:30:46.578701+03:00",
+  "updated_at_human": "11.11.2026 в 22:30:46 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 13.2,
-    "apparent_temperature": 9.1,
+    "apparent_temperature": 9.2,
     "humidity": 71,
     "pressure_hpa": 1014,
     "wind_speed": 6.8,
-    "wind_gusts": 15.2,
-    "wind_direction": 183,
+    "wind_gusts": 14.4,
+    "wind_direction": 181,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -103,8 +103,8 @@
   },
   "marine": {
     "water_temp": 16.7,
-    "wave_height_m": 1.58,
-    "wave_period_s": 5.1,
+    "wave_height_m": 1.62,
+    "wave_period_s": 5.2,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -470,7 +470,7 @@
       "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы ветра на перевале до 15.2 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
+      "desc": "Порывы ветра на перевале до 14.4 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
