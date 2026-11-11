@@ -1,24 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-11T06:00:59.534580+03:00",
-  "updated_at_human": "11.11.2026 в 06:00:59 (МСК)",
-  "active_alert": {
-    "is_active": true,
-    "type": "emergency",
-    "title": "Информация от НВМБ: в период с 18:00 по 23:59 11 ноября 2026г. спланировано проведение учения с дежурными силами Новороссийской ВМБ в акватории морско",
-    "source_name": "Безопасный город / ЕДДС",
-    "source_url": "https://vk.com/wall-116114113_22266",
-    "level": "warning"
-  },
+  "updated_at_iso": "2026-11-11T06:30:49.265732+03:00",
+  "updated_at_human": "11.11.2026 в 06:30:49 (МСК)",
+  "active_alert": null,
   "weather": {
     "temperature": 10.2,
-    "apparent_temperature": 8.3,
+    "apparent_temperature": 8.2,
     "humidity": 88,
     "pressure_hpa": 1019,
-    "wind_speed": 2.9,
-    "wind_gusts": 6.6,
-    "wind_direction": 160,
+    "wind_speed": 3.1,
+    "wind_gusts": 7.1,
+    "wind_direction": 159,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -110,7 +103,7 @@
   },
   "marine": {
     "water_temp": 16.8,
-    "wave_height_m": 0.26,
+    "wave_height_m": 0.3,
     "wave_period_s": 2.8,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
@@ -359,7 +352,7 @@
       "status_code": "ok",
       "temp_water": "+16.8°C",
       "waves": "0.3 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.9 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 3.1 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -450,7 +443,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (6.6 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (7.1 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
