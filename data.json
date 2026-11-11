@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-11T12:00:58.928863+03:00",
-  "updated_at_human": "11.11.2026 в 12:00:58 (МСК)",
+  "updated_at_iso": "2026-11-11T12:30:46.204582+03:00",
+  "updated_at_human": "11.11.2026 в 12:30:46 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 13.7,
-    "apparent_temperature": 9.5,
-    "humidity": 60,
+    "apparent_temperature": 9.1,
+    "humidity": 59,
     "pressure_hpa": 1017,
-    "wind_speed": 6.2,
-    "wind_gusts": 14.0,
-    "wind_direction": 173,
+    "wind_speed": 6.7,
+    "wind_gusts": 14.8,
+    "wind_direction": 177,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -71,30 +71,30 @@
       },
       {
         "time": "09:00",
-        "wind": 4.5,
+        "wind": 4.9,
         "gust": 10.0,
-        "temp": 10.8
+        "temp": 11.1
       },
       {
         "time": "10:00",
-        "wind": 5.5,
+        "wind": 6.0,
         "gust": 12.2,
-        "temp": 11.7
+        "temp": 12.0
       },
       {
         "time": "11:00",
-        "wind": 5.8,
+        "wind": 6.6,
         "gust": 13.3,
         "temp": 12.2
       }
     ],
     "tomorrow": {
       "date": "2026-11-12",
-      "temp_max": 16,
+      "temp_max": 15,
       "temp_min": 14,
-      "temp_max_str": "+16°",
+      "temp_max_str": "+15°",
       "temp_min_str": "+14°C",
-      "wind_max": 9.1,
+      "wind_max": 9.8,
       "wind_gusts_max": 21.5,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
@@ -103,9 +103,9 @@
   },
   "marine": {
     "water_temp": 16.8,
-    "wave_height_m": 0.7,
-    "wave_period_s": 3.4,
-    "wave_points": "2 балла (Умеренное)",
+    "wave_height_m": 0.76,
+    "wave_period_s": 3.5,
+    "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
   },
@@ -351,8 +351,8 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+16.8°C",
-      "waves": "0.7 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.2 м/с. Спасательный пост дежурит.",
+      "waves": "0.8 м (3 балла (Заметное))",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.7 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -364,7 +364,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+16.8°C",
-      "waves": "0.7 м (2 балла (Умеренное))",
+      "waves": "0.8 м (3 балла (Заметное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
@@ -377,7 +377,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+16.8°C",
-      "waves": "0.7 м (2 балла (Умеренное))",
+      "waves": "0.8 м (3 балла (Заметное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -390,7 +390,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+16.8°C",
-      "waves": "0.7 м (2 балла (Умеренное))",
+      "waves": "0.8 м (3 балла (Заметное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -403,7 +403,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+16.8°C",
-      "waves": "0.7 м (2 балла (Умеренное))",
+      "waves": "0.8 м (3 балла (Заметное))",
       "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.8°C.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -443,7 +443,7 @@
       "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы ветра на перевале до 14.0 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
+      "desc": "Порывы ветра на перевале до 14.8 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
