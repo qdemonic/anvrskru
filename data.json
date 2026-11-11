@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-11T20:30:48.253705+03:00",
-  "updated_at_human": "11.11.2026 в 20:30:48 (МСК)",
+  "updated_at_iso": "2026-11-11T21:01:25.675696+03:00",
+  "updated_at_human": "11.11.2026 в 21:01:25 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 13.3,
-    "apparent_temperature": 9.4,
-    "humidity": 72,
+    "temperature": 13.1,
+    "apparent_temperature": 9.0,
+    "humidity": 74,
     "pressure_hpa": 1014,
-    "wind_speed": 6.8,
-    "wind_gusts": 15.3,
-    "wind_direction": 188,
+    "wind_speed": 7.0,
+    "wind_gusts": 16.0,
+    "wind_direction": 186,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -94,8 +94,8 @@
       "temp_min": 14,
       "temp_max_str": "+15°",
       "temp_min_str": "+14°C",
-      "wind_max": 9.7,
-      "wind_gusts_max": 23.0,
+      "wind_max": 10.4,
+      "wind_gusts_max": 23.5,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 100
@@ -103,7 +103,7 @@
   },
   "marine": {
     "water_temp": 16.7,
-    "wave_height_m": 1.5,
+    "wave_height_m": 1.52,
     "wave_period_s": 5.0,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
@@ -366,7 +366,7 @@
       "status_code": "danger",
       "temp_water": "+16.7°C",
       "waves": "1.5 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.8 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 7.0 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -470,7 +470,7 @@
       "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы ветра на перевале до 15.3 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
+      "desc": "Порывы ветра на перевале до 16.0 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
