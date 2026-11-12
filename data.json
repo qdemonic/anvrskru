@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-12T23:30:48.259262+03:00",
-  "updated_at_human": "12.11.2026 в 23:30:48 (МСК)",
+  "updated_at_iso": "2026-11-13T00:00:53.406263+03:00",
+  "updated_at_human": "13.11.2026 в 00:00:53 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,10 +13,10 @@
   },
   "weather": {
     "temperature": 15.1,
-    "apparent_temperature": 11.3,
-    "humidity": 93,
+    "apparent_temperature": 11.1,
+    "humidity": 91,
     "pressure_hpa": 1011,
-    "wind_speed": 9.9,
+    "wind_speed": 10.0,
     "wind_gusts": 22.3,
     "wind_direction": 179,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
@@ -24,88 +24,88 @@
     "hourly": [
       {
         "time": "00:00",
-        "wind": 7.3,
-        "gust": 15.1,
-        "temp": 13.1
+        "wind": 10.0,
+        "gust": 22.3,
+        "temp": 15.1
       },
       {
         "time": "01:00",
-        "wind": 7.7,
-        "gust": 16.6,
-        "temp": 13.4
+        "wind": 9.5,
+        "gust": 22.5,
+        "temp": 15.0
       },
       {
         "time": "02:00",
-        "wind": 7.9,
-        "gust": 17.5,
-        "temp": 13.5
+        "wind": 9.3,
+        "gust": 21.1,
+        "temp": 15.2
       },
       {
         "time": "03:00",
-        "wind": 7.7,
-        "gust": 17.2,
-        "temp": 14.0
+        "wind": 9.3,
+        "gust": 21.3,
+        "temp": 15.4
       },
       {
         "time": "04:00",
-        "wind": 7.8,
-        "gust": 17.0,
-        "temp": 14.1
+        "wind": 9.4,
+        "gust": 21.3,
+        "temp": 15.5
       },
       {
         "time": "05:00",
-        "wind": 7.1,
-        "gust": 17.0,
-        "temp": 14.3
+        "wind": 8.8,
+        "gust": 21.0,
+        "temp": 15.6
       },
       {
         "time": "06:00",
-        "wind": 7.7,
-        "gust": 16.2,
-        "temp": 14.2
+        "wind": 8.4,
+        "gust": 19.4,
+        "temp": 15.8
       },
       {
         "time": "07:00",
-        "wind": 7.5,
-        "gust": 16.7,
-        "temp": 14.2
+        "wind": 7.2,
+        "gust": 18.5,
+        "temp": 15.9
       },
       {
         "time": "08:00",
-        "wind": 7.6,
-        "gust": 17.0,
-        "temp": 14.3
+        "wind": 7.3,
+        "gust": 15.9,
+        "temp": 16.2
       },
       {
         "time": "09:00",
-        "wind": 8.2,
-        "gust": 17.2,
-        "temp": 14.5
+        "wind": 7.1,
+        "gust": 16.5,
+        "temp": 16.3
       },
       {
         "time": "10:00",
-        "wind": 6.8,
-        "gust": 16.9,
-        "temp": 14.6
+        "wind": 6.9,
+        "gust": 16.3,
+        "temp": 16.3
       },
       {
         "time": "11:00",
-        "wind": 7.4,
-        "gust": 15.5,
-        "temp": 14.6
+        "wind": 7.2,
+        "gust": 16.1,
+        "temp": 16.4
       }
     ],
     "tomorrow": {
-      "date": "2026-11-13",
-      "temp_max": 17,
-      "temp_min": 15,
-      "temp_max_str": "+17°",
-      "temp_min_str": "+15°C",
-      "wind_max": 10.0,
-      "wind_gusts_max": 22.5,
+      "date": "2026-11-14",
+      "temp_max": 18,
+      "temp_min": 11,
+      "temp_max_str": "+18°",
+      "temp_min_str": "+11°C",
+      "wind_max": 7.4,
+      "wind_gusts_max": 16.1,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
-      "precip_prob": 100
+      "precip_prob": 94
     }
   },
   "marine": {
@@ -368,7 +368,7 @@
       "status_code": "danger",
       "temp_water": "+16.7°C",
       "waves": "2.0 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 9.9 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 10.0 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
