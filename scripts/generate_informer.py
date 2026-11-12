@@ -212,18 +212,59 @@ def create_informer(data, theme='dark'):
 
     # CARD 2: Ветер и Норд-Ост / Бора (Row 1, Col 2)
     draw_card_base(col2_x, row1_y, col2_x + col_w, row1_y + row_h, "Ветер и Норд-Ост (Бора)", "wind")
-    w_speed = f"{weather.get('wind_speed', 4.0):.1f} м/с"
-    w_gusts = f"{weather.get('wind_gusts', 12.0):.1f} м/с"
+    w_speed_num = float(weather.get('wind_speed', 4.0) or 0.0)
+    w_gusts_num = float(weather.get('wind_gusts', 12.0) or 0.0)
+    w_speed_str = f"{w_speed_num:.1f} м/с"
+    w_gusts_str = f"(порывы {w_gusts_num:.1f} м/с)"
     w_dir = weather.get('wind_direction_name', 'СВ (Норд-Ост)')
-    bora = weather.get('bora_risk', 'Низкий')
 
-    draw.text((col2_x + 20, row1_y + 54), f"{w_speed} (порывы {w_gusts})", font=load_font(34, bold=True), fill=text_primary)
+    # Скорость ветра - крупно, сила порывов в скобках - меньшим шрифтом с контролем границы
+    font_speed = load_font(38, bold=True)
+    font_gusts = load_font(21, bold=False)
+
+    speed_x = col2_x + 20
+    speed_y = row1_y + 52
+    draw.text((speed_x, speed_y), w_speed_str, font=font_speed, fill=text_primary)
+
+    bbox_speed = draw.textbbox((speed_x, speed_y), w_speed_str, font=font_speed)
+    gusts_x = bbox_speed[2] + 8
+    gusts_y = speed_y + 14  # Выравнивание по базовой линии крупного шрифта
+
+    # Контроль границ блока: порывы не должны выходить за правую границу карточки
+    max_right = col2_x + col_w - 20
+    bbox_gusts = draw.textbbox((gusts_x, gusts_y), w_gusts_str, font=font_gusts)
+    if bbox_gusts[2] > max_right:
+        font_gusts = load_font(18, bold=False)
+        gusts_y = speed_y + 16
+        bbox_gusts = draw.textbbox((gusts_x, gusts_y), w_gusts_str, font=font_gusts)
+        if bbox_gusts[2] > max_right:
+            w_gusts_str = f"(до {w_gusts_num:.1f} м/с)"
+
+    draw.text((gusts_x, gusts_y), w_gusts_str, font=font_gusts, fill=text_secondary)
     draw.text((col2_x + 20, row1_y + 104), f"Направление: {w_dir}", font=font_body, fill=text_secondary)
 
-    # Bora risk badge
-    bora_bg = (15, 118, 110) if bora in ['Низкий', 'Штиль'] else ((194, 65, 12) if bora == 'Умеренный' else (190, 18, 60))
-    draw.rounded_rectangle((col2_x + 20, row1_y + 154, col2_x + 250, row1_y + 192), radius=12, fill=bora_bg)
-    draw.text((col2_x + 32, row1_y + 162), f"Риск боры: {bora.upper()}", font=font_badge, fill=(255, 255, 255))
+    # Риск боры: КРАСНОЕ выделение использовать ТОЛЬКО в случае опасных значений ветра!
+    # Опасные значения ветра (ОЯ) для Новороссийска: порывы >= 25 м/с или скорость >= 20 м/с
+    is_dangerous_wind = (w_gusts_num >= 25.0 or w_speed_num >= 20.0)
+    is_warning_wind = (w_gusts_num >= 17.0 or w_speed_num >= 13.0)
+
+    if is_dangerous_wind:
+        bora_text = "ОПАСНЫЙ (ШТОРМ)"
+        bora_bg = (225, 29, 72)   # Красный цвет - ТОЛЬКО при опасных значениях ветра!
+    elif is_warning_wind and ('СВ' in w_dir or 'Норд-Ост' in w_dir or 'Север' in w_dir):
+        bora_text = "УМЕРЕННЫЙ"
+        bora_bg = (217, 119, 6)   # Янтарный / оранжевый при повышенных порывах
+    else:
+        bora_text = "НИЗКИЙ" if w_gusts_num > 3 else "ШТИЛЬ"
+        bora_bg = (15, 118, 110)  # Спокойный морской / изумрудный
+
+    badge_str = f"Риск боры: {bora_text}"
+    bbox_b = draw.textbbox((0, 0), badge_str, font=font_badge)
+    badge_w = (bbox_b[2] - bbox_b[0]) + 26
+    badge_x = col2_x + 20
+    badge_y = row1_y + 154
+    draw.rounded_rectangle((badge_x, badge_y, badge_x + badge_w, badge_y + 36), radius=10, fill=bora_bg)
+    draw.text((badge_x + 13, badge_y + 8), badge_str, font=font_badge, fill=(255, 255, 255))
 
     # CARD 3: Море и Цемесская бухта (Row 2, Col 1)
     draw_card_base(col1_x, row2_y, col1_x + col_w, row2_y + row_h, "Море и Цемесская бухта", "marine")
@@ -242,10 +283,39 @@ def create_informer(data, theme='dark'):
 
     # CARD 4: Экология и мониторинг (Row 2, Col 2)
     draw_card_base(col2_x, row2_y, col2_x + col_w, row2_y + row_h, "Экология и качество воздуха", "eco")
-    draw.text((col2_x + 20, row2_y + 54), "AQI 32 • Норма", font=font_metric, fill=(34, 197, 94))
-    draw.text((col2_x + 20, row2_y + 112), "Взвешенные частицы PM2.5: 8 мкг/м³", font=font_body, fill=text_secondary)
-    draw.text((col2_x + 20, row2_y + 144), "Шлейф цемзаводов: снос в сторону моря", font=font_body, fill=text_secondary)
-    draw.text((col2_x + 20, row2_y + 174), "Экопосты Шесхарис / Пролетарий: в норме", font=font_small, fill=text_muted)
+    
+    # Динамический расчет направления шлейфа цемзаводов по ветру
+    eco = data.get('eco')
+    if not eco:
+        w_deg = float(weather.get('wind_direction', 45) or 45) % 360
+        w_spd = float(weather.get('wind_speed', 5.0) or 5.0)
+        if w_spd < 1.5:
+            eco = {"aqi": 52, "pm25": 14, "status": "Умеренный", "level": "warning", "plume_short": "Застой над промзоной"}
+        elif 20 <= w_deg <= 80:
+            eco = {"aqi": 28, "pm25": 7, "status": "Чистый воздух", "level": "ok", "plume_short": "Снос в море"}
+        elif w_deg >= 310 or w_deg < 20:
+            eco = {"aqi": 34, "pm25": 9, "status": "Норма", "level": "ok", "plume_short": "Снос на Кабардинку / море"}
+        elif 80 < w_deg <= 160:
+            eco = {"aqi": 62, "pm25": 19, "status": "Повышенная запыленность", "level": "warning", "plume_short": "Снос на жилые районы (В / Центр)"}
+        elif 160 < w_deg <= 240:
+            eco = {"aqi": 46, "pm25": 12, "status": "Умеренный", "level": "ok", "plume_short": "Прижим к Маркотху"}
+        else:
+            eco = {"aqi": 36, "pm25": 9, "status": "Норма", "level": "ok", "plume_short": "Снос на восток от города"}
+
+    aqi_val = eco.get('aqi', 32)
+    aqi_status = eco.get('status', 'Норма')
+    pm25_val = eco.get('pm25', 8)
+    plume_str = eco.get('plume_short', 'Снос в море')
+    eco_level = eco.get('level', 'ok')
+
+    eco_color = (34, 197, 94) if eco_level == 'ok' else ((217, 119, 6) if eco_level == 'warning' else (225, 29, 72))
+
+    draw.text((col2_x + 20, row2_y + 54), f"AQI {aqi_val} • {aqi_status}", font=font_metric, fill=eco_color)
+    draw.text((col2_x + 20, row2_y + 112), f"Взвешенные частицы PM2.5: {pm25_val} мкг/м³", font=font_body, fill=text_secondary)
+    
+    plume_text_color = (217, 119, 6) if eco_level == 'warning' else text_secondary
+    draw.text((col2_x + 20, row2_y + 144), f"Шлейф цемзаводов: {plume_str}", font=font_body, fill=plume_text_color)
+    draw.text((col2_x + 20, row2_y + 174), f"{eco.get('station_name', 'Экопост «Шесхарис / Пролетарий»')}: норма", font=font_small, fill=text_muted)
 
     # 4. Section: Recent 3 Official News & Alerts
     section_y = 650

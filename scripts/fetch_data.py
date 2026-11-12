@@ -127,19 +127,31 @@ def fetch_weather_and_wind():
             }
 
         wind_dir = curr.get("wind_direction_10m", 45)
-        # Классификация направления ветра для Новороссийска
-        if 20 <= wind_dir <= 70:
+        wind_gusts_val = curr.get("wind_gusts_10m", 0)
+        wind_speed_val = curr.get("wind_speed_10m", 0)
+
+        # Классификация направления ветра и риска боры для Новороссийска
+        # Опасные значения ветра (ОЯ): порывы >= 25 м/с или скорость >= 20 м/с
+        if 20 <= wind_dir <= 80:
             dir_name = "СВ (Норд-Ост / Маркотх)"
-            bora_risk = "Высокий" if curr.get("wind_gusts_10m", 0) > 18 else "Умеренный"
-        elif 70 < wind_dir <= 110:
+            if wind_gusts_val >= 25 or wind_speed_val >= 20:
+                bora_risk = "Высокий (Шторм)"
+            elif wind_gusts_val >= 17:
+                bora_risk = "Умеренный"
+            else:
+                bora_risk = "Низкий"
+        elif 80 < wind_dir <= 120:
             dir_name = "В (Восточный)"
-            bora_risk = "Низкий"
-        elif 110 < wind_dir <= 200:
+            bora_risk = "Умеренный" if wind_gusts_val >= 22 else "Низкий"
+        elif 120 < wind_dir <= 200:
             dir_name = "Ю / ЮЗ («Моряк»)"
             bora_risk = "Штиль / влажный"
+        elif 200 < wind_dir <= 290:
+            dir_name = "ЮЗ / Западный"
+            bora_risk = "Низкий"
         else:
             dir_name = "Северный / СЗ"
-            bora_risk = "Низкий"
+            bora_risk = "Высокий (Шторм)" if wind_gusts_val >= 25 else "Низкий"
 
         return {
             "temperature": round(curr.get("temperature_2m", 14), 1),
@@ -627,6 +639,86 @@ CITY_LOCATIONS = {
     "приморский район": (44.7450, 37.7450, "Приморский район"),
 }
 
+def compute_eco_monitoring(wind_dir, wind_speed, wind_dir_name=""):
+    """
+    Расчет экологической обстановки и сноса шлейфа цемзаводов («Новоросцемент»,
+    «Пролетарий», Шесхарис) в зависимости от направления и силы ветра.
+    Промзона цемзаводов расположена вдоль северо-восточного берега Цемесской бухты.
+    """
+    wind_dir = (wind_dir or 0) % 360
+    wind_speed = wind_speed or 0.0
+
+    # 1. Штиль: слабое перемешивание, застой пыли над промзоной
+    if wind_speed < 1.5:
+        return {
+            "aqi": 52,
+            "pm25": 14,
+            "status": "Умеренный",
+            "level": "warning",
+            "plume_short": "Застой над промзоной",
+            "plume_desc": "Штиль. Слабое рассеивание, локальное накопление пыли и взвешенных частиц над промзоной Шесхарис и цемзаводами.",
+            "station_name": "Экопост «Шесхарис / Пролетарий»"
+        }
+
+    # 2. Норд-Ост / СВ (20° - 80°): с Маркотхского хребта в открытое море
+    if 20 <= wind_dir <= 80:
+        return {
+            "aqi": 28,
+            "pm25": 7,
+            "status": "Чистый воздух",
+            "level": "ok",
+            "plume_short": "Снос в море",
+            "plume_desc": f"Ветер {wind_dir_name or 'Норд-Ост'} сдувает шлейф цемзаводов в сторону открытого моря от жилых кварталов города. Концентрация пыли минимальна.",
+            "station_name": "Экопост «Шесхарис / Пролетарий»"
+        }
+
+    # 3. Северный / СЗ (310° - 360° / 0° - 20°): вдоль берега на юго-восток
+    if wind_dir >= 310 or wind_dir < 20:
+        return {
+            "aqi": 34,
+            "pm25": 9,
+            "status": "Норма",
+            "level": "ok",
+            "plume_short": "Снос на Кабардинку / море",
+            "plume_desc": f"Северный/СЗ поток уносит шлейф вдоль Сухумского шоссе в сторону Кабардинки и открытого моря, минуя жилые кварталы.",
+            "station_name": "Экопост «Шесхарис / Пролетарий»"
+        }
+
+    # 4. Восток / Юго-Восток (80° - 160°): из устья бухты в сторону города
+    if 80 < wind_dir <= 160:
+        return {
+            "aqi": 62,
+            "pm25": 19,
+            "status": "Повышенная запыленность",
+            "level": "warning",
+            "plume_short": "Снос на жилые районы (В / Центр)",
+            "plume_desc": f"Юго-восточный ветер направляет шлейф промзоны в сторону жилой застройки Восточного и Центрального районов. Концентрация взвешенных частиц повышена.",
+            "station_name": "Экопост «Шесхарис / Пролетарий»"
+        }
+
+    # 5. Юг / ЮЗ («Моряк», 160° - 240°): с моря на сушу, прижим к склонам
+    if 160 < wind_dir <= 240:
+        return {
+            "aqi": 46,
+            "pm25": 12,
+            "status": "Умеренный",
+            "level": "ok",
+            "plume_short": "Прижим к Маркотху",
+            "plume_desc": f"Морской бриз («моряк») прижимает шлейф выбросов к склонам Маркотхского хребта над Сухумским шоссе.",
+            "station_name": "Экопост «Шесхарис / Пролетарий»"
+        }
+
+    # 6. Западный (240° - 310°): от жилых районов города через бухту на восток
+    return {
+        "aqi": 36,
+        "pm25": 9,
+        "status": "Норма",
+        "level": "ok",
+        "plume_short": "Снос на восток от города",
+        "plume_desc": f"Западный ветер сносит воздушные массы через бухту на восток в сторону промзоны Шесхарис, жилые кварталы города в чистой зоне.",
+        "station_name": "Экопост «Шесхарис / Пролетарий»"
+    }
+
 def build_map_markers(weather=None, marine=None, official_news=None, now_msk=None):
     """
     Динамическое формирование меток для интерактивной карты Новороссийска:
@@ -852,27 +944,18 @@ def build_map_markers(weather=None, marine=None, official_news=None, now_msk=Non
     })
 
     # 4. Экологический мониторинг (eco)
-    # Направление норд-оста (0-90 град) сдувает шлейф цементных заводов в бухту
-    if 0 <= wind_dir <= 90 or wind_dir >= 330:
-        eco_status = "AQI 32 (Норма)"
-        eco_code = "ok"
-        eco_desc = f"Ветер {wind_dir_name} сносит шлейф промзоны в сторону моря от жилых кварталов города. Концентрация PM2.5 в норме."
-    else:
-        eco_status = "AQI 52 (Умеренный)"
-        eco_code = "warning"
-        eco_desc = f"Направление ветра: {wind_dir_name}. Умеренное рассеивание в прибрежной полосе, концентрация пыли повышена."
-
+    eco_info = compute_eco_monitoring(wind_dir, wind_speed, wind_dir_name)
     markers.append({
         "id": "eco_sheskharis",
         "lat": 44.7310,
         "lon": 37.8220,
         "title": "Экопост «Новоросцемент / Пролетарий»",
         "category": "eco",
-        "status": eco_status,
-        "status_code": eco_code,
+        "status": f"AQI {eco_info['aqi']} ({eco_info['status']})",
+        "status_code": eco_info["level"],
         "temp_water": None,
         "waves": None,
-        "desc": eco_desc,
+        "desc": eco_info["plume_desc"],
         "source_url": "https://admnvrsk.ru"
     })
 
@@ -915,7 +998,7 @@ def main():
             "wind_gusts": 22.0,
             "wind_direction": 45,
             "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
-            "bora_risk": "Высокий",
+            "bora_risk": "Умеренный",
             "hourly": []
         }
 
@@ -925,11 +1008,17 @@ def main():
     markers = build_map_markers(weather, marine, official_news, now_msk)
     fetch_and_cache_cameras()
 
+    # Экологический мониторинг и динамический расчет шлейфа цемзаводов
+    w_dir_val = weather.get("wind_direction", 45) if weather else 45
+    w_spd_val = weather.get("wind_speed", 5.0) if weather else 5.0
+    w_dname_val = weather.get("wind_direction_name", "СВ (Норд-Ост)") if weather else "СВ (Норд-Ост)"
+    eco = compute_eco_monitoring(w_dir_val, w_spd_val, w_dname_val)
+
     # Активное оперативное оповещение (только при реальной актуальности: шторм/ЧС)
     active_alert = None
     wind_gusts = weather.get("wind_gusts", 0) if weather else 0
     bora_risk = weather.get("bora_risk", "") if weather else ""
-    if wind_gusts >= 18.0 or bora_risk == "Высокий":
+    if wind_gusts >= 25.0 or (wind_gusts >= 18.0 and "Шторм" in bora_risk):
         active_alert = {
             "is_active": True,
             "type": "storm",
@@ -965,6 +1054,7 @@ def main():
         "active_alert": active_alert,
         "weather": weather,
         "marine": marine,
+        "eco": eco,
         "districts": districts,
         "news": official_news,
         "map_markers": markers,

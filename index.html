@@ -17,7 +17,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Актуальный Новороссийск (anvrsk.ru)">
-  <meta property="og:description" content="Оперативная обстановка в Новороссийске: снимки камер Шесхариса, сводки служб, погода, бора, карта города">
+  <meta property="og:description" content="Городской оперативный дашборд Актуальный Новороссийск (anvrsk.ru). Новости мэрии, сила норд-оста, статус ТГВ, интерактивная карта">
   <meta property="og:url" content="https://anvrsk.ru">
   <meta property="og:type" content="website">
 
@@ -368,18 +368,18 @@
             </svg>
             Воздух и Экология
           </span>
-          <span class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-full">
+          <span id="eco-badge" class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-full">
             Чистый воздух
           </span>
         </div>
         <div class="flex items-baseline gap-2 mb-1">
-          <span class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">34</span>
+          <span id="eco-aqi" class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 tracking-tight">34</span>
           <span class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase">AQI (Индекс)</span>
-          <span class="text-xs text-slate-500 dark:text-slate-400 ml-auto">PM2.5: <strong class="text-slate-700 dark:text-slate-200">8 мкг/м³</strong></span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 ml-auto">PM2.5: <strong id="eco-pm25" class="text-slate-700 dark:text-slate-200">8 мкг/м³</strong></span>
         </div>
         <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800 mt-2">
-          <span>Цемзаводы: <strong class="text-emerald-600 dark:text-emerald-400">Шлейф в море</strong></span>
-          <span class="text-[11px] text-slate-400 dark:text-slate-500">Пост «Шесхарис»</span>
+          <span>Цемзаводы: <strong id="eco-plume" class="text-emerald-600 dark:text-emerald-400">Шлейф в море</strong></span>
+          <span id="eco-post" class="text-[11px] text-slate-400 dark:text-slate-500">Пост «Шесхарис»</span>
         </div>
       </div>
 
@@ -1695,6 +1695,58 @@
       }
     }
 
+    // Dynamic Eco & Cement Plume Update
+    function updateEcoStats(eco, weather) {
+      if (!eco && weather) {
+        const dir = (weather.wind_direction || 0) % 360;
+        const spd = weather.wind_speed || 0;
+        if (spd < 1.5) {
+          eco = { aqi: 52, pm25: 14, status: 'Умеренный', level: 'warning', plume_short: 'Застой над промзоной', station_name: 'Пост «Шесхарис»' };
+        } else if (dir >= 20 && dir <= 80) {
+          eco = { aqi: 28, pm25: 7, status: 'Чистый воздух', level: 'ok', plume_short: 'Шлейф в море', station_name: 'Пост «Шесхарис»' };
+        } else if (dir >= 310 || dir < 20) {
+          eco = { aqi: 34, pm25: 9, status: 'Норма', level: 'ok', plume_short: 'Шлейф на Кабардинку', station_name: 'Пост «Шесхарис»' };
+        } else if (dir > 80 && dir <= 160) {
+          eco = { aqi: 62, pm25: 19, status: 'Запыленность', level: 'warning', plume_short: 'Шлейф на город (В / Центр)', station_name: 'Пост «Шесхарис»' };
+        } else if (dir > 160 && dir <= 240) {
+          eco = { aqi: 46, pm25: 12, status: 'Умеренный', level: 'ok', plume_short: 'Прижим к Маркотху', station_name: 'Пост «Шесхарис»' };
+        } else {
+          eco = { aqi: 36, pm25: 9, status: 'Норма', level: 'ok', plume_short: 'Снос на восток', station_name: 'Пост «Шесхарис»' };
+        }
+      }
+      if (!eco) return;
+
+      const aqiEl = document.getElementById('eco-aqi');
+      const pm25El = document.getElementById('eco-pm25');
+      const plumeEl = document.getElementById('eco-plume');
+      const badgeEl = document.getElementById('eco-badge');
+      const postEl = document.getElementById('eco-post');
+
+      if (aqiEl && eco.aqi) aqiEl.textContent = eco.aqi;
+      if (pm25El && eco.pm25) pm25El.textContent = eco.pm25 + ' мкг/м³';
+      if (postEl && eco.station_name) postEl.textContent = eco.station_name;
+      if (plumeEl && eco.plume_short) {
+        plumeEl.textContent = eco.plume_short;
+        if (eco.level === 'warning') {
+          plumeEl.className = 'text-amber-600 dark:text-amber-400 font-semibold';
+        } else if (eco.level === 'danger') {
+          plumeEl.className = 'text-rose-600 dark:text-rose-400 font-semibold';
+        } else {
+          plumeEl.className = 'text-emerald-600 dark:text-emerald-400';
+        }
+      }
+      if (badgeEl && eco.status) {
+        badgeEl.textContent = eco.status;
+        if (eco.level === 'warning') {
+          badgeEl.className = 'px-2 py-0.5 text-[11px] font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800 rounded-full';
+        } else if (eco.level === 'danger') {
+          badgeEl.className = 'px-2 py-0.5 text-[11px] font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 border border-rose-300 dark:border-rose-800 rounded-full';
+        } else {
+          badgeEl.className = 'px-2 py-0.5 text-[11px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800 rounded-full';
+        }
+      }
+    }
+
     // Refresh Data Function
     async function refreshData() {
       const spinner = document.getElementById('refresh-spinner');
@@ -1795,6 +1847,7 @@
       if (!data) return;
       updateAlertBar(data);
       updateHeroStats(data.weather, data.marine);
+      updateEcoStats(data.eco, data.weather);
       if (data.weather && data.weather.hourly) {
         populateHourlyChart(data.weather.hourly);
       }
