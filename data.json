@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-13T07:30:43.738499+03:00",
-  "updated_at_human": "13.11.2026 в 07:30:43 (МСК)",
+  "updated_at_iso": "2026-11-13T08:00:53.858944+03:00",
+  "updated_at_human": "13.11.2026 в 08:00:53 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 16.0,
-    "apparent_temperature": 13.4,
+    "temperature": 16.1,
+    "apparent_temperature": 13.6,
     "humidity": 92,
-    "pressure_hpa": 1011,
-    "wind_speed": 8.0,
+    "pressure_hpa": 1012,
+    "wind_speed": 7.8,
     "wind_gusts": 17.7,
-    "wind_direction": 176,
+    "wind_direction": 173,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -105,12 +105,12 @@
       "wind_gusts_max": 18.0,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
-      "precip_prob": 88
+      "precip_prob": 93
     }
   },
   "marine": {
     "water_temp": 16.6,
-    "wave_height_m": 1.88,
+    "wave_height_m": 1.86,
     "wave_period_s": 6.0,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Рейд временно закрыт",
@@ -368,7 +368,7 @@
       "status_code": "danger",
       "temp_water": "+16.6°C",
       "waves": "1.9 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 8.0 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 7.8 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -468,11 +468,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Движение свободное",
-      "status_code": "ok",
+      "status": "Плотный трафик (6 баллов)",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
+      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
