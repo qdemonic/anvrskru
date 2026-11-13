@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-13T23:00:56.564666+03:00",
-  "updated_at_human": "13.11.2026 в 23:00:56 (МСК)",
+  "updated_at_iso": "2026-11-14T00:00:55.222150+03:00",
+  "updated_at_human": "14.11.2026 в 00:00:55 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,32 +12,117 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 14.5,
-    "apparent_temperature": 11.8,
-    "humidity": 62,
-    "pressure_hpa": 1018,
-    "wind_speed": 16.0,
-    "wind_gusts": 22.0,
-    "wind_direction": 45,
-    "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
-    "bora_risk": "Умеренный",
-    "hourly": []
+    "temperature": 16.9,
+    "apparent_temperature": 14.9,
+    "humidity": 83,
+    "pressure_hpa": 1011,
+    "wind_speed": 6.2,
+    "wind_gusts": 14.5,
+    "wind_direction": 166,
+    "wind_direction_name": "Ю / ЮЗ («Моряк»)",
+    "bora_risk": "Штиль / влажный",
+    "hourly": [
+      {
+        "time": "00:00",
+        "wind": 6.2,
+        "gust": 14.5,
+        "temp": 16.9
+      },
+      {
+        "time": "01:00",
+        "wind": 6.1,
+        "gust": 13.1,
+        "temp": 17.0
+      },
+      {
+        "time": "02:00",
+        "wind": 6.1,
+        "gust": 12.9,
+        "temp": 16.9
+      },
+      {
+        "time": "03:00",
+        "wind": 4.7,
+        "gust": 12.8,
+        "temp": 16.8
+      },
+      {
+        "time": "04:00",
+        "wind": 4.5,
+        "gust": 10.6,
+        "temp": 16.8
+      },
+      {
+        "time": "05:00",
+        "wind": 4.3,
+        "gust": 10.2,
+        "temp": 16.9
+      },
+      {
+        "time": "06:00",
+        "wind": 5.7,
+        "gust": 12.8,
+        "temp": 17.7
+      },
+      {
+        "time": "07:00",
+        "wind": 6.1,
+        "gust": 13.2,
+        "temp": 17.8
+      },
+      {
+        "time": "08:00",
+        "wind": 5.8,
+        "gust": 14.2,
+        "temp": 17.4
+      },
+      {
+        "time": "09:00",
+        "wind": 6.2,
+        "gust": 13.1,
+        "temp": 17.7
+      },
+      {
+        "time": "10:00",
+        "wind": 6.0,
+        "gust": 13.3,
+        "temp": 17.6
+      },
+      {
+        "time": "11:00",
+        "wind": 5.3,
+        "gust": 13.0,
+        "temp": 17.3
+      }
+    ],
+    "tomorrow": {
+      "date": "2026-11-15",
+      "temp_max": 10,
+      "temp_min": 5,
+      "temp_max_str": "+10°",
+      "temp_min_str": "+5°C",
+      "wind_max": 6.4,
+      "wind_gusts_max": 14.4,
+      "condition_desc": "Дождь",
+      "condition_icon": "🌧️",
+      "precip_prob": 38
+    }
   },
   "marine": {
     "water_temp": 16.5,
-    "wave_height_m": 1.9,
+    "wave_height_m": 1.92,
     "wave_period_s": 5.8,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Рейд временно закрыт",
     "ships_on_roadstead": 16
   },
   "eco": {
-    "aqi": 28,
-    "pm25": 7,
-    "status": "Чистый воздух",
+    "aqi": 46,
+    "pm25": 12,
+    "status": "Умеренный",
     "level": "ok",
-    "plume_short": "Снос в море",
-    "plume_desc": "Ветер СВ (Норд-Ост / Маркотх) сдувает шлейф цемзаводов в сторону открытого моря от жилых кварталов города. Концентрация пыли минимальна.",
+    "plume_short": "Прижим к Маркотху",
+    "plume_desc": "Морской бриз («моряк») прижимает шлейф выбросов к склонам Маркотхского хребта над Сухумским шоссе.",
     "station_name": "Экопост «Шесхарис / Пролетарий»"
   },
   "districts": [
@@ -297,7 +382,7 @@
       "status_code": "danger",
       "temp_water": "+16.5°C",
       "waves": "1.9 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 16.0 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.2 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -384,11 +469,11 @@
       "lon": 37.697,
       "title": "Перевал «Волчьи ворота» (А-146)",
       "category": "traffic",
-      "status": "Шквалы (Опасно для фур)",
-      "status_code": "danger",
+      "status": "Боковой ветер",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 22.0 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы ветра на перевале до 14.5 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -410,11 +495,11 @@
       "lon": 37.822,
       "title": "Экопост «Новоросцемент / Пролетарий»",
       "category": "eco",
-      "status": "AQI 28 (Чистый воздух)",
+      "status": "AQI 46 (Умеренный)",
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Ветер СВ (Норд-Ост / Маркотх) сдувает шлейф цемзаводов в сторону открытого моря от жилых кварталов города. Концентрация пыли минимальна.",
+      "desc": "Морской бриз («моряк») прижимает шлейф выбросов к склонам Маркотхского хребта над Сухумским шоссе.",
       "source_url": "https://admnvrsk.ru"
     }
   ],
