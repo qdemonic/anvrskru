@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-13T02:30:46.504921+03:00",
-  "updated_at_human": "13.11.2026 в 02:30:46 (МСК)",
+  "updated_at_iso": "2026-11-13T03:00:55.141583+03:00",
+  "updated_at_human": "13.11.2026 в 03:00:55 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,12 +13,12 @@
   },
   "weather": {
     "temperature": 15.3,
-    "apparent_temperature": 11.5,
-    "humidity": 89,
+    "apparent_temperature": 11.6,
+    "humidity": 91,
     "pressure_hpa": 1011,
     "wind_speed": 9.5,
-    "wind_gusts": 21.2,
-    "wind_direction": 176,
+    "wind_gusts": 21.4,
+    "wind_direction": 175,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -26,73 +26,73 @@
         "time": "00:00",
         "wind": 10.0,
         "gust": 22.2,
-        "temp": 15.0
+        "temp": 14.9
       },
       {
         "time": "01:00",
         "wind": 9.6,
-        "gust": 22.2,
-        "temp": 15.0
+        "gust": 22.3,
+        "temp": 14.9
       },
       {
         "time": "02:00",
         "wind": 9.4,
-        "gust": 21.5,
-        "temp": 15.2
+        "gust": 21.6,
+        "temp": 15.1
       },
       {
         "time": "03:00",
-        "wind": 9.6,
-        "gust": 21.2,
-        "temp": 15.4
+        "wind": 9.5,
+        "gust": 21.4,
+        "temp": 15.3
       },
       {
         "time": "04:00",
-        "wind": 9.2,
-        "gust": 21.2,
+        "wind": 9.4,
+        "gust": 20.9,
         "temp": 15.5
       },
       {
         "time": "05:00",
-        "wind": 8.4,
-        "gust": 20.3,
-        "temp": 15.7
+        "wind": 8.6,
+        "gust": 20.6,
+        "temp": 15.6
       },
       {
         "time": "06:00",
-        "wind": 8.4,
-        "gust": 18.4,
-        "temp": 15.8
+        "wind": 8.3,
+        "gust": 19.4,
+        "temp": 15.7
       },
       {
         "time": "07:00",
-        "wind": 7.5,
-        "gust": 18.6,
+        "wind": 7.9,
+        "gust": 18.3,
         "temp": 16.0
       },
       {
         "time": "08:00",
-        "wind": 7.0,
-        "gust": 16.1,
+        "wind": 7.1,
+        "gust": 16.9,
         "temp": 16.2
       },
       {
         "time": "09:00",
-        "wind": 7.2,
-        "gust": 16.0,
-        "temp": 16.4
+        "wind": 6.9,
+        "gust": 15.2,
+        "temp": 16.3
       },
       {
         "time": "10:00",
-        "wind": 7.0,
-        "gust": 15.9,
-        "temp": 16.4
+        "wind": 6.6,
+        "gust": 15.1,
+        "temp": 16.6
       },
       {
         "time": "11:00",
-        "wind": 6.8,
-        "gust": 15.7,
-        "temp": 16.6
+        "wind": 6.6,
+        "gust": 14.9,
+        "temp": 16.8
       }
     ],
     "tomorrow": {
@@ -101,8 +101,8 @@
       "temp_min": 10,
       "temp_max_str": "+18°",
       "temp_min_str": "+10°C",
-      "wind_max": 7.5,
-      "wind_gusts_max": 16.3,
+      "wind_max": 7.9,
+      "wind_gusts_max": 17.4,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 88
@@ -459,7 +459,7 @@
       "status_code": "danger",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 21.2 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы норд-оста на горном перевале достигают 21.4 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
       "source_url": "https://admnvrsk.ru"
     },
     {
