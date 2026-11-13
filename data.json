@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-13T21:31:00.627064+03:00",
-  "updated_at_human": "13.11.2026 в 21:31:00 (МСК)",
+  "updated_at_iso": "2026-11-13T22:00:55.136085+03:00",
+  "updated_at_human": "13.11.2026 в 22:00:55 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,12 +13,12 @@
   },
   "weather": {
     "temperature": 16.8,
-    "apparent_temperature": 14.9,
+    "apparent_temperature": 14.8,
     "humidity": 85,
     "pressure_hpa": 1012,
     "wind_speed": 6.4,
     "wind_gusts": 13.5,
-    "wind_direction": 163,
+    "wind_direction": 166,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -110,7 +110,7 @@
   },
   "marine": {
     "water_temp": 16.5,
-    "wave_height_m": 1.88,
+    "wave_height_m": 1.9,
     "wave_period_s": 5.8,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Рейд временно закрыт",
