@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-13T22:00:55.136085+03:00",
-  "updated_at_human": "13.11.2026 в 22:00:55 (МСК)",
+  "updated_at_iso": "2026-11-13T22:30:46.294156+03:00",
+  "updated_at_human": "13.11.2026 в 22:30:46 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,12 +13,12 @@
   },
   "weather": {
     "temperature": 16.8,
-    "apparent_temperature": 14.8,
-    "humidity": 85,
-    "pressure_hpa": 1012,
-    "wind_speed": 6.4,
-    "wind_gusts": 13.5,
-    "wind_direction": 166,
+    "apparent_temperature": 14.7,
+    "humidity": 84,
+    "pressure_hpa": 1011,
+    "wind_speed": 6.7,
+    "wind_gusts": 14.4,
+    "wind_direction": 167,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -382,7 +382,7 @@
       "status_code": "danger",
       "temp_water": "+16.5°C",
       "waves": "1.9 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.4 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.7 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -469,11 +469,11 @@
       "lon": 37.697,
       "title": "Перевал «Волчьи ворота» (А-146)",
       "category": "traffic",
-      "status": "Трасса свободна",
-      "status_code": "ok",
+      "status": "Боковой ветер",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (13.5 м/с), покрытие сухое.",
+      "desc": "Порывы ветра на перевале до 14.4 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
