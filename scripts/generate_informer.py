@@ -308,14 +308,58 @@ def create_informer(data, theme='dark'):
     plume_str = eco.get('plume_short', 'Снос в море')
     eco_level = eco.get('level', 'ok')
 
+    # Цветовое кодирование статуса
     eco_color = (34, 197, 94) if eco_level == 'ok' else ((217, 119, 6) if eco_level == 'warning' else (225, 29, 72))
 
-    draw.text((col2_x + 20, row2_y + 54), f"AQI {aqi_val} • {aqi_status}", font=font_metric, fill=eco_color)
-    draw.text((col2_x + 20, row2_y + 112), f"Взвешенные частицы PM2.5: {pm25_val} мкг/м³", font=font_body, fill=text_secondary)
-    
+    # 1. Заголовок метрики: "AQI XX" крупным шрифтом + аккуратный бейдж статуса рядом
+    font_aqi_num = load_font(38, bold=True)
+    aqi_str = f"AQI {aqi_val}"
+    draw.text((col2_x + 20, row2_y + 52), aqi_str, font=font_aqi_num, fill=eco_color)
+
+    bbox_aqi = draw.textbbox((col2_x + 20, row2_y + 52), aqi_str, font=font_aqi_num)
+    badge_x = bbox_aqi[2] + 12
+    badge_y = row2_y + 58
+    badge_label = aqi_status.upper()
+    font_eco_badge = load_font(13, bold=True)
+    bbox_b = draw.textbbox((0, 0), badge_label, font=font_eco_badge)
+    b_text_w = bbox_b[2] - bbox_b[0]
+
+    # Защита от слишком длинного бейджа: если не влезает, сокращаем
+    max_badge_right = col2_x + col_w - 20
+    if badge_x + b_text_w + 20 > max_badge_right:
+        badge_label = "ВНИМАНИЕ" if eco_level == 'warning' else ("ОПАСНО" if eco_level == 'danger' else "НОРМА")
+        bbox_b = draw.textbbox((0, 0), badge_label, font=font_eco_badge)
+        b_text_w = bbox_b[2] - bbox_b[0]
+    badge_pill_w = b_text_w + 20
+
+    badge_bg = (16, 149, 106) if eco_level == 'ok' else ((217, 119, 6) if eco_level == 'warning' else (225, 29, 72))
+    draw.rounded_rectangle((badge_x, badge_y, badge_x + badge_pill_w, badge_y + 26), radius=8, fill=badge_bg)
+    draw.text((badge_x + 10, badge_y + 5), badge_label, font=font_eco_badge, fill=(255, 255, 255))
+
+    # 2. Взвешенные частицы PM2.5
+    draw.text((col2_x + 20, row2_y + 106), f"Взвешенные частицы PM2.5: {pm25_val} мкг/м³", font=font_body, fill=text_secondary)
+
+    # 3. Шлейф цемзаводов с математическим контролем границы блока
+    if len(plume_str) > 22:
+        plume_line = f"Шлейф: {plume_str}"
+    else:
+        plume_line = f"Шлейф цемзаводов: {plume_str}"
+
+    font_plume = font_body
+    bbox_p = draw.textbbox((0, 0), plume_line, font=font_plume)
+    max_right = col2_x + col_w - 20
+    if col2_x + 20 + (bbox_p[2] - bbox_p[0]) > max_right:
+        font_plume = load_font(16, bold=False)
+        bbox_p = draw.textbbox((0, 0), plume_line, font=font_plume)
+        if col2_x + 20 + (bbox_p[2] - bbox_p[0]) > max_right:
+            plume_line = f"Шлейф: {plume_str}"
+
     plume_text_color = (217, 119, 6) if eco_level == 'warning' else text_secondary
-    draw.text((col2_x + 20, row2_y + 144), f"Шлейф цемзаводов: {plume_str}", font=font_body, fill=plume_text_color)
-    draw.text((col2_x + 20, row2_y + 174), f"{eco.get('station_name', 'Экопост «Шесхарис / Пролетарий»')}: норма", font=font_small, fill=text_muted)
+    draw.text((col2_x + 20, row2_y + 138), plume_line, font=font_plume, fill=plume_text_color)
+
+    # 4. Пост мониторинга
+    station_str = "Экопост «Шесхарис / Пролетарий» • норма"
+    draw.text((col2_x + 20, row2_y + 168), station_str, font=font_small, fill=text_muted)
 
     # 4. Section: Recent 3 Official News & Alerts
     section_y = 650
