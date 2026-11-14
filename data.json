@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-14T22:30:45.739313+03:00",
-  "updated_at_human": "14.11.2026 в 22:30:45 (МСК)",
+  "updated_at_iso": "2026-11-14T23:00:54.810344+03:00",
+  "updated_at_human": "14.11.2026 в 23:00:54 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 10.3,
-    "apparent_temperature": 7.0,
-    "humidity": 84,
+    "temperature": 10.0,
+    "apparent_temperature": 6.2,
+    "humidity": 83,
     "pressure_hpa": 1016,
-    "wind_speed": 5.2,
+    "wind_speed": 5.8,
     "wind_gusts": 11.8,
-    "wind_direction": 353,
+    "wind_direction": 1,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
     "hourly": [
@@ -102,8 +102,8 @@
     }
   },
   "marine": {
-    "water_temp": 16.4,
-    "wave_height_m": 1.68,
+    "water_temp": 16.3,
+    "wave_height_m": 1.64,
     "wave_period_s": 7.0,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
@@ -345,9 +345,9 @@
       "category": "beach",
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
-      "temp_water": "+16.4°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 5.2 м/с. Спасательный пост дежурит.",
+      "temp_water": "+16.3°C",
+      "waves": "1.6 м (4 балла (Штормовое))",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 5.8 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -358,8 +358,8 @@
       "category": "beach",
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
-      "temp_water": "+16.4°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "temp_water": "+16.3°C",
+      "waves": "1.6 м (4 балла (Штормовое))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
@@ -371,8 +371,8 @@
       "category": "beach",
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
-      "temp_water": "+16.4°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "temp_water": "+16.3°C",
+      "waves": "1.6 м (4 балла (Штормовое))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -384,8 +384,8 @@
       "category": "beach",
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
-      "temp_water": "+16.4°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
+      "temp_water": "+16.3°C",
+      "waves": "1.6 м (4 балла (Штормовое))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -397,9 +397,9 @@
       "category": "beach",
       "status": "Шторм (Купание запрещено)",
       "status_code": "danger",
-      "temp_water": "+16.4°C",
-      "waves": "1.7 м (4 балла (Штормовое))",
-      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.4°C.",
+      "temp_water": "+16.3°C",
+      "waves": "1.6 м (4 балла (Штормовое))",
+      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.3°C.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -410,7 +410,7 @@
       "category": "nature",
       "status": "Штатно",
       "status_code": "ok",
-      "temp_water": "+14.9°C",
+      "temp_water": "+14.8°C",
       "waves": "Штиль",
       "desc": "Живописная набережная горного озера, светомузыкальный фонтан, прогулочные зоны.",
       "source_url": "https://t.me/kravchenko_glava_nvrsk"
