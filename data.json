@@ -1,26 +1,19 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-14T09:30:42.385958+03:00",
-  "updated_at_human": "14.11.2026 в 09:30:42 (МСК)",
-  "active_alert": {
-    "is_active": true,
-    "type": "emergency",
-    "title": "&#9888;&#65039; Нередко под видом пути к гарантированному высокому доходу продают курсы без реальной образовательной ценности. Нелицензированные прогр",
-    "source_name": "Безопасный город / ЕДДС",
-    "source_url": "https://vk.com/wall-116114113_22299",
-    "level": "warning"
-  },
+  "updated_at_iso": "2026-11-14T10:00:56.600022+03:00",
+  "updated_at_human": "14.11.2026 в 10:00:56 (МСК)",
+  "active_alert": null,
   "weather": {
-    "temperature": 18.3,
-    "apparent_temperature": 15.9,
-    "humidity": 72,
+    "temperature": 18.1,
+    "apparent_temperature": 15.6,
+    "humidity": 73,
     "pressure_hpa": 1013,
-    "wind_speed": 6.6,
+    "wind_speed": 6.7,
     "wind_gusts": 14.0,
-    "wind_direction": 200,
-    "wind_direction_name": "Ю / ЮЗ («Моряк»)",
-    "bora_risk": "Штиль / влажный",
+    "wind_direction": 201,
+    "wind_direction_name": "ЮЗ / Западный",
+    "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
@@ -110,8 +103,8 @@
   },
   "marine": {
     "water_temp": 16.4,
-    "wave_height_m": 2.06,
-    "wave_period_s": 6.8,
+    "wave_height_m": 2.08,
+    "wave_period_s": 6.9,
     "wave_points": "5+ баллов (Сильный шторм)",
     "port_status": "Рейд временно закрыт",
     "ships_on_roadstead": 16
@@ -368,7 +361,7 @@
       "status_code": "danger",
       "temp_water": "+16.4°C",
       "waves": "2.1 м (5+ баллов (Сильный шторм))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.6 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 6.7 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
