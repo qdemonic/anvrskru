@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-15T23:30:46.367663+03:00",
-  "updated_at_human": "15.11.2026 в 23:30:46 (МСК)",
+  "updated_at_iso": "2026-11-16T00:00:57.574900+03:00",
+  "updated_at_human": "16.11.2026 в 00:00:57 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,106 +12,106 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 5.3,
-    "apparent_temperature": 0.1,
-    "humidity": 61,
-    "pressure_hpa": 1029,
-    "wind_speed": 5.5,
+    "temperature": 5.2,
+    "apparent_temperature": 0.0,
+    "humidity": 63,
+    "pressure_hpa": 1028,
+    "wind_speed": 5.6,
     "wind_gusts": 11.4,
-    "wind_direction": 41,
+    "wind_direction": 43,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
-        "wind": 6.7,
-        "gust": 14.4,
-        "temp": 9.6
+        "wind": 5.6,
+        "gust": 11.4,
+        "temp": 5.2
       },
       {
         "time": "01:00",
-        "wind": 6.6,
-        "gust": 15.4,
-        "temp": 8.5
+        "wind": 5.5,
+        "gust": 11.8,
+        "temp": 5.1
       },
       {
         "time": "02:00",
         "wind": 5.9,
-        "gust": 13.5,
-        "temp": 8.4
+        "gust": 12.0,
+        "temp": 5.1
       },
       {
         "time": "03:00",
-        "wind": 5.0,
-        "gust": 12.1,
-        "temp": 8.3
+        "wind": 5.2,
+        "gust": 12.0,
+        "temp": 5.4
       },
       {
         "time": "04:00",
-        "wind": 5.2,
-        "gust": 10.9,
-        "temp": 7.8
+        "wind": 4.5,
+        "gust": 11.5,
+        "temp": 5.6
       },
       {
         "time": "05:00",
-        "wind": 5.3,
-        "gust": 10.8,
-        "temp": 7.2
+        "wind": 4.2,
+        "gust": 10.0,
+        "temp": 5.4
       },
       {
         "time": "06:00",
-        "wind": 5.3,
-        "gust": 11.3,
-        "temp": 6.6
+        "wind": 4.1,
+        "gust": 9.5,
+        "temp": 5.4
       },
       {
         "time": "07:00",
-        "wind": 4.9,
-        "gust": 10.8,
-        "temp": 6.3
+        "wind": 4.0,
+        "gust": 9.3,
+        "temp": 5.2
       },
       {
         "time": "08:00",
-        "wind": 4.8,
-        "gust": 10.0,
-        "temp": 6.3
+        "wind": 4.1,
+        "gust": 9.2,
+        "temp": 5.0
       },
       {
         "time": "09:00",
-        "wind": 4.7,
-        "gust": 10.1,
-        "temp": 6.9
+        "wind": 4.0,
+        "gust": 9.1,
+        "temp": 5.6
       },
       {
         "time": "10:00",
-        "wind": 5.8,
-        "gust": 12.1,
-        "temp": 7.6
+        "wind": 3.7,
+        "gust": 9.2,
+        "temp": 6.5
       },
       {
         "time": "11:00",
-        "wind": 5.6,
-        "gust": 12.0,
-        "temp": 8.3
+        "wind": 3.3,
+        "gust": 8.7,
+        "temp": 7.5
       }
     ],
     "tomorrow": {
-      "date": "2026-11-16",
-      "temp_max": 9,
+      "date": "2026-11-17",
+      "temp_max": 14,
       "temp_min": 4,
-      "temp_max_str": "+9°",
+      "temp_max_str": "+14°",
       "temp_min_str": "+4°C",
-      "wind_max": 5.9,
-      "wind_gusts_max": 12.0,
-      "condition_desc": "Малооблачно",
-      "condition_icon": "🌤️",
-      "precip_prob": 0
+      "wind_max": 7.6,
+      "wind_gusts_max": 16.1,
+      "condition_desc": "Дождь",
+      "condition_icon": "🌧️",
+      "precip_prob": 91
     }
   },
   "marine": {
     "water_temp": 16.1,
     "wave_height_m": 0.36,
-    "wave_period_s": 5.2,
+    "wave_period_s": 5.0,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -354,7 +354,7 @@
       "status_code": "ok",
       "temp_water": "+16.1°C",
       "waves": "0.4 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 5.5 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 5.6 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
