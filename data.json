@@ -1,36 +1,29 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-16T01:30:47.815879+03:00",
-  "updated_at_human": "16.11.2026 в 01:30:47 (МСК)",
-  "active_alert": {
-    "is_active": true,
-    "type": "emergency",
-    "title": "ОТМЕНА СИГНАЛА «Угроза применения БПЛА»",
-    "source_name": "Безопасный город / ЕДДС",
-    "source_url": "https://vk.com/wall-116114113_22308",
-    "level": "warning"
-  },
+  "updated_at_iso": "2026-11-16T02:01:08.252899+03:00",
+  "updated_at_human": "16.11.2026 в 02:01:08 (МСК)",
+  "active_alert": null,
   "weather": {
-    "temperature": 5.2,
+    "temperature": 5.3,
     "apparent_temperature": -0.1,
     "humidity": 64,
-    "pressure_hpa": 1028,
+    "pressure_hpa": 1027,
     "wind_speed": 5.9,
     "wind_gusts": 12.1,
-    "wind_direction": 46,
+    "wind_direction": 45,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
-        "wind": 5.8,
+        "wind": 5.7,
         "gust": 11.9,
         "temp": 5.4
       },
       {
         "time": "01:00",
-        "wind": 5.8,
+        "wind": 5.7,
         "gust": 12.3,
         "temp": 5.2
       },
@@ -42,19 +35,19 @@
       },
       {
         "time": "03:00",
-        "wind": 5.2,
+        "wind": 5.3,
         "gust": 12.1,
         "temp": 5.5
       },
       {
         "time": "04:00",
-        "wind": 4.5,
+        "wind": 4.6,
         "gust": 11.6,
         "temp": 5.6
       },
       {
         "time": "05:00",
-        "wind": 4.2,
+        "wind": 4.0,
         "gust": 10.4,
         "temp": 5.6
       },
@@ -72,25 +65,25 @@
       },
       {
         "time": "08:00",
-        "wind": 4.2,
+        "wind": 4.0,
         "gust": 9.2,
         "temp": 5.2
       },
       {
         "time": "09:00",
-        "wind": 4.1,
+        "wind": 3.9,
         "gust": 9.1,
         "temp": 5.8
       },
       {
         "time": "10:00",
-        "wind": 3.8,
+        "wind": 3.7,
         "gust": 8.8,
         "temp": 6.8
       },
       {
         "time": "11:00",
-        "wind": 3.4,
+        "wind": 3.2,
         "gust": 8.4,
         "temp": 7.8
       }
@@ -101,7 +94,7 @@
       "temp_min": 5,
       "temp_max_str": "+14°",
       "temp_min_str": "+5°C",
-      "wind_max": 7.6,
+      "wind_max": 6.6,
       "wind_gusts_max": 14.1,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
@@ -109,9 +102,9 @@
     }
   },
   "marine": {
-    "water_temp": 16.1,
+    "water_temp": 16.0,
     "wave_height_m": 0.4,
-    "wave_period_s": 4.2,
+    "wave_period_s": 3.9,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -352,7 +345,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+16.1°C",
+      "temp_water": "+16.0°C",
       "waves": "0.4 м (2 балла (Умеренное))",
       "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 5.9 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
@@ -365,7 +358,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+16.1°C",
+      "temp_water": "+16.0°C",
       "waves": "0.4 м (2 балла (Умеренное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
@@ -378,7 +371,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+16.1°C",
+      "temp_water": "+16.0°C",
       "waves": "0.4 м (2 балла (Умеренное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
@@ -391,7 +384,7 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+16.1°C",
+      "temp_water": "+16.0°C",
       "waves": "0.4 м (2 балла (Умеренное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
@@ -404,9 +397,9 @@
       "category": "beach",
       "status": "Открыт / Штиль",
       "status_code": "ok",
-      "temp_water": "+16.1°C",
+      "temp_water": "+16.0°C",
       "waves": "0.4 м (2 балла (Умеренное))",
-      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.1°C.",
+      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.0°C.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -417,7 +410,7 @@
       "category": "nature",
       "status": "Штатно",
       "status_code": "ok",
-      "temp_water": "+14.6°C",
+      "temp_water": "+14.5°C",
       "waves": "Штиль",
       "desc": "Живописная набережная горного озера, светомузыкальный фонтан, прогулочные зоны.",
       "source_url": "https://t.me/kravchenko_glava_nvrsk"
