@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-15T09:00:57.675915+03:00",
-  "updated_at_human": "15.11.2026 в 09:00:57 (МСК)",
+  "updated_at_iso": "2026-11-15T09:30:47.760087+03:00",
+  "updated_at_human": "15.11.2026 в 09:30:47 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 6.8,
-    "apparent_temperature": 2.7,
-    "humidity": 77,
-    "pressure_hpa": 1026,
-    "wind_speed": 4.8,
-    "wind_gusts": 10.1,
-    "wind_direction": 7,
+    "temperature": 7.2,
+    "apparent_temperature": 2.8,
+    "humidity": 73,
+    "pressure_hpa": 1027,
+    "wind_speed": 5.4,
+    "wind_gusts": 12.0,
+    "wind_direction": 9,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
     "hourly": [
@@ -110,7 +110,7 @@
   },
   "marine": {
     "water_temp": 16.2,
-    "wave_height_m": 0.82,
+    "wave_height_m": 0.8,
     "wave_period_s": 6.0,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
@@ -284,7 +284,7 @@
       "status_code": "warning",
       "temp_water": "+16.2°C",
       "waves": "0.8 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 4.8 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 5.4 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -375,7 +375,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (10.1 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (12.0 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
