@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-15T05:01:02.918453+03:00",
-  "updated_at_human": "15.11.2026 в 05:01:02 (МСК)",
+  "updated_at_iso": "2026-11-15T05:30:45.979229+03:00",
+  "updated_at_human": "15.11.2026 в 05:30:45 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 7.2,
-    "apparent_temperature": 3.0,
-    "humidity": 81,
-    "pressure_hpa": 1023,
-    "wind_speed": 5.4,
-    "wind_gusts": 11.0,
-    "wind_direction": 2,
+    "temperature": 7.0,
+    "apparent_temperature": 2.7,
+    "humidity": 80,
+    "pressure_hpa": 1024,
+    "wind_speed": 5.5,
+    "wind_gusts": 11.3,
+    "wind_direction": 3,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
     "hourly": [
@@ -109,8 +109,8 @@
     }
   },
   "marine": {
-    "water_temp": 16.3,
-    "wave_height_m": 1.04,
+    "water_temp": 16.2,
+    "wave_height_m": 1.0,
     "wave_period_s": 6.4,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
@@ -282,9 +282,9 @@
       "category": "beach",
       "status": "Умеренное волнение",
       "status_code": "warning",
-      "temp_water": "+16.3°C",
+      "temp_water": "+16.2°C",
       "waves": "1.0 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 5.4 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 5.5 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -295,7 +295,7 @@
       "category": "beach",
       "status": "Умеренное волнение",
       "status_code": "warning",
-      "temp_water": "+16.3°C",
+      "temp_water": "+16.2°C",
       "waves": "1.0 м (3 балла (Заметное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
@@ -308,7 +308,7 @@
       "category": "beach",
       "status": "Умеренное волнение",
       "status_code": "warning",
-      "temp_water": "+16.3°C",
+      "temp_water": "+16.2°C",
       "waves": "1.0 м (3 балла (Заметное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
@@ -321,7 +321,7 @@
       "category": "beach",
       "status": "Умеренное волнение",
       "status_code": "warning",
-      "temp_water": "+16.3°C",
+      "temp_water": "+16.2°C",
       "waves": "1.0 м (3 балла (Заметное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
@@ -334,9 +334,9 @@
       "category": "beach",
       "status": "Умеренное волнение",
       "status_code": "warning",
-      "temp_water": "+16.3°C",
+      "temp_water": "+16.2°C",
       "waves": "1.0 м (3 балла (Заметное))",
-      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.3°C.",
+      "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +16.2°C.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -347,7 +347,7 @@
       "category": "nature",
       "status": "Штатно",
       "status_code": "ok",
-      "temp_water": "+14.8°C",
+      "temp_water": "+14.7°C",
       "waves": "Штиль",
       "desc": "Живописная набережная горного озера, светомузыкальный фонтан, прогулочные зоны.",
       "source_url": "https://t.me/kravchenko_glava_nvrsk"
@@ -375,7 +375,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (11.0 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (11.3 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
