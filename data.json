@@ -1,16 +1,16 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-16T20:30:52.152309+03:00",
-  "updated_at_human": "16.11.2026 в 20:30:52 (МСК)",
+  "updated_at_iso": "2026-11-16T21:00:57.661537+03:00",
+  "updated_at_human": "16.11.2026 в 21:00:57 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 6.7,
-    "apparent_temperature": 3.5,
-    "humidity": 72,
+    "temperature": 6.2,
+    "apparent_temperature": 3.1,
+    "humidity": 74,
     "pressure_hpa": 1021,
-    "wind_speed": 2.6,
-    "wind_gusts": 5.8,
+    "wind_speed": 2.5,
+    "wind_gusts": 5.9,
     "wind_direction": 18,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
@@ -91,13 +91,13 @@
     "tomorrow": {
       "date": "2026-11-17",
       "temp_max": 14,
-      "temp_min": 5,
+      "temp_min": 4,
       "temp_max_str": "+14°",
-      "temp_min_str": "+5°C",
-      "wind_max": 7.8,
-      "wind_gusts_max": 17.0,
-      "condition_desc": "Дождь",
-      "condition_icon": "🌧️",
+      "temp_min_str": "+4°C",
+      "wind_max": 7.5,
+      "wind_gusts_max": 17.2,
+      "condition_desc": "Гроза",
+      "condition_icon": "⛈️",
       "precip_prob": 100
     }
   },
@@ -375,7 +375,7 @@
       "status_code": "ok",
       "temp_water": "+15.9°C",
       "waves": "0.3 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 2.6 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 2.5 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -492,7 +492,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.8 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.9 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
