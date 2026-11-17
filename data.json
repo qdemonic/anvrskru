@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-17T20:49:18.112931+03:00",
-  "updated_at_human": "17.11.2026 в 20:49:18 (МСК)",
+  "updated_at_iso": "2026-11-17T21:01:00.646274+03:00",
+  "updated_at_human": "17.11.2026 в 21:01:00 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 13.6,
-    "apparent_temperature": 9.1,
-    "humidity": 88,
+    "temperature": 13.5,
+    "apparent_temperature": 8.9,
+    "humidity": 90,
     "pressure_hpa": 1006,
-    "wind_speed": 9.6,
+    "wind_speed": 9.9,
     "wind_gusts": 22.6,
-    "wind_direction": 173,
+    "wind_direction": 176,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -101,7 +101,7 @@
       "temp_min": 13,
       "temp_max_str": "+15°",
       "temp_min_str": "+13°C",
-      "wind_max": 9.8,
+      "wind_max": 10.0,
       "wind_gusts_max": 21.8,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.8,
-    "wave_height_m": 1.48,
-    "wave_period_s": 5.0,
+    "wave_height_m": 1.5,
+    "wave_period_s": 5.1,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -382,7 +382,7 @@
       "status_code": "danger",
       "temp_water": "+15.8°C",
       "waves": "1.5 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 9.6 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 9.9 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
