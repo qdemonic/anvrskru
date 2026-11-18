@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-18T20:01:01.227577+03:00",
-  "updated_at_human": "18.11.2026 в 20:01:01 (МСК)",
+  "updated_at_iso": "2026-11-18T20:30:49.755600+03:00",
+  "updated_at_human": "18.11.2026 в 20:30:49 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 14.3,
-    "apparent_temperature": 10.3,
-    "humidity": 87,
+    "temperature": 14.4,
+    "apparent_temperature": 10.6,
+    "humidity": 88,
     "pressure_hpa": 1004,
-    "wind_speed": 9.0,
-    "wind_gusts": 20.0,
-    "wind_direction": 161,
+    "wind_speed": 8.7,
+    "wind_gusts": 19.4,
+    "wind_direction": 163,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -382,7 +382,7 @@
       "status_code": "danger",
       "temp_water": "+15.8°C",
       "waves": "2.1 м (5+ баллов (Сильный шторм))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 9.0 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 8.7 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -469,11 +469,11 @@
       "lon": 37.697,
       "title": "Перевал «Волчьи ворота» (А-146)",
       "category": "traffic",
-      "status": "Шквалы (Опасно для фур)",
-      "status_code": "danger",
+      "status": "Боковой ветер",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 20.0 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы ветра на перевале до 19.4 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
