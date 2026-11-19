@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-19T14:00:59.365707+03:00",
-  "updated_at_human": "19.11.2026 в 14:00:59 (МСК)",
+  "updated_at_iso": "2026-11-19T14:30:50.223276+03:00",
+  "updated_at_human": "19.11.2026 в 14:30:50 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 15.0,
-    "apparent_temperature": 11.2,
-    "humidity": 91,
+    "temperature": 14.9,
+    "apparent_temperature": 11.5,
+    "humidity": 90,
     "pressure_hpa": 998,
-    "wind_speed": 9.6,
-    "wind_gusts": 21.2,
-    "wind_direction": 219,
+    "wind_speed": 8.6,
+    "wind_gusts": 21.1,
+    "wind_direction": 231,
     "wind_direction_name": "ЮЗ / Западный",
     "bora_risk": "Низкий",
     "hourly": [
@@ -98,13 +98,13 @@
       "wind_gusts_max": 21.9,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
-      "precip_prob": 95
+      "precip_prob": 100
     }
   },
   "marine": {
     "water_temp": 15.7,
-    "wave_height_m": 2.18,
-    "wave_period_s": 6.0,
+    "wave_height_m": 2.24,
+    "wave_period_s": 6.2,
     "wave_points": "5+ баллов (Сильный шторм)",
     "port_status": "Рейд временно закрыт",
     "ships_on_roadstead": 16
@@ -375,7 +375,7 @@
       "status_code": "danger",
       "temp_water": "+15.7°C",
       "waves": "2.2 м (5+ баллов (Сильный шторм))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 9.6 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 8.6 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -466,7 +466,7 @@
       "status_code": "danger",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 21.2 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы норд-оста на горном перевале достигают 21.1 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
       "source_url": "https://admnvrsk.ru"
     },
     {
