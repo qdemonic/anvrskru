@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-19T07:14:03.700853+03:00",
-  "updated_at_human": "19.11.2026 в 07:14:03 (МСК)",
+  "updated_at_iso": "2026-11-19T07:30:45.783429+03:00",
+  "updated_at_human": "19.11.2026 в 07:30:45 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 14.5,
-    "apparent_temperature": 12.3,
-    "humidity": 95,
-    "pressure_hpa": 1001,
-    "wind_speed": 6.5,
-    "wind_gusts": 14.0,
-    "wind_direction": 191,
+    "temperature": 14.6,
+    "apparent_temperature": 12.2,
+    "humidity": 94,
+    "pressure_hpa": 1000,
+    "wind_speed": 6.9,
+    "wind_gusts": 16.2,
+    "wind_direction": 182,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.7,
-    "wave_height_m": 1.78,
-    "wave_period_s": 5.9,
+    "wave_height_m": 1.76,
+    "wave_period_s": 5.8,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -382,7 +382,7 @@
       "status_code": "danger",
       "temp_water": "+15.7°C",
       "waves": "1.8 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.5 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 6.9 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -473,7 +473,7 @@
       "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы ветра на перевале до 14.0 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
+      "desc": "Порывы ветра на перевале до 16.2 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
