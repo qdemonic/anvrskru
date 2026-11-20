@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-20T12:30:52.648713+03:00",
-  "updated_at_human": "20.11.2026 в 12:30:52 (МСК)",
+  "updated_at_iso": "2026-11-20T13:01:00.635950+03:00",
+  "updated_at_human": "20.11.2026 в 13:01:00 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,12 +12,12 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 14.0,
-    "apparent_temperature": 9.8,
+    "temperature": 13.8,
+    "apparent_temperature": 9.3,
     "humidity": 85,
-    "pressure_hpa": 1005,
-    "wind_speed": 8.9,
-    "wind_gusts": 20.3,
+    "pressure_hpa": 1004,
+    "wind_speed": 9.5,
+    "wind_gusts": 21.2,
     "wind_direction": 162,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
@@ -78,31 +78,31 @@
       },
       {
         "time": "09:00",
-        "wind": 8.6,
+        "wind": 8.5,
         "gust": 18.9,
         "temp": 13.7
       },
       {
         "time": "10:00",
-        "wind": 8.2,
-        "gust": 19.0,
-        "temp": 13.7
+        "wind": 8.7,
+        "gust": 18.9,
+        "temp": 13.8
       },
       {
         "time": "11:00",
-        "wind": 9.4,
-        "gust": 21.0,
-        "temp": 14.1
+        "wind": 9.6,
+        "gust": 21.6,
+        "temp": 14.2
       }
     ],
     "tomorrow": {
       "date": "2026-11-21",
-      "temp_max": 15,
+      "temp_max": 14,
       "temp_min": 9,
-      "temp_max_str": "+15°",
+      "temp_max_str": "+14°",
       "temp_min_str": "+9°C",
-      "wind_max": 3.6,
-      "wind_gusts_max": 8.2,
+      "wind_max": 4.7,
+      "wind_gusts_max": 10.0,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 18
@@ -110,10 +110,10 @@
   },
   "marine": {
     "water_temp": 15.5,
-    "wave_height_m": 1.76,
-    "wave_period_s": 5.2,
+    "wave_height_m": 1.8,
+    "wave_period_s": 5.3,
     "wave_points": "4 балла (Штормовое)",
-    "port_status": "Открыт для захода",
+    "port_status": "Рейд временно закрыт",
     "ships_on_roadstead": 16
   },
   "eco": {
@@ -368,7 +368,7 @@
       "status_code": "danger",
       "temp_water": "+15.5°C",
       "waves": "1.8 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 8.9 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 9.5 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -459,7 +459,7 @@
       "status_code": "danger",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 20.3 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы норд-оста на горном перевале достигают 21.2 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
       "source_url": "https://admnvrsk.ru"
     },
     {
