@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-20T14:49:02.280541+03:00",
-  "updated_at_human": "20.11.2026 в 14:49:02 (МСК)",
+  "updated_at_iso": "2026-11-20T15:01:03.795587+03:00",
+  "updated_at_human": "20.11.2026 в 15:01:03 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 14.5,
-    "apparent_temperature": 9.4,
-    "humidity": 81,
+    "temperature": 14.0,
+    "apparent_temperature": 9.1,
+    "humidity": 85,
     "pressure_hpa": 1004,
-    "wind_speed": 10.4,
-    "wind_gusts": 23.2,
-    "wind_direction": 168,
+    "wind_speed": 10.3,
+    "wind_gusts": 22.8,
+    "wind_direction": 167,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -98,20 +98,20 @@
     "tomorrow": {
       "date": "2026-11-21",
       "temp_max": 14,
-      "temp_min": 9,
+      "temp_min": 10,
       "temp_max_str": "+14°",
-      "temp_min_str": "+9°C",
-      "wind_max": 4.7,
-      "wind_gusts_max": 10.0,
-      "condition_desc": "Дождь",
-      "condition_icon": "🌧️",
+      "temp_min_str": "+10°C",
+      "wind_max": 4.3,
+      "wind_gusts_max": 9.8,
+      "condition_desc": "Пасмурно",
+      "condition_icon": "☁️",
       "precip_prob": 13
     }
   },
   "marine": {
     "water_temp": 15.5,
-    "wave_height_m": 2.0,
-    "wave_period_s": 5.7,
+    "wave_height_m": 2.02,
+    "wave_period_s": 5.8,
     "wave_points": "5+ баллов (Сильный шторм)",
     "port_status": "Рейд временно закрыт",
     "ships_on_roadstead": 16
@@ -354,7 +354,7 @@
       "status_code": "danger",
       "temp_water": "+15.5°C",
       "waves": "2.0 м (5+ баллов (Сильный шторм))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 10.4 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 10.3 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -445,7 +445,7 @@
       "status_code": "danger",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 23.2 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы норд-оста на горном перевале достигают 22.8 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
       "source_url": "https://admnvrsk.ru"
     },
     {
