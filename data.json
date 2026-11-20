@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-20T18:30:52.000994+03:00",
-  "updated_at_human": "20.11.2026 в 18:30:52 (МСК)",
+  "updated_at_iso": "2026-11-20T19:01:00.184761+03:00",
+  "updated_at_human": "20.11.2026 в 19:01:00 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 15.1,
-    "apparent_temperature": 12.9,
-    "humidity": 91,
+    "apparent_temperature": 13.3,
+    "humidity": 88,
     "pressure_hpa": 1005,
-    "wind_speed": 6.3,
+    "wind_speed": 5.3,
     "wind_gusts": 15.8,
-    "wind_direction": 201,
+    "wind_direction": 217,
     "wind_direction_name": "ЮЗ / Западный",
     "bora_risk": "Низкий",
     "hourly": [
@@ -103,7 +103,7 @@
   },
   "marine": {
     "water_temp": 15.5,
-    "wave_height_m": 1.92,
+    "wave_height_m": 1.88,
     "wave_period_s": 6.1,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Рейд временно закрыт",
@@ -224,17 +224,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47020",
+      "id": "mtsunvrsk_47021",
       "title": "💧 Внимание, жители!",
-      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Энгельса 51",
-      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Энгельса 51",
+      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Чайковского 10а",
+      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Чайковского 10а",
       "source_name": "МЦУ Новороссийск",
       "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47020",
+      "source_url": "https://t.me/mtsunvrsk/47021",
       "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-20T15:27:53+00:00",
-      "timestamp": 1795188473,
-      "time_display": "20.11 в 18:27",
+      "time_iso": "2026-11-20T15:36:21+00:00",
+      "timestamp": 1795188981,
+      "time_display": "20.11 в 18:36",
       "category": "city"
     },
     {
@@ -361,7 +361,7 @@
       "status_code": "danger",
       "temp_water": "+15.5°C",
       "waves": "1.9 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 6.3 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 5.3 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
