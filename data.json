@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T15:00:56.961195+03:00",
-  "updated_at_human": "21.11.2026 в 15:00:56 (МСК)",
+  "updated_at_iso": "2026-11-21T15:30:47.694302+03:00",
+  "updated_at_human": "21.11.2026 в 15:30:47 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,12 +13,12 @@
   },
   "weather": {
     "temperature": 13.4,
-    "apparent_temperature": 12.8,
-    "humidity": 87,
+    "apparent_temperature": 13.0,
+    "humidity": 86,
     "pressure_hpa": 1009,
-    "wind_speed": 2.1,
-    "wind_gusts": 5.2,
-    "wind_direction": 205,
+    "wind_speed": 1.6,
+    "wind_gusts": 4.5,
+    "wind_direction": 207,
     "wind_direction_name": "ЮЗ / Западный",
     "bora_risk": "Низкий",
     "hourly": [
@@ -110,7 +110,7 @@
   },
   "marine": {
     "water_temp": 15.5,
-    "wave_height_m": 0.82,
+    "wave_height_m": 0.84,
     "wave_period_s": 5.3,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
@@ -231,17 +231,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47090",
+      "id": "mtsunvrsk_47091",
       "title": "💧 Внимание, жители!",
-      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Куникова 47г",
-      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Куникова 47г",
+      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: с. Мысхако, ул. Изумрудная",
+      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: с. Мысхако, ул. Изумрудная",
       "source_name": "МЦУ Новороссийск",
       "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47090",
+      "source_url": "https://t.me/mtsunvrsk/47091",
       "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-21T11:43:32+00:00",
-      "timestamp": 1795261412,
-      "time_display": "21.11 в 14:43",
+      "time_iso": "2026-11-21T12:22:08+00:00",
+      "timestamp": 1795263728,
+      "time_display": "21.11 в 15:22",
       "category": "city"
     },
     {
@@ -340,7 +340,7 @@
       "status_code": "warning",
       "temp_water": "+15.5°C",
       "waves": "0.8 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 2.1 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 1.6 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -431,7 +431,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.2 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (4.5 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
