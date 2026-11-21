@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T14:30:49.384218+03:00",
-  "updated_at_human": "21.11.2026 в 14:30:49 (МСК)",
+  "updated_at_iso": "2026-11-21T15:00:56.961195+03:00",
+  "updated_at_human": "21.11.2026 в 15:00:56 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,15 +12,15 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 13.5,
-    "apparent_temperature": 12.6,
-    "humidity": 85,
+    "temperature": 13.4,
+    "apparent_temperature": 12.8,
+    "humidity": 87,
     "pressure_hpa": 1009,
-    "wind_speed": 2.3,
-    "wind_gusts": 5.5,
-    "wind_direction": 200,
-    "wind_direction_name": "Ю / ЮЗ («Моряк»)",
-    "bora_risk": "Штиль / влажный",
+    "wind_speed": 2.1,
+    "wind_gusts": 5.2,
+    "wind_direction": 205,
+    "wind_direction_name": "ЮЗ / Западный",
+    "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
@@ -98,9 +98,9 @@
     "tomorrow": {
       "date": "2026-11-22",
       "temp_max": 14,
-      "temp_min": 10,
+      "temp_min": 9,
       "temp_max_str": "+14°",
-      "temp_min_str": "+10°C",
+      "temp_min_str": "+9°C",
       "wind_max": 3.8,
       "wind_gusts_max": 10.0,
       "condition_desc": "Гроза",
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.5,
-    "wave_height_m": 0.84,
-    "wave_period_s": 5.4,
+    "wave_height_m": 0.82,
+    "wave_period_s": 5.3,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -231,17 +231,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47086",
+      "id": "mtsunvrsk_47090",
       "title": "💧 Внимание, жители!",
-      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Октябрьская 116",
-      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Октябрьская 116",
+      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Куникова 47г",
+      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Куникова 47г",
       "source_name": "МЦУ Новороссийск",
       "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47086",
+      "source_url": "https://t.me/mtsunvrsk/47090",
       "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-21T11:27:26+00:00",
-      "timestamp": 1795260446,
-      "time_display": "21.11 в 14:27",
+      "time_iso": "2026-11-21T11:43:32+00:00",
+      "timestamp": 1795261412,
+      "time_display": "21.11 в 14:43",
       "category": "city"
     },
     {
@@ -340,7 +340,7 @@
       "status_code": "warning",
       "temp_water": "+15.5°C",
       "waves": "0.8 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.3 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 2.1 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -431,7 +431,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.5 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.2 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
