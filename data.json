@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T07:30:47.553770+03:00",
-  "updated_at_human": "21.11.2026 в 07:30:47 (МСК)",
+  "updated_at_iso": "2026-11-21T08:00:59.046542+03:00",
+  "updated_at_human": "21.11.2026 в 08:00:59 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -14,11 +14,11 @@
   "weather": {
     "temperature": 10.3,
     "apparent_temperature": 8.7,
-    "humidity": 75,
+    "humidity": 77,
     "pressure_hpa": 1011,
     "wind_speed": 1.2,
     "wind_gusts": 2.4,
-    "wind_direction": 48,
+    "wind_direction": 61,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Низкий",
     "hourly": [
@@ -426,11 +426,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Движение свободное",
-      "status_code": "ok",
+      "status": "Плотный трафик (6 баллов)",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
+      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
