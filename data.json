@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T20:01:00.488010+03:00",
-  "updated_at_human": "21.11.2026 в 20:01:00 (МСК)",
+  "updated_at_iso": "2026-11-21T20:30:49.402154+03:00",
+  "updated_at_human": "21.11.2026 в 20:30:49 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,12 +12,12 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 12.2,
-    "apparent_temperature": 12.4,
-    "humidity": 94,
-    "pressure_hpa": 1009,
-    "wind_speed": 0.4,
-    "wind_gusts": 0.8,
+    "temperature": 12.0,
+    "apparent_temperature": 12.3,
+    "humidity": 95,
+    "pressure_hpa": 1010,
+    "wind_speed": 0.2,
+    "wind_gusts": 0.7,
     "wind_direction": 360,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
@@ -111,7 +111,7 @@
   "marine": {
     "water_temp": 15.4,
     "wave_height_m": 0.74,
-    "wave_period_s": 5.0,
+    "wave_period_s": 4.9,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -231,17 +231,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47112",
+      "id": "mtsunvrsk_47113",
       "title": "💧 Внимание, жители!",
-      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу:8 щель, 32а",
-      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу:8 щель, 32а",
+      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: ул. Мурата Ахеджака, д.22",
+      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: ул. Мурата Ахеджака, д.22",
       "source_name": "МЦУ Новороссийск",
       "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47112",
+      "source_url": "https://t.me/mtsunvrsk/47113",
       "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-21T16:37:17+00:00",
-      "timestamp": 1795279037,
-      "time_display": "21.11 в 19:37",
+      "time_iso": "2026-11-21T17:19:38+00:00",
+      "timestamp": 1795281578,
+      "time_display": "21.11 в 20:19",
       "category": "city"
     },
     {
@@ -340,7 +340,7 @@
       "status_code": "ok",
       "temp_water": "+15.4°C",
       "waves": "0.7 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 0.4 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 0.2 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -431,7 +431,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (0.8 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (0.7 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
