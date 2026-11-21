@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T13:30:51.063836+03:00",
-  "updated_at_human": "21.11.2026 в 13:30:51 (МСК)",
+  "updated_at_iso": "2026-11-21T14:00:58.234859+03:00",
+  "updated_at_human": "21.11.2026 в 14:00:58 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 13.3,
-    "apparent_temperature": 12.5,
-    "humidity": 88,
+    "temperature": 13.4,
+    "apparent_temperature": 12.4,
+    "humidity": 86,
     "pressure_hpa": 1009,
-    "wind_speed": 2.3,
+    "wind_speed": 2.6,
     "wind_gusts": 5.5,
-    "wind_direction": 190,
+    "wind_direction": 196,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.5,
-    "wave_height_m": 0.88,
-    "wave_period_s": 5.5,
+    "wave_height_m": 0.86,
+    "wave_period_s": 5.4,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -231,17 +231,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47075",
+      "id": "mtsunvrsk_47079",
       "title": "💧 Внимание, жители!",
-      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Видова 135-137",
-      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: Видова 135-137",
+      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: ул. Пионерская, д.25",
+      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: ул. Пионерская, д.25",
       "source_name": "МЦУ Новороссийск",
       "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47075",
+      "source_url": "https://t.me/mtsunvrsk/47079",
       "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-21T10:11:54+00:00",
-      "timestamp": 1795255914,
-      "time_display": "21.11 в 13:11",
+      "time_iso": "2026-11-21T10:47:20+00:00",
+      "timestamp": 1795258040,
+      "time_display": "21.11 в 13:47",
       "category": "city"
     },
     {
@@ -340,7 +340,7 @@
       "status_code": "warning",
       "temp_water": "+15.5°C",
       "waves": "0.9 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.3 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.6 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
