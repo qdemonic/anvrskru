@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T07:00:55.448547+03:00",
-  "updated_at_human": "21.11.2026 в 07:00:55 (МСК)",
+  "updated_at_iso": "2026-11-21T07:30:47.553770+03:00",
+  "updated_at_human": "21.11.2026 в 07:30:47 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 10.4,
-    "apparent_temperature": 8.9,
-    "humidity": 74,
-    "pressure_hpa": 1010,
-    "wind_speed": 1.0,
-    "wind_gusts": 1.6,
-    "wind_direction": 45,
+    "temperature": 10.3,
+    "apparent_temperature": 8.7,
+    "humidity": 75,
+    "pressure_hpa": 1011,
+    "wind_speed": 1.2,
+    "wind_gusts": 2.4,
+    "wind_direction": 48,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Низкий",
     "hourly": [
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.4,
-    "wave_height_m": 1.12,
-    "wave_period_s": 6.2,
+    "wave_height_m": 1.1,
+    "wave_period_s": 6.1,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -326,7 +326,7 @@
       "status_code": "warning",
       "temp_water": "+15.4°C",
       "waves": "1.1 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 1.0 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 1.2 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -417,7 +417,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (1.6 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (2.4 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
