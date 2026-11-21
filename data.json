@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-21T21:30:58.252210+03:00",
-  "updated_at_human": "21.11.2026 в 21:30:58 (МСК)",
+  "updated_at_iso": "2026-11-21T22:00:58.187484+03:00",
+  "updated_at_human": "21.11.2026 в 22:00:58 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,9 +12,9 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 11.1,
-    "apparent_temperature": 11.1,
-    "humidity": 94,
+    "temperature": 11.0,
+    "apparent_temperature": 11.0,
+    "humidity": 95,
     "pressure_hpa": 1010,
     "wind_speed": 0.2,
     "wind_gusts": 0.8,
@@ -111,7 +111,7 @@
   "marine": {
     "water_temp": 15.4,
     "wave_height_m": 0.7,
-    "wave_period_s": 4.9,
+    "wave_period_s": 4.8,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -231,17 +231,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47115",
+      "id": "mtsunvrsk_47116",
       "title": "💧 Внимание, жители!",
-      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: ул. Кипарисовая.",
-      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу: ул. Кипарисовая.",
+      "text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу:Челюскинцев 14",
+      "full_text": "💧 Внимание, жители! Автоцистерна с водой уже стоит по адресу:Челюскинцев 14",
       "source_name": "МЦУ Новороссийск",
       "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47115",
+      "source_url": "https://t.me/mtsunvrsk/47116",
       "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-21T18:10:08+00:00",
-      "timestamp": 1795284608,
-      "time_display": "21.11 в 21:10",
+      "time_iso": "2026-11-21T18:54:29+00:00",
+      "timestamp": 1795287269,
+      "time_display": "21.11 в 21:54",
       "category": "city"
     },
     {
