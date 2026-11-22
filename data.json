@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-22T07:30:48.261306+03:00",
-  "updated_at_human": "22.11.2026 в 07:30:48 (МСК)",
+  "updated_at_iso": "2026-11-22T08:00:55.681929+03:00",
+  "updated_at_human": "22.11.2026 в 08:00:55 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,12 +13,12 @@
   },
   "weather": {
     "temperature": 10.0,
-    "apparent_temperature": 9.9,
+    "apparent_temperature": 9.8,
     "humidity": 100,
-    "pressure_hpa": 1012,
-    "wind_speed": 0.2,
+    "pressure_hpa": 1013,
+    "wind_speed": 0.4,
     "wind_gusts": 1.1,
-    "wind_direction": 153,
+    "wind_direction": 194,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -111,7 +111,7 @@
   "marine": {
     "water_temp": 15.4,
     "wave_height_m": 0.48,
-    "wave_period_s": 4.4,
+    "wave_period_s": 4.3,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -326,7 +326,7 @@
       "status_code": "ok",
       "temp_water": "+15.4°C",
       "waves": "0.5 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 0.2 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 0.4 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -426,11 +426,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Движение свободное",
-      "status_code": "ok",
+      "status": "Плотный трафик (6 баллов)",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
+      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
