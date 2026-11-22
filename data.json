@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-22T20:30:47.805314+03:00",
-  "updated_at_human": "22.11.2026 в 20:30:47 (МСК)",
+  "updated_at_iso": "2026-11-22T21:00:58.005687+03:00",
+  "updated_at_human": "22.11.2026 в 21:00:58 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,15 +12,15 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 10.8,
-    "apparent_temperature": 9.7,
-    "humidity": 94,
+    "temperature": 11.0,
+    "apparent_temperature": 9.6,
+    "humidity": 93,
     "pressure_hpa": 1014,
-    "wind_speed": 2.3,
-    "wind_gusts": 8.4,
-    "wind_direction": 193,
-    "wind_direction_name": "Ю / ЮЗ («Моряк»)",
-    "bora_risk": "Штиль / влажный",
+    "wind_speed": 2.7,
+    "wind_gusts": 9.4,
+    "wind_direction": 222,
+    "wind_direction_name": "ЮЗ / Западный",
+    "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
@@ -98,11 +98,11 @@
     "tomorrow": {
       "date": "2026-11-23",
       "temp_max": 14,
-      "temp_min": 7,
+      "temp_min": 8,
       "temp_max_str": "+14°",
-      "temp_min_str": "+7°C",
+      "temp_min_str": "+8°C",
       "wind_max": 9.9,
-      "wind_gusts_max": 22.2,
+      "wind_gusts_max": 24.5,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 95
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.3,
-    "wave_height_m": 0.82,
-    "wave_period_s": 4.5,
+    "wave_height_m": 0.86,
+    "wave_period_s": 4.6,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -339,8 +339,8 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+15.3°C",
-      "waves": "0.8 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.3 м/с. Спасательный пост дежурит.",
+      "waves": "0.9 м (3 балла (Заметное))",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 2.7 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -352,7 +352,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+15.3°C",
-      "waves": "0.8 м (3 балла (Заметное))",
+      "waves": "0.9 м (3 балла (Заметное))",
       "desc": "Открытая акватория у входа в Цемесскую бухту. Проморан между лагуной и морем под наблюдением городских служб.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
@@ -365,7 +365,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+15.3°C",
-      "waves": "0.8 м (3 балла (Заметное))",
+      "waves": "0.9 м (3 балла (Заметное))",
       "desc": "Набережная адмирала Серебрякова. Работают городские веб-камеры, причал пассажирских катеров.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -378,7 +378,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+15.3°C",
-      "waves": "0.8 м (3 балла (Заметное))",
+      "waves": "0.9 м (3 балла (Заметное))",
       "desc": "Западная часть бухты, частично защищенная горой Колдун от прямых шквалов норд-оста.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -391,7 +391,7 @@
       "status": "Умеренное волнение",
       "status_code": "warning",
       "temp_water": "+15.3°C",
-      "waves": "0.8 м (3 балла (Заметное))",
+      "waves": "0.9 м (3 балла (Заметное))",
       "desc": "Открытое Черное море за пределами Цемесской бухты. Чистая вода, температура +15.3°C.",
       "source_url": "https://admnvrsk.ru"
     },
@@ -444,7 +444,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (8.4 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (9.4 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
