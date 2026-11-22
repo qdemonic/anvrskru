@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-22T11:00:56.712252+03:00",
-  "updated_at_human": "22.11.2026 в 11:00:56 (МСК)",
+  "updated_at_iso": "2026-11-22T11:30:50.110542+03:00",
+  "updated_at_human": "22.11.2026 в 11:30:50 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,15 +12,15 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 12.2,
-    "apparent_temperature": 12.0,
-    "humidity": 88,
+    "temperature": 12.7,
+    "apparent_temperature": 12.2,
+    "humidity": 83,
     "pressure_hpa": 1013,
-    "wind_speed": 0.8,
-    "wind_gusts": 2.2,
-    "wind_direction": 203,
-    "wind_direction_name": "ЮЗ / Западный",
-    "bora_risk": "Низкий",
+    "wind_speed": 1.0,
+    "wind_gusts": 3.5,
+    "wind_direction": 197,
+    "wind_direction_name": "Ю / ЮЗ («Моряк»)",
+    "bora_risk": "Штиль / влажный",
     "hourly": [
       {
         "time": "00:00",
@@ -111,7 +111,7 @@
   "marine": {
     "water_temp": 15.4,
     "wave_height_m": 0.5,
-    "wave_period_s": 4.4,
+    "wave_period_s": 4.5,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -326,7 +326,7 @@
       "status_code": "ok",
       "temp_water": "+15.4°C",
       "waves": "0.5 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 0.8 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 1.0 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -417,7 +417,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (2.2 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (3.5 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
