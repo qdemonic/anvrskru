@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-22T03:30:47.862656+03:00",
-  "updated_at_human": "22.11.2026 в 03:30:47 (МСК)",
+  "updated_at_iso": "2026-11-22T04:00:55.486037+03:00",
+  "updated_at_human": "22.11.2026 в 04:00:55 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 9.8,
@@ -103,8 +103,8 @@
   },
   "marine": {
     "water_temp": 15.4,
-    "wave_height_m": 0.52,
-    "wave_period_s": 4.7,
+    "wave_height_m": 0.5,
+    "wave_period_s": 4.6,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
