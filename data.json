@@ -1,15 +1,15 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-23T19:30:59.337171+03:00",
-  "updated_at_human": "23.11.2026 в 19:30:59 (МСК)",
+  "updated_at_iso": "2026-11-23T20:01:04.835881+03:00",
+  "updated_at_human": "23.11.2026 в 20:01:04 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 14.1,
-    "apparent_temperature": 8.7,
-    "humidity": 73,
+    "temperature": 14.0,
+    "apparent_temperature": 8.9,
+    "humidity": 77,
     "pressure_hpa": 1006,
-    "wind_speed": 10.0,
+    "wind_speed": 9.8,
     "wind_gusts": 20.9,
     "wind_direction": 162,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
@@ -375,7 +375,7 @@
       "status_code": "danger",
       "temp_water": "+15.2°C",
       "waves": "1.8 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 10.0 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 9.8 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -475,11 +475,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Плотный трафик (6 баллов)",
-      "status_code": "warning",
+      "status": "Движение свободное",
+      "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
+      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
