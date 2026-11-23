@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-23T21:01:06.436063+03:00",
-  "updated_at_human": "23.11.2026 в 21:01:06 (МСК)",
+  "updated_at_iso": "2026-11-23T21:30:50.016215+03:00",
+  "updated_at_human": "23.11.2026 в 21:30:50 (МСК)",
   "active_alert": null,
   "weather": {
-    "temperature": 14.0,
-    "apparent_temperature": 9.6,
-    "humidity": 76,
-    "pressure_hpa": 1006,
-    "wind_speed": 8.5,
-    "wind_gusts": 21.8,
-    "wind_direction": 162,
+    "temperature": 14.1,
+    "apparent_temperature": 9.7,
+    "humidity": 78,
+    "pressure_hpa": 1005,
+    "wind_speed": 8.6,
+    "wind_gusts": 18.4,
+    "wind_direction": 161,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -103,8 +103,8 @@
   },
   "marine": {
     "water_temp": 15.2,
-    "wave_height_m": 1.8,
-    "wave_period_s": 5.8,
+    "wave_height_m": 1.84,
+    "wave_period_s": 6.0,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Рейд временно закрыт",
     "ships_on_roadstead": 16
@@ -361,7 +361,7 @@
       "status_code": "danger",
       "temp_water": "+15.2°C",
       "waves": "1.8 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 8.5 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 8.6 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -448,11 +448,11 @@
       "lon": 37.697,
       "title": "Перевал «Волчьи ворота» (А-146)",
       "category": "traffic",
-      "status": "Шквалы (Опасно для фур)",
-      "status_code": "danger",
+      "status": "Боковой ветер",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы норд-оста на горном перевале достигают 21.8 м/с! Опасность опрокидывания пустых фур и парусных прицепов.",
+      "desc": "Порывы ветра на перевале до 18.4 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
