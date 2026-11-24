@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-24T19:30:50.786907+03:00",
-  "updated_at_human": "24.11.2026 в 19:30:50 (МСК)",
+  "updated_at_iso": "2026-11-24T20:01:03.391959+03:00",
+  "updated_at_human": "24.11.2026 в 20:01:03 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 5.7,
-    "apparent_temperature": 3.5,
-    "humidity": 77,
+    "apparent_temperature": 3.6,
+    "humidity": 76,
     "pressure_hpa": 1017,
-    "wind_speed": 0.7,
+    "wind_speed": 0.6,
     "wind_gusts": 1.6,
-    "wind_direction": 45,
+    "wind_direction": 31,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Низкий",
     "hourly": [
@@ -103,7 +103,7 @@
   },
   "marine": {
     "water_temp": 15.1,
-    "wave_height_m": 1.44,
+    "wave_height_m": 1.42,
     "wave_period_s": 7.2,
     "wave_points": "4 балла (Штормовое)",
     "port_status": "Открыт для захода",
@@ -361,7 +361,7 @@
       "status_code": "warning",
       "temp_water": "+15.1°C",
       "waves": "1.4 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 0.7 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер СВ (Норд-Ост / Маркотх) 0.6 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -474,11 +474,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Плотный трафик (6 баллов)",
-      "status_code": "warning",
+      "status": "Движение свободное",
+      "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
+      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
