@@ -1,17 +1,17 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-24T04:00:56.367654+03:00",
-  "updated_at_human": "24.11.2026 в 04:00:56 (МСК)",
+  "updated_at_iso": "2026-11-24T04:30:47.220634+03:00",
+  "updated_at_human": "24.11.2026 в 04:30:47 (МСК)",
   "active_alert": null,
   "weather": {
     "temperature": 13.2,
-    "apparent_temperature": 9.7,
-    "humidity": 94,
+    "apparent_temperature": 10.0,
+    "humidity": 92,
     "pressure_hpa": 1003,
-    "wind_speed": 8.2,
-    "wind_gusts": 18.3,
-    "wind_direction": 205,
+    "wind_speed": 7.2,
+    "wind_gusts": 17.9,
+    "wind_direction": 221,
     "wind_direction_name": "ЮЗ / Западный",
     "bora_risk": "Низкий",
     "hourly": [
@@ -361,7 +361,7 @@
       "status_code": "danger",
       "temp_water": "+15.2°C",
       "waves": "2.0 м (4 балла (Штормовое))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 8.2 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 7.2 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -452,7 +452,7 @@
       "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Порывы ветра на перевале до 18.3 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
+      "desc": "Порывы ветра на перевале до 17.9 м/с. Движение рабочее, соблюдайте дистанцию на спусках.",
       "source_url": "https://admnvrsk.ru"
     },
     {
