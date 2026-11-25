@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-25T05:00:53.816162+03:00",
-  "updated_at_human": "25.11.2026 в 05:00:53 (МСК)",
+  "updated_at_iso": "2026-11-25T05:30:45.236917+03:00",
+  "updated_at_human": "25.11.2026 в 05:30:45 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,12 +13,12 @@
   },
   "weather": {
     "temperature": 2.1,
-    "apparent_temperature": -0.8,
+    "apparent_temperature": -0.7,
     "humidity": 80,
     "pressure_hpa": 1017,
-    "wind_speed": 1.2,
+    "wind_speed": 1.1,
     "wind_gusts": 2.3,
-    "wind_direction": 5,
+    "wind_direction": 355,
     "wind_direction_name": "Северный / СЗ",
     "bora_risk": "Низкий",
     "hourly": [
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 15.1,
-    "wave_height_m": 0.94,
-    "wave_period_s": 6.7,
+    "wave_height_m": 0.9,
+    "wave_period_s": 6.6,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -231,17 +231,17 @@
   ],
   "news": [
     {
-      "id": "mtsunvrsk_47172",
-      "title": "🗣️ ОТМЕНА СИГНАЛА «АТАКА БПЛА»",
-      "text": "🗣️ ОТМЕНА СИГНАЛА «АТАКА БПЛА»",
-      "full_text": "🗣️ ОТМЕНА СИГНАЛА «АТАКА БПЛА»",
-      "source_name": "МЦУ Новороссийск",
-      "channel_handle": "@mtsunvrsk",
-      "source_url": "https://t.me/mtsunvrsk/47172",
-      "channel_url": "https://t.me/mtsunvrsk",
-      "time_iso": "2026-11-25T01:31:05+00:00",
-      "timestamp": 1795570265,
-      "time_display": "25.11 в 04:31",
+      "id": "vk_bgnvr_22460",
+      "title": "ОТМЕНА СИГНАЛА «АТАКА БПЛА»",
+      "text": "ОТМЕНА СИГНАЛА «АТАКА БПЛА»",
+      "full_text": "ОТМЕНА СИГНАЛА «АТАКА БПЛА»",
+      "source_name": "Безопасный город / ЕДДС",
+      "channel_handle": "@bgnvr (ВКонтакте)",
+      "source_url": "https://vk.com/wall-116114113_22460",
+      "channel_url": "https://vk.com/bgnvr",
+      "time_iso": "2026-11-25T05:09:31+03:00",
+      "timestamp": 1795572571,
+      "time_display": "25.11 в 05:09",
       "category": "city"
     },
     {
@@ -299,20 +299,6 @@
       "timestamp": 1795562615,
       "time_display": "25.11 в 02:23",
       "category": "emergency"
-    },
-    {
-      "id": "vk_bgnvr_22456",
-      "title": "Плановые отключения и производство работ 25.11.2026 г.",
-      "text": "Плановые отключения и производство работ 25.11.2026 г.",
-      "full_text": "Плановые отключения и производство работ 25.11.2026 г.",
-      "source_name": "Безопасный город / ЕДДС",
-      "channel_handle": "@bgnvr (ВКонтакте)",
-      "source_url": "https://vk.com/wall-116114113_22456",
-      "channel_url": "https://vk.com/bgnvr",
-      "time_iso": "2026-11-24T18:27:06+03:00",
-      "timestamp": 1795534026,
-      "time_display": "24.11 в 18:27",
-      "category": "utilities"
     }
   ],
   "map_markers": [
@@ -326,7 +312,7 @@
       "status_code": "warning",
       "temp_water": "+15.1°C",
       "waves": "0.9 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 1.2 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Северный / СЗ 1.1 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
