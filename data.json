@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-26T14:30:58.967888+03:00",
-  "updated_at_human": "26.11.2026 в 14:30:58 (МСК)",
+  "updated_at_iso": "2026-11-26T15:01:01.716025+03:00",
+  "updated_at_human": "26.11.2026 в 15:01:01 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 8.5,
-    "apparent_temperature": 5.5,
-    "humidity": 60,
+    "temperature": 8.4,
+    "apparent_temperature": 5.7,
+    "humidity": 59,
     "pressure_hpa": 1025,
-    "wind_speed": 2.1,
-    "wind_gusts": 5.1,
-    "wind_direction": 287,
+    "wind_speed": 1.4,
+    "wind_gusts": 4.6,
+    "wind_direction": 278,
     "wind_direction_name": "ЮЗ / Западный",
     "bora_risk": "Низкий",
     "hourly": [
@@ -98,11 +98,11 @@
     "tomorrow": {
       "date": "2026-11-27",
       "temp_max": 12,
-      "temp_min": 6,
+      "temp_min": 8,
       "temp_max_str": "+12°",
-      "temp_min_str": "+6°C",
-      "wind_max": 4.0,
-      "wind_gusts_max": 8.4,
+      "temp_min_str": "+8°C",
+      "wind_max": 4.2,
+      "wind_gusts_max": 8.5,
       "condition_desc": "Дождь",
       "condition_icon": "🌧️",
       "precip_prob": 88
@@ -110,19 +110,19 @@
   },
   "marine": {
     "water_temp": 14.7,
-    "wave_height_m": 1.0,
-    "wave_period_s": 6.1,
+    "wave_height_m": 0.96,
+    "wave_period_s": 6.0,
     "wave_points": "3 балла (Заметное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
   },
   "eco": {
-    "aqi": 36,
-    "pm25": 9,
-    "status": "Норма",
-    "level": "ok",
-    "plume_short": "Снос на восток от города",
-    "plume_desc": "Западный ветер сносит воздушные массы через бухту на восток в сторону промзоны Шесхарис, жилые кварталы города в чистой зоне.",
+    "aqi": 52,
+    "pm25": 14,
+    "status": "Умеренный",
+    "level": "warning",
+    "plume_short": "Застой над промзоной",
+    "plume_desc": "Штиль. Слабое рассеивание, локальное накопление пыли и взвешенных частиц над промзоной Шесхарис и цемзаводами.",
     "station_name": "Экопост «Шесхарис / Пролетарий»"
   },
   "districts": [
@@ -382,7 +382,7 @@
       "status_code": "warning",
       "temp_water": "+14.7°C",
       "waves": "1.0 м (3 балла (Заметное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 2.1 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 1.4 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -473,7 +473,7 @@
       "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (5.1 м/с), покрытие сухое.",
+      "desc": "Трасса А-146 Новороссийск — Краснодар открыта, порывы ветра спокойные (4.6 м/с), покрытие сухое.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -495,11 +495,11 @@
       "lon": 37.822,
       "title": "Экопост «Новоросцемент / Пролетарий»",
       "category": "eco",
-      "status": "AQI 36 (Норма)",
-      "status_code": "ok",
+      "status": "AQI 52 (Умеренный)",
+      "status_code": "warning",
       "temp_water": null,
       "waves": null,
-      "desc": "Западный ветер сносит воздушные массы через бухту на восток в сторону промзоны Шесхарис, жилые кварталы города в чистой зоне.",
+      "desc": "Штиль. Слабое рассеивание, локальное накопление пыли и взвешенных частиц над промзоной Шесхарис и цемзаводами.",
       "source_url": "https://admnvrsk.ru"
     }
   ],
