@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-27T23:30:52.712593+03:00",
-  "updated_at_human": "27.11.2026 в 23:30:52 (МСК)",
+  "updated_at_iso": "2026-11-28T00:00:58.910673+03:00",
+  "updated_at_human": "28.11.2026 в 00:00:58 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,105 +12,105 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 11.8,
-    "apparent_temperature": 10.2,
-    "humidity": 78,
+    "temperature": 11.6,
+    "apparent_temperature": 10.3,
+    "humidity": 79,
     "pressure_hpa": 1019,
-    "wind_speed": 2.1,
+    "wind_speed": 1.7,
     "wind_gusts": 4.7,
-    "wind_direction": 197,
-    "wind_direction_name": "Ю / ЮЗ («Моряк»)",
-    "bora_risk": "Штиль / влажный",
+    "wind_direction": 201,
+    "wind_direction_name": "ЮЗ / Западный",
+    "bora_risk": "Низкий",
     "hourly": [
       {
         "time": "00:00",
-        "wind": 3.3,
-        "gust": 4.8,
-        "temp": 9.1
+        "wind": 1.7,
+        "gust": 4.7,
+        "temp": 11.6
       },
       {
         "time": "01:00",
-        "wind": 2.8,
-        "gust": 5.4,
-        "temp": 9.2
+        "wind": 1.0,
+        "gust": 3.5,
+        "temp": 11.2
       },
       {
         "time": "02:00",
-        "wind": 3.8,
-        "gust": 7.4,
-        "temp": 9.7
+        "wind": 0.7,
+        "gust": 2.1,
+        "temp": 11.2
       },
       {
         "time": "03:00",
-        "wind": 3.8,
-        "gust": 8.3,
-        "temp": 10.0
+        "wind": 1.9,
+        "gust": 3.4,
+        "temp": 10.4
       },
       {
         "time": "04:00",
-        "wind": 4.0,
-        "gust": 8.4,
-        "temp": 10.6
+        "wind": 3.3,
+        "gust": 6.3,
+        "temp": 8.5
       },
       {
         "time": "05:00",
-        "wind": 3.8,
-        "gust": 7.8,
-        "temp": 10.5
+        "wind": 3.7,
+        "gust": 7.1,
+        "temp": 7.7
       },
       {
         "time": "06:00",
-        "wind": 5.0,
-        "gust": 9.1,
-        "temp": 10.6
+        "wind": 3.9,
+        "gust": 8.1,
+        "temp": 6.8
       },
       {
         "time": "07:00",
-        "wind": 5.0,
-        "gust": 10.0,
-        "temp": 10.7
+        "wind": 4.0,
+        "gust": 8.5,
+        "temp": 6.5
       },
       {
         "time": "08:00",
-        "wind": 4.7,
-        "gust": 9.8,
-        "temp": 10.8
+        "wind": 4.0,
+        "gust": 8.5,
+        "temp": 6.3
       },
       {
         "time": "09:00",
         "wind": 4.3,
-        "gust": 9.1,
-        "temp": 10.9
+        "gust": 8.8,
+        "temp": 6.0
       },
       {
         "time": "10:00",
-        "wind": 4.0,
-        "gust": 8.4,
-        "temp": 11.2
+        "wind": 4.9,
+        "gust": 10.0,
+        "temp": 5.3
       },
       {
         "time": "11:00",
-        "wind": 4.1,
-        "gust": 8.0,
-        "temp": 11.4
+        "wind": 5.2,
+        "gust": 10.0,
+        "temp": 5.2
       }
     ],
     "tomorrow": {
-      "date": "2026-11-28",
-      "temp_max": 12,
-      "temp_min": 1,
-      "temp_max_str": "+12°",
-      "temp_min_str": "+1°C",
-      "wind_max": 12.5,
-      "wind_gusts_max": 25.6,
-      "condition_desc": "Дождь",
-      "condition_icon": "🌧️",
-      "precip_prob": 100
+      "date": "2026-11-29",
+      "temp_max": 1,
+      "temp_min": -1,
+      "temp_max_str": "+1°",
+      "temp_min_str": "-1°C",
+      "wind_max": 15.2,
+      "wind_gusts_max": 32.0,
+      "condition_desc": "Снег",
+      "condition_icon": "🌨️",
+      "precip_prob": 20
     }
   },
   "marine": {
     "water_temp": 14.2,
-    "wave_height_m": 0.62,
+    "wave_height_m": 0.6,
     "wave_period_s": 4.2,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
@@ -368,7 +368,7 @@
       "status_code": "ok",
       "temp_water": "+14.2°C",
       "waves": "0.6 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.1 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер ЮЗ / Западный 1.7 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
