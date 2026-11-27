@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-27T19:30:52.911131+03:00",
-  "updated_at_human": "27.11.2026 в 19:30:52 (МСК)",
+  "updated_at_iso": "2026-11-27T20:01:03.541614+03:00",
+  "updated_at_human": "27.11.2026 в 20:01:03 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -13,10 +13,10 @@
   },
   "weather": {
     "temperature": 12.3,
-    "apparent_temperature": 10.3,
-    "humidity": 84,
+    "apparent_temperature": 10.4,
+    "humidity": 85,
     "pressure_hpa": 1018,
-    "wind_speed": 3.7,
+    "wind_speed": 3.5,
     "wind_gusts": 7.7,
     "wind_direction": 160,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
@@ -110,8 +110,8 @@
   },
   "marine": {
     "water_temp": 14.2,
-    "wave_height_m": 0.68,
-    "wave_period_s": 4.3,
+    "wave_height_m": 0.66,
+    "wave_period_s": 4.2,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
@@ -382,7 +382,7 @@
       "status_code": "ok",
       "temp_water": "+14.2°C",
       "waves": "0.7 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 3.7 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 3.5 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
@@ -495,11 +495,11 @@
       "lon": 37.83,
       "title": "Сухумское шоссе (Шесхарис)",
       "category": "traffic",
-      "status": "Плотный трафик (6 баллов)",
-      "status_code": "warning",
+      "status": "Движение свободное",
+      "status_code": "ok",
       "temp_water": null,
       "waves": null,
-      "desc": "Очередь грузового транспорта на терминалы Шесхарис и причалы НМТП. Движение в сторону Кабардинки замедлено.",
+      "desc": "Сухумское шоссе свободно. Подъезды к грузовым терминалам порта и цемзаводам без заторов.",
       "source_url": "https://t.me/mcu_nvrsk"
     },
     {
