@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-27T22:30:48.429116+03:00",
-  "updated_at_human": "27.11.2026 в 22:30:48 (МСК)",
+  "updated_at_iso": "2026-11-27T23:00:56.071744+03:00",
+  "updated_at_human": "27.11.2026 в 23:00:56 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 12.1,
-    "apparent_temperature": 10.3,
-    "humidity": 76,
+    "temperature": 11.9,
+    "apparent_temperature": 10.2,
+    "humidity": 77,
     "pressure_hpa": 1018,
-    "wind_speed": 2.5,
+    "wind_speed": 2.4,
     "wind_gusts": 5.2,
-    "wind_direction": 192,
+    "wind_direction": 195,
     "wind_direction_name": "Ю / ЮЗ («Моряк»)",
     "bora_risk": "Штиль / влажный",
     "hourly": [
@@ -110,7 +110,7 @@
   },
   "marine": {
     "water_temp": 14.2,
-    "wave_height_m": 0.64,
+    "wave_height_m": 0.62,
     "wave_period_s": 4.2,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
@@ -368,7 +368,7 @@
       "status_code": "ok",
       "temp_water": "+14.2°C",
       "waves": "0.6 м (2 балла (Умеренное))",
-      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.5 м/с. Спасательный пост дежурит.",
+      "desc": "Популярный галечный пляж на косе Алексино у выхода из бухты. Ветер Ю / ЮЗ («Моряк») 2.4 м/с. Спасательный пост дежурит.",
       "source_url": "https://admnvrsk.ru"
     },
     {
