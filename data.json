@@ -1,8 +1,8 @@
 {
   "portal_name": "Актуальный Новороссийск",
   "domain": "anvrsk.ru",
-  "updated_at_iso": "2026-11-28T06:30:51.103352+03:00",
-  "updated_at_human": "28.11.2026 в 06:30:51 (МСК)",
+  "updated_at_iso": "2026-11-28T07:00:57.888919+03:00",
+  "updated_at_human": "28.11.2026 в 07:00:57 (МСК)",
   "active_alert": {
     "is_active": true,
     "type": "emergency",
@@ -12,13 +12,13 @@
     "level": "warning"
   },
   "weather": {
-    "temperature": 7.2,
-    "apparent_temperature": 3.9,
+    "temperature": 6.9,
+    "apparent_temperature": 3.5,
     "humidity": 88,
     "pressure_hpa": 1020,
     "wind_speed": 4.1,
     "wind_gusts": 8.2,
-    "wind_direction": 26,
+    "wind_direction": 20,
     "wind_direction_name": "СВ (Норд-Ост / Маркотх)",
     "bora_risk": "Низкий",
     "hourly": [
@@ -42,57 +42,57 @@
       },
       {
         "time": "03:00",
-        "wind": 1.6,
+        "wind": 1.7,
         "gust": 4.1,
-        "temp": 10.8
+        "temp": 10.9
       },
       {
         "time": "04:00",
-        "wind": 1.7,
-        "gust": 3.5,
+        "wind": 2.0,
+        "gust": 4.1,
         "temp": 10.5
       },
       {
         "time": "05:00",
-        "wind": 1.8,
-        "gust": 3.3,
+        "wind": 1.9,
+        "gust": 3.7,
         "temp": 10.2
       },
       {
         "time": "06:00",
-        "wind": 3.8,
+        "wind": 3.9,
         "gust": 7.4,
-        "temp": 7.8
+        "temp": 7.9
       },
       {
         "time": "07:00",
-        "wind": 4.2,
+        "wind": 4.1,
         "gust": 8.2,
-        "temp": 6.8
+        "temp": 6.9
       },
       {
         "time": "08:00",
-        "wind": 4.2,
-        "gust": 8.3,
-        "temp": 6.4
+        "wind": 4.0,
+        "gust": 8.5,
+        "temp": 6.5
       },
       {
         "time": "09:00",
-        "wind": 4.8,
-        "gust": 9.3,
-        "temp": 5.9
+        "wind": 4.4,
+        "gust": 8.6,
+        "temp": 6.2
       },
       {
         "time": "10:00",
-        "wind": 5.2,
-        "gust": 9.9,
-        "temp": 5.3
+        "wind": 5.1,
+        "gust": 10.0,
+        "temp": 5.7
       },
       {
         "time": "11:00",
-        "wind": 5.7,
-        "gust": 10.5,
-        "temp": 5.0
+        "wind": 5.5,
+        "gust": 10.1,
+        "temp": 5.4
       }
     ],
     "tomorrow": {
@@ -102,7 +102,7 @@
       "temp_max_str": "+1°",
       "temp_min_str": "-1°C",
       "wind_max": 15.8,
-      "wind_gusts_max": 32.6,
+      "wind_gusts_max": 31.9,
       "condition_desc": "Снег",
       "condition_icon": "🌨️",
       "precip_prob": 13
@@ -111,7 +111,7 @@
   "marine": {
     "water_temp": 14.2,
     "wave_height_m": 0.46,
-    "wave_period_s": 4.5,
+    "wave_period_s": 4.3,
     "wave_points": "2 балла (Умеренное)",
     "port_status": "Открыт для захода",
     "ships_on_roadstead": 16
